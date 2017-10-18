@@ -1,0 +1,1 @@
+"Documents contain all constructed documents related to the production of the game. They are sorted by milestone, then by the discipline related. (e.g. *VisualDesignDocument.pdf* in the *Design* Folder in the *Milestone 2* folder.)" 
