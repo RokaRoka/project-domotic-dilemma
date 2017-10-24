@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class SmartHouseManage : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	//array of rooms
+	public GameObject[] roomGameObjectArray;
+	
+	//player index
+	private int playerPosition = -1;
+
+	private void Start()
+	{
+		//assign an index number to each room
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	public int PlayerFound(GameObject room)
+	{
 		
+		return 0;
 	}
 }
