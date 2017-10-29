@@ -41,7 +41,7 @@ public class CameraScript : MonoBehaviour {
 		{
 			//angle in iteration
 			Vector3 _angle = transform.forward;
-			Debug.Log(_angle);
+			//Debug.Log(_angle);
 			//_angle.y -= _fov / 2f;
 			//_angle.y += (_fov/2f) * i;
 			
