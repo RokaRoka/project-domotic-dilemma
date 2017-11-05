@@ -5,21 +5,28 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+	//other gameobject refs
+	private GameObject firstPersonCamera;
+	
+	//rigidbody
+	private Rigidbody rb;
+	
 	//movement buffer
 	private bool moving = false;
 	private Vector3 movement = Vector3.zero;
 	private Vector2 mouseMovement = Vector2.zero;
 	
-	//Mouse lock
-	
-	//rigidbody
-	private Rigidbody rb;
+	//player speed in meter/sec
+	public float walkSpeed = 1f;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		//put this in a game manager later
 		Cursor.lockState = CursorLockMode.Locked;
+
+		firstPersonCamera = Camera.main.gameObject;
+		
 		rb = GetComponent<Rigidbody>();
 	}
 	
@@ -33,20 +40,29 @@ public class PlayerMovement : MonoBehaviour {
 
 	private void CheckInput()
 	{
-		
+	
 		//movement
-		if (Input.GetKeyDown(KeyCode.W))
+		if (Input.GetKey(KeyCode.W))
 		{
 			movement += Vector3.forward;
 			moving = true;
-			Debug.Log(movement);
 		}
-		else if (Input.GetKeyDown(KeyCode.S))
+		else if (Input.GetKey(KeyCode.S))
 		{
 			movement += Vector3.back;
 			moving = true;
-			Debug.Log(movement);
 		}
+		if (Input.GetKey(KeyCode.D))
+		{
+			movement += Vector3.right;
+			moving = true;
+		}
+		else if (Input.GetKey((KeyCode.A)))
+		{
+			movement += Vector3.left;
+			moving = true;
+		}
+		movement.y = 0;
 		
 		//jumping
 	}
@@ -60,13 +76,28 @@ public class PlayerMovement : MonoBehaviour {
 
 	private void MoveBody()
 	{
-		Vector3 positionNormalized = transform.position.normalized;
-		movement.x *= positionNormalized.x;
-		movement.z *= positionNormalized.z;
-		//Debug.Log(movement);
+		Vector3 playerForce;
+		Vector3 forwardDirection = firstPersonCamera.transform.forward;
+		Vector3 rightDirection = firstPersonCamera.transform.right;
 		
-		transform.Translate(movement, Space.World);
-		//rb.AddForce(movement, ForceMode.VelocityChange);
+		forwardDirection.y = 0;
+		rightDirection.y = 0;
+		
+		forwardDirection.Normalize();
+		rightDirection.Normalize();
+		
+		Debug.DrawRay(firstPersonCamera.transform.position, forwardDirection, Color.yellow, 0.1f);
+		Debug.DrawRay(firstPersonCamera.transform.position, forwardDirection, Color.yellow, 0.1f);
+
+		playerForce = (forwardDirection * movement.z + rightDirection * movement.x).normalized;
+		Debug.DrawRay(firstPersonCamera.transform.position, playerForce, Color.cyan, 0.1f);
+		//movement = Vector3.Cross(forwardDirection, movement);
+		
+		Debug.Log((walkSpeed * Time.deltaTime * 60f));
+		playerForce *= (walkSpeed * Time.deltaTime);
+		
+		//transform.Translate(movement, Space.World);
+		rb.AddForce(playerForce, ForceMode.Acceleration);
 
 		movement = Vector3.zero;
 		moving = false;
@@ -74,8 +105,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	private void RotateBody()
 	{
-		transform.Rotate(Vector3.up, mouseMovement.x, Space.World);
-		transform.Rotate (Vector3.right, mouseMovement.y, Space.Self);
+		firstPersonCamera.transform.Rotate(Vector3.up, mouseMovement.x, Space.World);
+		firstPersonCamera.transform.Rotate (Vector3.right, mouseMovement.y, Space.Self);
 		mouseMovement = Vector3.zero;
 	}
 	
