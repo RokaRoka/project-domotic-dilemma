@@ -13,11 +13,16 @@ public class PlayerMovement : MonoBehaviour {
 	
 	//movement buffer
 	private bool moving = false;
+	private bool jumping = false;
 	private Vector3 movement = Vector3.zero;
 	private Vector2 mouseMovement = Vector2.zero;
 	
+	//player grounded variable
+	private bool onGround = false;
+	
 	//player speed in meter/sec
 	public float walkSpeed = 1f;
+	public float jumpForce = 10f;
 	
 	// Use this for initialization
 	void Start ()
@@ -35,7 +40,12 @@ public class PlayerMovement : MonoBehaviour {
 		CheckMouse();
 		CheckInput();
 		RotateBody();
+	}
+
+	private void FixedUpdate()
+	{
 		if (moving) MoveBody();
+		if (jumping) Jump();
 	}
 
 	private void CheckInput()
@@ -65,6 +75,19 @@ public class PlayerMovement : MonoBehaviour {
 		movement.y = 0;
 		
 		//jumping
+		if (Input.GetKeyDown(KeyCode.Space) && onGround)
+		{
+			jumping = true;
+		}
+		//crouching
+		else if (Input.GetKey(KeyCode.LeftControl))
+		{
+			Crouch();
+		}
+		else
+		{
+			Stand();
+		}
 	}
 
 	private void CheckMouse()
@@ -74,6 +97,11 @@ public class PlayerMovement : MonoBehaviour {
 		mouseMovement.y = Input.GetAxis ("Mouse Y") * -1f;
 	}
 
+	private void CheckGround()
+	{
+		
+	}
+	
 	private void MoveBody()
 	{
 		Vector3 playerForce;
@@ -87,7 +115,7 @@ public class PlayerMovement : MonoBehaviour {
 		rightDirection.Normalize();
 		
 		Debug.DrawRay(firstPersonCamera.transform.position, forwardDirection, Color.yellow, 0.1f);
-		Debug.DrawRay(firstPersonCamera.transform.position, forwardDirection, Color.yellow, 0.1f);
+		Debug.DrawRay(firstPersonCamera.transform.position, rightDirection, Color.yellow, 0.1f);
 
 		playerForce = (forwardDirection * movement.z + rightDirection * movement.x).normalized;
 		Debug.DrawRay(firstPersonCamera.transform.position, playerForce, Color.cyan, 0.1f);
@@ -96,8 +124,8 @@ public class PlayerMovement : MonoBehaviour {
 		Debug.Log((walkSpeed * Time.deltaTime * 60f));
 		playerForce *= (walkSpeed * Time.deltaTime);
 		
-		//transform.Translate(movement, Space.World);
-		rb.AddForce(playerForce, ForceMode.Acceleration);
+		transform.Translate(playerForce, Space.World);
+		//rb.AddForce(playerForce, ForceMode.Acceleration);
 
 		movement = Vector3.zero;
 		moving = false;
@@ -107,7 +135,44 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		firstPersonCamera.transform.Rotate(Vector3.up, mouseMovement.x, Space.World);
 		firstPersonCamera.transform.Rotate (Vector3.right, mouseMovement.y, Space.Self);
+
+		//Vector3 newRotation = transform.position;
+		//newRotation.y = firstPersonCamera.transform.rotation.eulerAngles.y;
+
+		//transform.rotation = Quaternion.Euler(newRotation);
+		
 		mouseMovement = Vector3.zero;
 	}
 	
+	private void Jump()
+	{
+		rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+		jumping = false;
+	}
+
+	private void Crouch()
+	{
+		transform.localScale = new Vector3(1f, 0.6f, 1f);
+	}
+
+	private void Stand()
+	{
+		transform.localScale = Vector3.one;
+	}
+	
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("Ground"))
+		{
+			onGround = true;
+		}
+	}
+
+	private void OnCollisionExit(Collision other)
+	{
+		if (other.gameObject.CompareTag("Ground"))
+		{
+			onGround = false;
+		}
+	}
 }
