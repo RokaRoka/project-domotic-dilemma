@@ -11,6 +11,9 @@ public class CameraScript : MonoBehaviour {
     //sensor script refernece!
     private SensorScript sensorScript;
 
+    //door to close when out of sight
+    public GameObject doorToUse;
+
     //Camera details
 
     //where to shoot the ray from
@@ -42,7 +45,7 @@ public class CameraScript : MonoBehaviour {
 		if (_lookingForPlayer && !_playerFound)
 		{
 			_playerFound = CheckForPlayer();
-			if (_playerFound) Debug.Log("That's a player!!"); //tell the room script
+			if (_playerFound) Debug.Log("Woah! A Player!"); //tell the room script
 		}
 	}
 
