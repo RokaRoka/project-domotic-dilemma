@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[RequireComponent(typeof(Camera))]
 [RequireComponent(typeof(SensorScript))]
 
 //This script is 1 of 3 specific scripts for sensors. This script sends info to the sensor script.
 public class CameraScript : MonoBehaviour {
 
-	//Camera details
-	
+    //sensor script refernece!
+    private SensorScript sensorScript;
+
+    //Camera details
+
+    //where to shoot the ray from
+    public GameObject lens;
+    private Camera actualCamera;
+
 	//range (units)
 	private float _range = 5f;
 	//field of view (degrees)
@@ -21,42 +27,57 @@ public class CameraScript : MonoBehaviour {
 	
 	//player found bool
 	public bool _playerFound = false;
-	
-	// Update is called once per frame
-	private void Update ()
+    //layer mask for the player
+    private int layerMask = 1 << 8;
+
+    private void Start()
+    {
+        actualCamera = lens.GetComponent<Camera>();
+        sensorScript = GetComponent<SensorScript>();
+    }
+
+    // Update is called once per frame
+    private void Update ()
 	{
 		if (_lookingForPlayer && !_playerFound)
 		{
 			_playerFound = CheckForPlayer();
-			if (_playerFound) ; //tell the room script
+			if (_playerFound) Debug.Log("That's a player!!"); //tell the room script
 		}
 	}
 
 	private bool CheckForPlayer()
 	{
 		RaycastHit hit;
-		//for now, use three raycasts to check for player
-		
-		for (int i = 0; i < 3; i++)
+        //for now, use three raycasts to check for player
+
+        /*for (int i = 0; i < 3; i++)
 		{
-			//angle in iteration
-			Vector3 _angle = transform.forward;
-			//Debug.Log(_angle);
+            //center angle in iteration
+            Vector3 _centerRotation = lens.transform.forward;
 			//_angle.y -= _fov / 2f;
 			//_angle.y += (_fov/2f) * i;
+            
 			
 			//throw out some debug rays
-			Debug.DrawRay(transform.position + transform.forward/2f, _angle, Color.black, _range);
-			if (Physics.Raycast(transform.position + transform.forward/2f, transform.rotation.eulerAngles, out hit, _range))
+			Debug.DrawRay(lens.transform.position, _centerRotation * _range, Color.black);
+			if (Physics.Raycast(lens.transform.position, _centerRotation, out hit, _range, layerMask))
 			{
-				if (hit.transform.CompareTag("Player"))
-				{
-					//Player detected!
-					return true;
-				}
+                return true;
 			}
 		}
+        */
+        
+        Vector3 _centerRotation = lens.transform.forward;
+        Vector3 _collSize = new Vector3(actualCamera.orthographicSize, actualCamera.orthographicSize, actualCamera.orthographicSize);
 
-		return false;
+        //throw out some debug rays
+        Debug.DrawRay(lens.transform.position, _centerRotation * _range, Color.black);
+        if (Physics.BoxCast(lens.transform.position + lens.transform.forward * _collSize.z, _collSize, _centerRotation, out hit, lens.transform.rotation, _range, layerMask))
+        {
+            return true;
+        }
+
+        return false;
 	}
 }

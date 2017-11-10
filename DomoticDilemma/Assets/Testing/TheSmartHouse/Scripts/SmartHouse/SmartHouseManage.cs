@@ -14,10 +14,14 @@ public class SmartHouseManage : MonoBehaviour {
 	{
 		//assign an index number to each room
 	}
-	
-	public int PlayerFound(GameObject room)
-	{
-		
-		return 0;
-	}
+
+    private void Update()
+    {
+        RoomTestUpdate();
+    }
+
+    private void RoomTestUpdate()
+    {
+
+    }
 }

@@ -14,4 +14,9 @@ public class SensorScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void PlayerFound()
+    {
+
+    }
 }
