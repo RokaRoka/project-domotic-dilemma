@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour {
 		Debug.DrawRay(firstPersonCamera.transform.position, playerForce, Color.cyan, 0.1f);
 		//movement = Vector3.Cross(forwardDirection, movement);
 		
-		Debug.Log((walkSpeed * Time.deltaTime * 60f));
+		//Debug.Log((walkSpeed * Time.deltaTime * 60f));
 		playerForce *= (walkSpeed * Time.deltaTime);
 		
 		transform.Translate(playerForce, Space.World);
