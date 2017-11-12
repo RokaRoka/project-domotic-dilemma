@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(SensorScript))]
@@ -30,6 +29,7 @@ public class CameraScript : MonoBehaviour {
 	
 	//player found bool
 	public bool _playerFound = false;
+	public bool _playerGone = true;
     //layer mask for the player
     private int layerMask = 1 << 8;
 
@@ -42,10 +42,27 @@ public class CameraScript : MonoBehaviour {
     // Update is called once per frame
     private void Update ()
 	{
-		if (_lookingForPlayer && !_playerFound)
+		if (_lookingForPlayer)
 		{
-			_playerFound = CheckForPlayer();
-			if (_playerFound) Debug.Log("Woah! A Player!"); //tell the room script
+			if (!_playerFound)
+			{
+				_playerFound = CheckForPlayer();
+				if (_playerFound)
+				{
+					_playerGone = false;
+					sensorScript.PlayerFound(); //tell the room script
+				}
+			}
+			else
+			{
+				_playerGone = !CheckForPlayer();
+				if (_playerGone)
+				{
+					_playerFound = false;
+					sensorScript.PlayerLost(); //tell the room script
+				
+				}
+			}
 		}
 	}
 

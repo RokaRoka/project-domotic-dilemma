@@ -19,7 +19,11 @@ public class PlayerInteract : MonoBehaviour {
     //raycast vars
     private int layerMask = 1 << 9;
     public float _maxHitRange = 1f;
+    public float _interactCooldown = 0.2f;
+    private float t_interactTimer = 0;
 
+    private bool interacting = false;
+    
     // Use this for initialization
     private void Start () {
         firstPersonCamera = Camera.main;
@@ -28,7 +32,9 @@ public class PlayerInteract : MonoBehaviour {
 	
 	// Update is called once per frame
 	private void Update () {
-        CheckInteractible();
+	    if (t_interactTimer < _interactCooldown) CooldownTick();
+        if (!interacting) CheckInteractible();
+	    CheckInput();
 	}
 
     private void CheckInteractible()
@@ -58,6 +64,24 @@ public class PlayerInteract : MonoBehaviour {
         }
     }
 
+    private void CheckInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (t_interactTimer >= _interactCooldown)
+            {
+                if (!interacting && interactHighlighted) SendInteraction();
+                else if (interacting) SendUnInteraction();
+                t_interactTimer = 0;
+            }
+        }
+    }
+
+    private void CooldownTick()
+    {
+       t_interactTimer += Time.deltaTime;
+    }
+    
     private void SetNewInteractObject(GameObject interact)
     {
         if (interact != null)
@@ -72,6 +96,18 @@ public class PlayerInteract : MonoBehaviour {
         ChangeCursorColor();
     }
 
+    private void SendInteraction()
+    {
+        interacting = true;
+        interactGameObject.SendMessage("PlayerInteract", gameObject);
+    }
+
+    private void SendUnInteraction()
+    {
+        interacting = false;
+        interactGameObject.SendMessage("PlayerUnInteract");
+    }
+    
     private void ChangeCursorColor()
     {
         Color newColor;
@@ -86,9 +122,5 @@ public class PlayerInteract : MonoBehaviour {
 
         playerCursorUI.GetComponent<Image>().color = newColor;
     }
-
-    private void SendInteraction(GameObject receiver)
-    {
-        receiver.SendMessage("PlayerInteract");
-    }
+    
 }

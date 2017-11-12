@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmokeMachineScript : MonoBehaviour {
+public class InteractiveScript : MonoBehaviour {
 
+	
+	
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +15,6 @@ public class SmokeMachineScript : MonoBehaviour {
 	void Update () {
 		
 	}
+	
+	
 }
