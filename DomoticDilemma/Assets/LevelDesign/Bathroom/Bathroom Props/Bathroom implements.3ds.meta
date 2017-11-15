@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 67c5ed1ff1d652f45bba2d1874681bb0
+timeCreated: 1510518080
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Box_Cylinder
+    100004: Brush_1_Cyli
+    100006: Brush_2_Cyli
+    100008: Cup_Cylinder
+    100010: Paper_1_Cyli
+    100012: Paper_2_Cyli
+    100014: Soap_1_Cylin
+    100016: Soap_2_Cylin
+    100018: Soap_box_Sph
+    100020: Towel_1_Cyli
+    100022: Towel_2_Cyli
+    100024: Towel_3_Cyli
+    100026: Towel_square.002
+    100028: Towel_square.003
+    100030: Towel_square.004
+    400000: //RootNode
+    400002: Box_Cylinder
+    400004: Brush_1_Cyli
+    400006: Brush_2_Cyli
+    400008: Cup_Cylinder
+    400010: Paper_1_Cyli
+    400012: Paper_2_Cyli
+    400014: Soap_1_Cylin
+    400016: Soap_2_Cylin
+    400018: Soap_box_Sph
+    400020: Towel_1_Cyli
+    400022: Towel_2_Cyli
+    400024: Towel_3_Cyli
+    400026: Towel_square.002
+    400028: Towel_square.003
+    400030: Towel_square.004
+    2300000: Box_Cylinder
+    2300002: Brush_1_Cyli
+    2300004: Brush_2_Cyli
+    2300006: Cup_Cylinder
+    2300008: Paper_1_Cyli
+    2300010: Paper_2_Cyli
+    2300012: Soap_1_Cylin
+    2300014: Soap_2_Cylin
+    2300016: Soap_box_Sph
+    2300018: Towel_1_Cyli
+    2300020: Towel_2_Cyli
+    2300022: Towel_3_Cyli
+    2300024: Towel_square.002
+    2300026: Towel_square.003
+    2300028: Towel_square.004
+    3300000: Box_Cylinder
+    3300002: Brush_1_Cyli
+    3300004: Brush_2_Cyli
+    3300006: Cup_Cylinder
+    3300008: Paper_1_Cyli
+    3300010: Paper_2_Cyli
+    3300012: Soap_1_Cylin
+    3300014: Soap_2_Cylin
+    3300016: Soap_box_Sph
+    3300018: Towel_1_Cyli
+    3300020: Towel_2_Cyli
+    3300022: Towel_3_Cyli
+    3300024: Towel_square.002
+    3300026: Towel_square.003
+    3300028: Towel_square.004
+    4300000: Cup_Cylinder
+    4300002: Towel_2_Cyli
+    4300004: Box_Cylinder
+    4300006: Towel_square.002
+    4300008: Brush_2_Cyli
+    4300010: Paper_2_Cyli
+    4300012: Towel_1_Cyli
+    4300014: Soap_1_Cylin
+    4300016: Towel_square.003
+    4300018: Paper_1_Cyli
+    4300020: Brush_1_Cyli
+    4300022: Towel_3_Cyli
+    4300024: Soap_box_Sph
+    4300026: Towel_square.004
+    4300028: Soap_2_Cylin
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bottle_1Soap
+    second: {fileID: 2100000, guid: bf191f16bb867474bbab8c4cfb0cfdcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bottle_2Soap
+    second: {fileID: 2100000, guid: 94221d5edeeb9db4da43c19b61394d51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brush_1Brush
+    second: {fileID: 2100000, guid: 87f23426bb6f5a2479243dab1cf361fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brush_2Brush
+    second: {fileID: 2100000, guid: 6efae08405e253d4f99890535e21bf37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CupCup tex.j
+    second: {fileID: 2100000, guid: 8704426c1e7cfdb48afa8e58eb04a617, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paper_1Paper
+    second: {fileID: 2100000, guid: 389b921a36c3cd54dad443a973df4d89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paper_2Paper
+    second: {fileID: 2100000, guid: bd696b3108aa8a944a73468f52b5ee9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SoapSoap box
+    second: {fileID: 2100000, guid: 13204588912610a42a69e22b0a0a5b42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Soap_BoxBox_
+    second: {fileID: 2100000, guid: 3f790276d9929b048bba3669343d9a84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Towel_1Towel
+    second: {fileID: 2100000, guid: 77aae2d2467c885479dcd3df3b33b305, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Towel_2Towel
+    second: {fileID: 2100000, guid: bbc19e3691c265f44a65a00ad1a50982, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Towel_3Towel
+    second: {fileID: 2100000, guid: 231638ca43cb2224f9ce9277c2e40737, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Towel_square
+    second: {fileID: 2100000, guid: 9559a22f455127f40b05fae58ef6809f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Towel_square.000
+    second: {fileID: 2100000, guid: ab8c25c09a5def54896939db770c8470, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Towel_square.001
+    second: {fileID: 2100000, guid: 36434085eb744d84aa271074c85f91f8, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
