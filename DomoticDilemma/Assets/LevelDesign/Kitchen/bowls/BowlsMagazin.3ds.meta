@@ -1,0 +1,167 @@
+fileFormatVersion: 2
+guid: 3fdaad005776eb1438e5799dafbaf4a4
+timeCreated: 1510513376
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Deckf
+    100004: Deckfl_che
+    100006: Drei_Schal
+    100008: Magazin
+    100010: Schale_1
+    100012: Schale_1_a
+    100014: Schale_1_i
+    100016: Schale_2
+    100018: Schale_2_a
+    100020: Schale_2_i
+    100022: Schale_3
+    100024: Schale_3_a
+    100026: Schale_3_i
+    400000: //RootNode
+    400002: Deckf
+    400004: Deckfl_che
+    400006: Drei_Schal
+    400008: Magazin
+    400010: Schale_1
+    400012: Schale_1_a
+    400014: Schale_1_i
+    400016: Schale_2
+    400018: Schale_2_a
+    400020: Schale_2_i
+    400022: Schale_3
+    400024: Schale_3_a
+    400026: Schale_3_i
+    2300000: Deckf
+    2300002: Deckfl_che
+    2300004: Drei_Schal
+    2300006: Magazin
+    2300008: Schale_1
+    2300010: Schale_1_a
+    2300012: Schale_1_i
+    2300014: Schale_2
+    2300016: Schale_2_a
+    2300018: Schale_2_i
+    2300020: Schale_3
+    2300022: Schale_3_a
+    2300024: Schale_3_i
+    3300000: Deckf
+    3300002: Deckfl_che
+    3300004: Drei_Schal
+    3300006: Magazin
+    3300008: Schale_1
+    3300010: Schale_1_a
+    3300012: Schale_1_i
+    3300014: Schale_2
+    3300016: Schale_2_a
+    3300018: Schale_2_i
+    3300020: Schale_3
+    3300022: Schale_3_a
+    3300024: Schale_3_i
+    4300000: Drei_Schal
+    4300002: Schale_3
+    4300004: Schale_3_a
+    4300006: Schale_3_i
+    4300008: Schale_2
+    4300010: Schale_2_a
+    4300012: Schale_2_i
+    4300014: Schale_1
+    4300016: Schale_1_a
+    4300018: Schale_1_i
+    4300020: Magazin
+    4300022: Deckfl_che
+    4300024: Deckf
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S.au_en
+    second: {fileID: 2100000, guid: add06c0f216e55d45bcb0da69cee6f32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: S.innen
+    second: {fileID: 2100000, guid: 804439086b05f0443ba054cfa9c16435, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Zeitschrift
+    second: {fileID: 2100000, guid: 0e099def4e3112344bf53168bb4104af, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
