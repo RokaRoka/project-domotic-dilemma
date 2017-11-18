@@ -1,0 +1,5 @@
+Dialogue Test
+"Hello, how are you?"
+"You! You killed my family"
+>"We must do battle."
+>"What the hell are you talking about???"
