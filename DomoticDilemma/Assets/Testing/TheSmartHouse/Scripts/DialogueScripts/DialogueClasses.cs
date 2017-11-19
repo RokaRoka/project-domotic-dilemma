@@ -44,9 +44,11 @@ public class DialogueChunk
 	//finish regex
 	static Regex dialogueLinesRegex = new Regex("\r\n\"");
 
+	static Regex namelessLineRegex = new Regex(@"\s"+"\"");
+
 	public string dialogueName;
 	private DialogueLine[] lines;
-	private int lineAmount;
+	public int lineAmount;
 	
 	public DialogueChunk(string allTextInFile) {
 		//load file stuff here
