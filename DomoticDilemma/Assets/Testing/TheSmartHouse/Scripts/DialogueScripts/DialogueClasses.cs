@@ -42,18 +42,33 @@ public class DialogueLine
 public class DialogueChunk
 {
 	//finish regex
-	static Regex dialogueLinesRegex = new Regex("\r\n\"");
+	static Regex dialogueLinesRegex = new Regex("\n(\".+\")");
+    static Regex dialogueLinesRegex2 = new Regex("\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"");
 
-	static Regex namelessLineRegex = new Regex(@"\s"+"\"");
+    static Regex decisionLinesRegex = new Regex(">"+@"\s"+ "\"(.+)\""+@"\((\d)\)");
+    // Use this Regex -> \((fear)\s\+(\d+)\)|\((courage)\s\+(\d+)\)
 
-	public string dialogueName;
+    public string dialogueName;
 	private DialogueLine[] lines;
 	public int lineAmount;
 	
 	public DialogueChunk(string allTextInFile) {
-		//load file stuff here
-		//regex for dialogue lines, decisions, and decision values
+        //load file stuff here
+        //regex for dialogue lines, decisions, and decision values
+
+        MatchCollection allMatches = dialogueLinesRegex2.Matches(allTextInFile);
+
+        foreach (Match m in allMatches)
+        {
+            lineAmount++;
+            lines[lineAmount] = LoadNewLine(m.Groups[0].Value + m.Groups[1].Value);
+        }
 	}
+
+    private DialogueLine LoadNewLine(string theLine)
+    {
+        return new DialogueLine(theLine);
+    }
 
 	public bool CheckLineForDecision(int lineIndex) {
 		if (lines[lineIndex].isDecision)
