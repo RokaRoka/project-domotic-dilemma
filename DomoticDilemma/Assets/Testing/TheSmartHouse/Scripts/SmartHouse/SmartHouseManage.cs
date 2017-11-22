@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -53,4 +54,14 @@ public class SmartHouseManage : MonoBehaviour {
         currentDialogueState = newState;
     }
 
+    private void PauseGameplay()
+    {
+        
+    }
+
+    //public delegate void DialogueStateChanged(object source, EventArgs e);
+
+    //public event DialogueStateChanged StateChange;
+    
+    
 }

@@ -6,10 +6,8 @@ using System.Text.RegularExpressions;
 public class DialogueLine
 {
 	private string line;
-	private string alternate;
-
+	private int decisionValue;
 	public bool isDecision;
-	private int[] decisionValues = new int[2];
 
 	public DialogueLine(string _line)
 	{
@@ -17,51 +15,82 @@ public class DialogueLine
 		isDecision = false;
 	}
 
-	public DialogueLine(string _line, string _alternate, int decision1Value, int decision2Value)
+	public DialogueLine(string _line, int _decisionValue)
 	{
 		line = _line;
-		alternate = _alternate;
+		decisionValue = _decisionValue;
 		isDecision = true;
-		decisionValues[0] = decision1Value;
-		decisionValues[1] = decision2Value;
 	}
 
-	public string GetText() {
+	public string GetText()
+	{
 		return line;
 	}
 
-	public string GetAlternateText() {
-		return alternate;
-	}
-
-	public int GetDecisionValue(int decisionIndex) {
-		return decisionValues[decisionIndex];
+	public int GetDecisionValue()
+	{
+		return decisionValue;
 	}
 }
 
 public class DialogueChunk
 {
+	//Regex patterns
+	//private static string dialoguePattern = "\"(.+)\"";
+	private static string dialoguePattern = "\"(.+)\"";
+	private static string dialoguePattern2 = "\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"";
+	private static string dialoguePattern3 = "\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"|"
+	                                         +@"(>)\s"+"\".+\""+@"\s\(\w+\s\+\d\)";
+	
+	private static string decisionForkPattern = @"\t+(>+)\s"+"\"(.+)\""+@"\s\((\w+)\s\+(\d+)\)|"
+	                                         +@"\t+(>{2,})\s"+@"([A-Z][a-z]+):\s"+"\"(.+)\"";
+
+	private static string forkDepthPattern = "\t(>)|>(>)";
+	
 	//finish regex
-	static Regex dialogueLinesRegex = new Regex("\n(\".+\")");
-    static Regex dialogueLinesRegex2 = new Regex("\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"");
-
-    static Regex decisionLinesRegex = new Regex(">"+@"\s"+ "\"(.+)\""+@"\((\d)\)");
-    // Use this Regex -> \((fear)\s\+(\d+)\)|\((courage)\s\+(\d+)\)
-
+	static Regex dialogueLinesRegex = new Regex(dialoguePattern3);
+	
     public string dialogueName;
-	private DialogueLine[] lines;
+	private DialogueLine[,] lines;
+	private string[] linesStrings;
 	public int lineAmount;
 	
+	public DialogueChunk() {
+		//default class constructor
+	}
+	
 	public DialogueChunk(string allTextInFile) {
-        //load file stuff here
-        //regex for dialogue lines, decisions, and decision values
-
-        MatchCollection allMatches = dialogueLinesRegex2.Matches(allTextInFile);
-
+       	//Match aMatch = dialogueLinesRegex.Match(allTextInFile);
+        MatchCollection allMatches = dialogueLinesRegex.Matches(allTextInFile);
+		lineAmount = allMatches.Count;
+		InitializeDialogueChunkArrays();
+		
+		int count = 0;
+		int lastDecisionForkDepth = 0;
+		int decisionForkDepth = 0;
+		
+		//for testing purposes
+		
         foreach (Match m in allMatches)
         {
-            lineAmount++;
-            lines[lineAmount] = LoadNewLine(m.Groups[0].Value + m.Groups[1].Value);
+	        //test for additional '>'
+	        if (m.Groups[3].Success)
+	        {
+		        //This is still logically broken. Spend at least an hour coming up with a logical solution
+		        //lastDecisionForkDepth = decisionForkDepth;
+		        //decisionForkDepth = Regex.Match(m.Groups[3].Value, forkDepthPattern).Captures.Count;
+		        //if (decisionForkDepth < lastDecisionForkDepth)
+		        //lines[count+decisionForkDepth, decisionForkDepth] = LoadNewLine(m.Groups[1].Value+m.Groups[2].Value);
+	        }
+	        else if (m.Groups[1].Success)
+	        {
+		        decisionForkDepth = 0;
+		        lines[count, decisionForkDepth] = LoadNewLine(m.Groups[1].Value+m.Groups[2].Value);
+		        count++;
+	        }
+	        //add to decision depth
+	        //or add to lines at 0 depth
+            
         }
 	}
 
@@ -71,25 +100,31 @@ public class DialogueChunk
     }
 
 	public bool CheckLineForDecision(int lineIndex) {
-		if (lines[lineIndex].isDecision)
+		if (lines[lineIndex, 0].isDecision)
 			return true;
 		else
 			return false;
 	}
 
 	public string GetLineText(int lineIndex) {
-		return lines[lineIndex].GetText();
+		return lines[lineIndex, 0].GetText();
 	}
 
 	public string GetDecisionText(int lineIndex, int decisionIndex) {
 		if (decisionIndex == 0)
-			return lines[lineIndex].GetText();
+			return lines[lineIndex, 0].GetText();
 		else
-			return lines[lineIndex].GetAlternateText();
+			return lines[lineIndex, 1].GetText();
 	}
 
 	public int GetDecisionValue(int lineIndex, int decisionIndex) {
-		return lines[lineIndex].GetDecisionValue(decisionIndex);
+		return lines[lineIndex, 0].GetDecisionValue();
+	}
+
+	private void InitializeDialogueChunkArrays()
+	{
+		lines = new DialogueLine[lineAmount, 8];
+		linesStrings = new string[lineAmount];
 	}
 
 }

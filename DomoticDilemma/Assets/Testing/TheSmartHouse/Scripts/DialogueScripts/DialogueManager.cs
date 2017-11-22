@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum DialogueChunkName
 {
@@ -9,6 +10,9 @@ public enum DialogueChunkName
 
 public class DialogueManager : MonoBehaviour {
 
+	//reference to Game Controller
+	private SmartHouseManage gameMange;
+	
 	//references to UI
 	public GameObject dialogueLineUI;
 	public GameObject dialogueDecisionHolderUI;
@@ -20,18 +24,33 @@ public class DialogueManager : MonoBehaviour {
 	private DialogueChunk current = null;
 	private int currentIndex = -1;
 	private float t = 0;
-	private float time_between_dialogue = 0.5f;
+	private float time_between_dialogue = 2.0f;
 
+	//Debug text asset
+	public TextAsset testText;
+	
 	private void Awake()
 	{
+		gameMange = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
 		decisionUIObjects[0] = dialogueDecisionHolderUI.transform.GetChild(0).gameObject;
 		decisionUIObjects[1] = dialogueDecisionHolderUI.transform.GetChild(1).gameObject;
+		
+		//LoadAllDialogue();
 	}
 
 	private void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.T))
+		{
+			TestDialogueChunk();
+		}
 		if (currentIndex >= 0) {
 			t += Time.deltaTime;
+			if (t >= time_between_dialogue)
+			{
+				t -= time_between_dialogue;
+				NextDialogueLine();
+			}
 		}
 	}
 
@@ -48,18 +67,27 @@ public class DialogueManager : MonoBehaviour {
 	public void PlayDialogueChunk(int index)
 	{
 		current = allDialogues[index];
-		//change gamestate in game manager
-
+		gameMange.SwitchDialogueState(DialogueState.dialogue);
+		dialogueLineUI.SetActive(true);
+		NextDialogueLine();
 	}
 
 	private void NextDialogueLine() {
 		currentIndex++;
-		if (currentIndex > current.lineAmount) {
+		if (currentIndex >= current.lineAmount) {
 			EndDialogueChunk();
 		} else {
 			//check next line for decision
 			//if decision, initiate decision
-			//if line, display line and play voiceline
+			if (current.CheckLineForDecision(currentIndex))
+			{
+				InitiateDecision();
+			}
+			else
+			{
+				//if line, display line and play voiceline
+				UpdateDialogueLineUI();
+			}
 		}
 	}
 
@@ -67,22 +95,25 @@ public class DialogueManager : MonoBehaviour {
 		//do effect of Dialogue chunk	
 		current = null;
 		currentIndex = -1;
+		dialogueLineUI.SetActive(true);
 	}
 
 	private void InitiateDecision() {
-		//change Gamestate in manager
+		gameMange.SwitchDialogueState(DialogueState.decision);
+		//change mouse cursor here, but later should be done in game manager
+		Cursor.lockState = CursorLockMode.Confined;
 		UpdateDialogueDecisionUI();
 	}
 
 	private void Decision1Chosen() {
-		//change Gamestate in manager
+		gameMange.SwitchDialogueState(DialogueState.dialogue);
 		//store decision
 		//set decision holder UI inactive
 	}
 
 	private void Decision2Chosen()
 	{
-		//change Gamestate in manager
+		gameMange.SwitchDialogueState(DialogueState.dialogue);
 		//store decision
 		//set decision holder UI inactive
 	}
@@ -90,10 +121,19 @@ public class DialogueManager : MonoBehaviour {
 	private void UpdateDialogueLineUI()
 	{
 		//change text for DialogueLineUI
+		dialogueLineUI.GetComponent<Text>().text = current.GetLineText(currentIndex);
 	}
 
 	private void UpdateDialogueDecisionUI() {
 		//change each text for each decision UI object
+		
+	}
+
+	public void TestDialogueChunk()
+	{
+		allDialogues = new DialogueChunk[2];
+		allDialogues[0] = new DialogueChunk(testText.text);
+		PlayDialogueChunk(0);
 	}
 
 }
