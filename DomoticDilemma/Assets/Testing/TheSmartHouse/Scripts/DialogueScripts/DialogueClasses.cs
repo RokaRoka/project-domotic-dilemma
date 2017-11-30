@@ -6,9 +6,10 @@ using System.Text.RegularExpressions;
 public class DialogueLine
 {
 	private string line;
+	private int otherDecision;
 	private int decisionValue;
 	public bool isDecision;
-
+	
 	public DialogueLine(string _line)
 	{
 		line = _line;
@@ -27,10 +28,34 @@ public class DialogueLine
 		return line;
 	}
 
+	public void SetDecisionPoint()
+	{
+		
+	}
+	
 	public int GetDecisionValue()
 	{
 		return decisionValue;
 	}
+}
+
+public class DecisionPoint
+{
+	private int decision1;
+	private int decision2;
+	public bool isCompleted = false;
+	
+	public DecisionPoint(int _decision1)
+	{
+		decision1 = _decision1;
+	}
+
+	public void SetDecision2Index(int decisionIndex)
+	{
+		decision2 = decisionIndex;
+		isCompleted = true;
+	}
+
 }
 
 public class DialogueChunk
