@@ -6,8 +6,7 @@ using System.Text.RegularExpressions;
 public class DialogueLine
 {
 	private string line;
-	private int otherDecision;
-	private int decisionValue;
+	private int moralityValue;
 	public bool isDecision;
 	
 	public DialogueLine(string _line)
@@ -16,10 +15,10 @@ public class DialogueLine
 		isDecision = false;
 	}
 
-	public DialogueLine(string _line, int _decisionValue)
+	public DialogueLine(string _line, int _moralityValue)
 	{
 		line = _line;
-		decisionValue = _decisionValue;
+		moralityValue = _moralityValue;
 		isDecision = true;
 	}
 
@@ -27,15 +26,10 @@ public class DialogueLine
 	{
 		return line;
 	}
-
-	public void SetDecisionPoint()
-	{
-		
-	}
 	
 	public int GetDecisionValue()
 	{
-		return decisionValue;
+		return moralityValue;
 	}
 }
 
@@ -45,7 +39,7 @@ public class DecisionPoint
 	private int decision2;
 	public bool isCompleted = false;
 	
-	public DecisionPoint(int _decision1)
+	public DecisionPoint(int _decision1, int decisionDepth)
 	{
 		decision1 = _decision1;
 	}
@@ -56,100 +50,170 @@ public class DecisionPoint
 		isCompleted = true;
 	}
 
+	public int GetDecision1Index()
+	{
+		return decision1;
+	}
+
+	public int GetDecision2Index()
+	{
+		return decision2;
+	}
+
+	public static int QueryIncompleteDecisions(DecisionPoint[] dpArray, int depth)
+	{
+		//needs some work, but super important to finish.
+		//Find decisions that are incomplete and match the same depth
+		for (int i = 0; dpArray.Length > i; i++)
+		{
+			if (!dpArray[i].isCompleted)
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 }
 
 public class DialogueChunk
 {
 	//Regex patterns
-	//private static string dialoguePattern = "\"(.+)\"";
 	private static string dialoguePattern = "\"(.+)\"";
 	private static string dialoguePattern2 = "\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"";
-	private static string dialoguePattern3 = "\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"|"
-	                                         +@"(>)\s"+"\".+\""+@"\s\(\w+\s\+\d\)";
 	
-	private static string decisionForkPattern = @"\t+(>+)\s"+"\"(.+)\""+@"\s\((\w+)\s\+(\d+)\)|"
-	                                         +@"\t+(>{2,})\s"+@"([A-Z][a-z]+):\s"+"\"(.+)\"";
+	private static string dialoguePattern3 = "\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"|"
+	                                         +@"\t+(>+)\s"+"\"(.+)\""+@"\s\(\w+\s\+\d\)|"
+	                                         +@"\t+(>+)\s([A-Z][a-z]+):\s"+"\"(.+)\"";
+	
+	private static string decisionForkPattern = @"\t+(>+)\s"+"\"(.+)\""+@"\s\((\w+)\s\+(\d+)\)";
 
 	private static string forkDepthPattern = "\t(>)|>(>)";
 	
-	//finish regex
+	//finished regex's
 	static Regex dialogueLinesRegex = new Regex(dialoguePattern3);
+	static Regex decisionPointsRegex = new Regex(decisionForkPattern);
 	
     public string dialogueName;
-	private DialogueLine[,] lines;
-	private string[] linesStrings;
+	private DialogueLine[] lines;
+	private DecisionPoint[] decisions;
+	
+	//The player's dialogue line history
+	private string[] lineHistory;
+	
 	public int lineAmount;
+	public int decisionAmount;
 	
 	public DialogueChunk() {
 		//default class constructor
 	}
 	
 	public DialogueChunk(string allTextInFile) {
-       	//Match aMatch = dialogueLinesRegex.Match(allTextInFile);
-        MatchCollection allMatches = dialogueLinesRegex.Matches(allTextInFile);
-		lineAmount = allMatches.Count;
+       	//First, match for all the lines in the text
+        MatchCollection allLineMatches = dialogueLinesRegex.Matches(allTextInFile);
+		lineAmount = allLineMatches.Count;
+		decisionAmount = decisionPointsRegex.Matches(allTextInFile).Count;
+		
 		InitializeDialogueChunkArrays();
 		
 		int count = 0;
+		int decisionCount = 0;
 		int lastDecisionForkDepth = 0;
 		int decisionForkDepth = 0;
 		
 		//for testing purposes
 		
-        foreach (Match m in allMatches)
+        foreach (Match m in allLineMatches)
         {
 	        //test for additional '>'
 	        if (m.Groups[3].Success)
 	        {
-		        //This is still logically broken. Spend at least an hour coming up with a logical solution
-		        //lastDecisionForkDepth = decisionForkDepth;
-		        //decisionForkDepth = Regex.Match(m.Groups[3].Value, forkDepthPattern).Captures.Count;
-		        //if (decisionForkDepth < lastDecisionForkDepth)
-		        //lines[count+decisionForkDepth, decisionForkDepth] = LoadNewLine(m.Groups[1].Value+m.Groups[2].Value);
+		        decisionForkDepth = Regex.Matches(m.Groups[3].Value, forkDepthPattern).Count;
 	        }
-	        else if (m.Groups[1].Success)
+	        else if (m.Groups[6].Success)
 	        {
-		        decisionForkDepth = 0;
-		        lines[count, decisionForkDepth] = LoadNewLine(m.Groups[1].Value+m.Groups[2].Value);
-		        count++;
+		        decisionForkDepth = Regex.Matches(m.Groups[6].Value, forkDepthPattern).Count;
 	        }
-	        //add to decision depth
-	        //or add to lines at 0 depth
-            
+	        
+	        if (decisionForkDepth > lastDecisionForkDepth)
+	        {
+		        //do decision stuff here
+		        decisions[decisionCount] = CreateNewDecision(count, decisionForkDepth);
+		        lines[count] = CreateNewDialogueLine(m.Groups[3].Value, m.Groups[4].Value, int.Parse(m.Groups[5].Value));
+	        }
+	        else if (decisionForkDepth < lastDecisionForkDepth)
+	        {
+		        //Here, we test to see if the next line is one to skip
+		        //If there is a decision waiting to be complete on this depth, than we can skip until
+		        //we get another decision depth shorter.
+		        //It'll be a good idea to draw this out. 
+		        
+		        //The dialogue manager also still needs some work
+	        }
+	        else
+	        {
+		        //if not change in decision depth, record line
+		        if (m.Groups[1].Success)
+		        {
+			        lines[count] = CreateNewDialogueLine(m.Groups[1].Value, m.Groups[2].Value);
+			        count++;
+		        } else if (m.Groups[2].Success)
+		        {
+			        lines[count] = CreateNewDialogueLine(m.Groups[2].Value);
+			        count++;
+		        }   
+	        }
+	        
+	        lastDecisionForkDepth = decisionForkDepth;
         }
 	}
 
-    private DialogueLine LoadNewLine(string theLine)
+	//Creator functions
+    private DialogueLine CreateNewDialogueLine(string theLine)
     {
         return new DialogueLine(theLine);
     }
+	
+	private DialogueLine CreateNewDialogueLine(string name, string theLine)
+	{
+		return new DialogueLine(name+theLine);
+	}
+	
+	private DialogueLine CreateNewDialogueLine(string name, string theLine, int moralityValue)
+	{
+		return new DialogueLine(name+theLine, moralityValue);
+	}
 
-	public bool CheckLineForDecision(int lineIndex) {
-		if (lines[lineIndex, 0].isDecision)
-			return true;
-		else
-			return false;
+	private DecisionPoint CreateNewDecision(int index, int depth)
+	{
+		return new DecisionPoint(index, depth);
+	}
+
+	//Functions for Dialogue manager
+	public bool CheckLineForDecision(int lineIndex)
+	{
+		return lines[lineIndex].isDecision;
 	}
 
 	public string GetLineText(int lineIndex) {
-		return lines[lineIndex, 0].GetText();
+		return lines[lineIndex].GetText();
 	}
 
-	public string GetDecisionText(int lineIndex, int decisionIndex) {
-		if (decisionIndex == 0)
-			return lines[lineIndex, 0].GetText();
-		else
-			return lines[lineIndex, 1].GetText();
+	public string GetDecisionText(int decisionIndex, int firstOrSecond) {
+		//this is where we want to querry for the decision
+
+		return "Temp";
 	}
 
 	public int GetDecisionValue(int lineIndex, int decisionIndex) {
-		return lines[lineIndex, 0].GetDecisionValue();
+		return lines[lineIndex].GetDecisionValue();
 	}
 
 	private void InitializeDialogueChunkArrays()
 	{
-		lines = new DialogueLine[lineAmount, 8];
-		linesStrings = new string[lineAmount];
+		lines = new DialogueLine[lineAmount];
+		lineHistory= new string[lineAmount];
+		decisions = new DecisionPoint[decisionAmount];
 	}
 
 }
