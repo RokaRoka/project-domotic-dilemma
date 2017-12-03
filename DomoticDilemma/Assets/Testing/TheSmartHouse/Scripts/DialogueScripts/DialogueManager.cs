@@ -123,7 +123,7 @@ public class DialogueManager : MonoBehaviour {
 	private void InitiateDecision() {
 		gameMange.SwitchDialogueState(DialogueState.decision);
 		//change mouse cursor here, but later should be done in game manager
-		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.lockState = CursorLockMode.None;
 		
 		decisionUIObjects[0].SetActive(true);
 		decisionUIObjects[1].SetActive(true);
@@ -153,27 +153,31 @@ public class DialogueManager : MonoBehaviour {
 
 	private void UpdateDialogueDecisionUI() {
 		//change each text for each decision UI object
-		decisionUIObjects[0].GetComponent<Text>().text = currentChunk.GetDecisionText(currentIndex, 0);
-		decisionUIObjects[1].GetComponent<Text>().text = currentChunk.GetDecisionText(currentIndex, 1);
+		decisionUIObjects[0].transform.GetChild(0).GetComponent<Text>().text = currentChunk.GetDecisionText(currentIndex, 0);
+		decisionUIObjects[1].transform.GetChild(0).GetComponent<Text>().text = currentChunk.GetDecisionText(currentIndex, 1);
 	}
 
-	private void Decision1Chosen() {
+	public void Decision1Chosen() {
+		//Change State
 		gameMange.SwitchDialogueState(DialogueState.dialogue);
 		//store decision
 		currentDecisionPoint.decisionFulfilled = true;
 		currentDecisionPoint = null;
+		//Update the actual Dialogue line
 		UpdateDialogueLineUI(currentChunk.GetDecisionText(currentIndex, 0));
 		//set decision holder UI inactive
 		decisionUIObjects[0].SetActive(false);
 		decisionUIObjects[1].SetActive(false);
 	}
 
-	private void Decision2Chosen()
+	public void Decision2Chosen()
 	{
+		//Change State
 		gameMange.SwitchDialogueState(DialogueState.dialogue);
 		//store decision
 		currentDecisionPoint.decisionFulfilled = true;
 		currentDecisionPoint = null;
+		//Update the actual Dialogue line
 		UpdateDialogueLineUI(currentChunk.GetDecisionText(currentIndex, 1));
 		//set decision holder UI inactive
 		decisionUIObjects[0].SetActive(false);

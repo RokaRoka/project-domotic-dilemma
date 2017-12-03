@@ -155,10 +155,7 @@ public class DialogueChunk
 	        if (m.Groups[3].Success)
 	        {
 		        Match _ = Regex.Match(m.Groups[3].Value, forkDepthPattern);
-		        int decCount = _.Groups.Count;
-		        //foreach (Match _ in Regex.Matches(m.Groups[3].Value, forkDepthPattern)) {
-			    //    decCount++;
-	        	//}
+				int decCount = _.Groups.Count;
 	        	decisionForkDepth = decCount;
 	        }
 	        else if (m.Groups[6].Success)
@@ -170,7 +167,7 @@ public class DialogueChunk
 	        if (decisionForkDepth > lastDecisionForkDepth)
 	        {
 		        decisions[decisionCount] = CreateNewDecision(count, decisionForkDepth);
-		        lines[count] = CreateNewDialogueLine(m.Groups[3].Value, m.Groups[4].Value, decisionForkDepth,int.Parse(m.Groups[5].Value));
+		        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth,int.Parse(m.Groups[5].Value));
 		        count++;
 		        decisionCount++;
 	        }
@@ -180,7 +177,7 @@ public class DialogueChunk
 		        if (dpIndex >= 0)
 		        {
 					decisions[dpIndex].SetDecision2Index(count);
-			        lines[count] = CreateNewDialogueLine(m.Groups[3].Value, m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+			        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
 			        count++;
 		        }
 		        else
@@ -203,7 +200,7 @@ public class DialogueChunk
 				        if (dpIndex >= 0)
 				        {
 					        decisions[dpIndex].SetDecision2Index(count);
-					        lines[count] = CreateNewDialogueLine(m.Groups[3].Value, m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+					        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
 					        count++;
 				        }
 				        else
@@ -240,9 +237,14 @@ public class DialogueChunk
 		return new DialogueLine(name+" : "+theLine, depth);
 	}
 	
+	private DialogueLine CreateNewDialogueLine(string theLine, int depth, int moralityValue)
+	{
+		return new DialogueLine(theLine, depth, moralityValue);
+	}
+
 	private DialogueLine CreateNewDialogueLine(string name, string theLine, int depth, int moralityValue)
 	{
-		return new DialogueLine(name+" : "+theLine, depth, moralityValue);
+		return new DialogueLine(name + " : " + theLine, depth, moralityValue);
 	}
 
 	private DecisionPoint CreateNewDecision(int index, int depth)
