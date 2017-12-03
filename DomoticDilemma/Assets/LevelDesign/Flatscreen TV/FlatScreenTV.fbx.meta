@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad6611d95a9ac7d45bc4da137220780c
+guid: 287cd966bfb61734da3e2b92e18f83f2
 timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 22
@@ -10,7 +10,12 @@ ModelImporter:
     3300000: //RootNode
     4300000: Television
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TV_TEX
+    second: {fileID: 2100000, guid: 91a83b031a11cac4784c0da2cdd584d1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

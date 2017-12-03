@@ -21,11 +21,16 @@ public class DialogueManager : MonoBehaviour {
 	//all dialogue chunks
 	private DialogueChunk[] allDialogues;
 
-	private DialogueChunk current = null;
+	private DialogueChunk currentChunk = null;
+	private DecisionPoint currentDecisionPoint = null;
 	private int currentIndex = -1;
 	private float t = 0;
-	private float time_between_dialogue = 2.0f;
+	private float dialogue_show_time = 3f;
+	private float time_between_dialogue = 3.0f;
 
+	//Ticking var
+	public bool isTicking = true;
+	
 	//Debug text asset
 	public TextAsset testText;
 	
@@ -44,11 +49,21 @@ public class DialogueManager : MonoBehaviour {
 		{
 			TestDialogueChunk();
 		}
+		if (isTicking)
+			Tick();
+	}
+
+	private void Tick()
+	{
 		if (currentIndex >= 0) {
 			t += Time.deltaTime;
+			if (t >= dialogue_show_time)
+			{
+				UpdateDialogueLineUI("");
+			}
 			if (t >= time_between_dialogue)
 			{
-				t -= time_between_dialogue;
+				t -= dialogue_show_time + time_between_dialogue;
 				NextDialogueLine();
 			}
 		}
@@ -66,7 +81,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public void PlayDialogueChunk(int index)
 	{
-		current = allDialogues[index];
+		currentChunk = allDialogues[index];
 		gameMange.SwitchDialogueState(DialogueState.dialogue);
 		dialogueLineUI.SetActive(true);
 		NextDialogueLine();
@@ -74,14 +89,21 @@ public class DialogueManager : MonoBehaviour {
 
 	private void NextDialogueLine() {
 		currentIndex++;
-		if (currentIndex >= current.lineAmount) {
+		if (currentIndex >= currentChunk.lineAmount) {
 			EndDialogueChunk();
 		} else {
 			//check next line for decision
-			//if decision, initiate decision
-			if (current.CheckLineForDecision(currentIndex))
+			if (currentChunk.CheckLineForDecision(currentIndex))
 			{
-				InitiateDecision();
+				if (currentChunk.CheckIfDecisionMade(currentIndex))
+				{
+					SkipOtherDecision();
+					UpdateDialogueDecisionUI();
+				}
+				else
+				{
+					InitiateDecision();
+				}
 			}
 			else
 			{
@@ -93,7 +115,7 @@ public class DialogueManager : MonoBehaviour {
 
 	private void EndDialogueChunk() {
 		//do effect of Dialogue chunk	
-		current = null;
+		currentChunk = null;
 		currentIndex = -1;
 		dialogueLineUI.SetActive(true);
 	}
@@ -102,33 +124,62 @@ public class DialogueManager : MonoBehaviour {
 		gameMange.SwitchDialogueState(DialogueState.decision);
 		//change mouse cursor here, but later should be done in game manager
 		Cursor.lockState = CursorLockMode.Confined;
+		
+		decisionUIObjects[0].SetActive(true);
+		decisionUIObjects[1].SetActive(true);
+
+		currentDecisionPoint = currentChunk.GetDecisionPoint(currentIndex);
+		
 		UpdateDialogueDecisionUI();
+	}
+
+	private void SkipOtherDecision()
+	{
+		int depthToSearch = currentChunk.GetLineDepth(currentIndex) - 1;
+		currentIndex = currentChunk.GetNextLineLowerThanDepth(currentIndex, depthToSearch);
+	}
+
+	private void UpdateDialogueLineUI()
+	{
+		//change text for DialogueLineUI
+		dialogueLineUI.GetComponent<Text>().text = currentChunk.GetLineText(currentIndex);
+	}
+	
+	private void UpdateDialogueLineUI(string overwritten)
+	{
+		//change text for DialogueLineUI
+		dialogueLineUI.GetComponent<Text>().text = overwritten;
+	}
+
+	private void UpdateDialogueDecisionUI() {
+		//change each text for each decision UI object
+		decisionUIObjects[0].GetComponent<Text>().text = currentChunk.GetDecisionText(currentIndex, 0);
+		decisionUIObjects[1].GetComponent<Text>().text = currentChunk.GetDecisionText(currentIndex, 1);
 	}
 
 	private void Decision1Chosen() {
 		gameMange.SwitchDialogueState(DialogueState.dialogue);
 		//store decision
+		currentDecisionPoint.decisionFulfilled = true;
+		currentDecisionPoint = null;
+		UpdateDialogueLineUI(currentChunk.GetDecisionText(currentIndex, 0));
 		//set decision holder UI inactive
+		decisionUIObjects[0].SetActive(false);
+		decisionUIObjects[1].SetActive(false);
 	}
 
 	private void Decision2Chosen()
 	{
 		gameMange.SwitchDialogueState(DialogueState.dialogue);
 		//store decision
+		currentDecisionPoint.decisionFulfilled = true;
+		currentDecisionPoint = null;
+		UpdateDialogueLineUI(currentChunk.GetDecisionText(currentIndex, 1));
 		//set decision holder UI inactive
+		decisionUIObjects[0].SetActive(false);
+		decisionUIObjects[1].SetActive(false);
 	}
-
-	private void UpdateDialogueLineUI()
-	{
-		//change text for DialogueLineUI
-		dialogueLineUI.GetComponent<Text>().text = current.GetLineText(currentIndex);
-	}
-
-	private void UpdateDialogueDecisionUI() {
-		//change each text for each decision UI object
-		
-	}
-
+	
 	public void TestDialogueChunk()
 	{
 		allDialogues = new DialogueChunk[2];
