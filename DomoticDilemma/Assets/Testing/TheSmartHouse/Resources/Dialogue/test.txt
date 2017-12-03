@@ -9,3 +9,5 @@ House: "You! You killed my family"
 	> "What the hell are you talking about???" (fear +1)
 
 House : "Well... OK."
+
+House : "Whatever makes you happy now that DIALOGUE FUCKING WORKS."

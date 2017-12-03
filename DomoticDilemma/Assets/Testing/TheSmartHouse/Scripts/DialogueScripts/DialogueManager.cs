@@ -25,8 +25,8 @@ public class DialogueManager : MonoBehaviour {
 	private DecisionPoint currentDecisionPoint = null;
 	private int currentIndex = -1;
 	private float t = 0;
-	private float dialogue_show_time = 3f;
-	private float time_between_dialogue = 3.0f;
+	private float dialogue_show_time = 2f;
+	private float time_between_dialogue = 2.0f;
 
 	//Ticking var
 	public bool isTicking = true;
@@ -87,6 +87,7 @@ public class DialogueManager : MonoBehaviour {
 		NextDialogueLine();
 	}
 
+	/*
 	private void NextDialogueLine() {
 		currentIndex++;
 		if (currentIndex >= currentChunk.lineAmount) {
@@ -95,15 +96,20 @@ public class DialogueManager : MonoBehaviour {
 			//check next line for decision
 			if (currentChunk.CheckLineForDecision(currentIndex))
 			{
-				if (currentChunk.CheckIfDecisionMade(currentIndex))
+				//if decision, check if it is one that has already been made
+				while (currentChunk.CheckIfDecisionMade(currentIndex))
 				{
 					SkipOtherDecision();
-					UpdateDialogueDecisionUI();
 				}
-				else
+				if (currentChunk.CheckLineForDecision(currentIndex))
 				{
 					InitiateDecision();
 				}
+				else if (currentIndex >= currentChunk.lineAmount)
+				{
+					UpdateDialogueLineUI();
+				}
+				
 			}
 			else
 			{
@@ -112,7 +118,55 @@ public class DialogueManager : MonoBehaviour {
 			}
 		}
 	}
-
+	*/
+	
+	private void NextDialogueLine()
+	{
+		Debug.Log("Why");
+		currentIndex++;
+		//Check if it is too much
+		if (currentIndex > currentChunk.lineAmount)
+		{
+			//end if past line amount
+			EndDialogueChunk();
+		}
+		else
+		{
+			//check next line for decision
+			if (currentChunk.CheckLineForDecision(currentIndex))
+			{
+				//if decision, check if it is one that has already been made
+				while (currentIndex <= currentChunk.lineAmount && currentChunk.CheckIfDecisionMade(currentIndex))
+				{
+					//then skip if it has
+					SkipOtherDecision();
+				}
+				//If the new line is above
+				if (currentIndex > currentChunk.lineAmount)
+				{
+					//end if past line amount
+					EndDialogueChunk();
+				}
+				else {
+					if (currentChunk.CheckLineForDecision(currentIndex))
+					{
+						//if decision, display decisions and pause time
+						InitiateDecision();
+					}
+					else
+					{
+						//if line, display line and play voiceline
+						UpdateDialogueLineUI();
+					}
+				}
+			}
+			else {
+				//if line, display line and play voiceline
+				UpdateDialogueLineUI();
+			}
+		}
+	}
+	
 	private void EndDialogueChunk() {
 		//do effect of Dialogue chunk	
 		currentChunk = null;
@@ -121,15 +175,17 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	private void InitiateDecision() {
+		//Change GameState. The resulting three lines should be done in game manager
 		gameMange.SwitchDialogueState(DialogueState.decision);
-		//change mouse cursor here, but later should be done in game manager
 		Cursor.lockState = CursorLockMode.None;
+		isTicking = false;
 		
+		//Set Decision UI active
 		decisionUIObjects[0].SetActive(true);
 		decisionUIObjects[1].SetActive(true);
-
+		//Set the current decision point
 		currentDecisionPoint = currentChunk.GetDecisionPoint(currentIndex);
-		
+		//Update the Dialogue decision UI
 		UpdateDialogueDecisionUI();
 	}
 
@@ -160,6 +216,9 @@ public class DialogueManager : MonoBehaviour {
 	public void Decision1Chosen() {
 		//Change State
 		gameMange.SwitchDialogueState(DialogueState.dialogue);
+		Cursor.lockState = CursorLockMode.Locked;
+		isTicking = true;
+
 		//store decision
 		currentDecisionPoint.decisionFulfilled = true;
 		currentDecisionPoint = null;
@@ -174,6 +233,9 @@ public class DialogueManager : MonoBehaviour {
 	{
 		//Change State
 		gameMange.SwitchDialogueState(DialogueState.dialogue);
+		Cursor.lockState = CursorLockMode.Locked;
+		isTicking = true;
+
 		//store decision
 		currentDecisionPoint.decisionFulfilled = true;
 		currentDecisionPoint = null;

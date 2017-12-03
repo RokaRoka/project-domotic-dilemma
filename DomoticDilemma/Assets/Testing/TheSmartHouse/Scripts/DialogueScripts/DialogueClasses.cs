@@ -296,14 +296,14 @@ public class DialogueChunk
 
 	public int GetNextLineLowerThanDepth(int startingPointIndex, int targetDepth)
 	{
-		for (int i = 0; i < lines.Length - startingPointIndex; i++)
+		for (int i = startingPointIndex; i < lines.Length - startingPointIndex; i++)
 		{
 			if (lines[i].GetDepth() <= targetDepth)
 			{
 				return i;
 			}
 		}
-		return -1;
+		return lines.Length + 1;
 	}
 
 	private void InitializeDialogueChunkArrays()
