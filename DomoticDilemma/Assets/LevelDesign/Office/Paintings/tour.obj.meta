@@ -1,0 +1,537 @@
+fileFormatVersion: 2
+guid: 3ac0e8fcbb54e354fb90ff02651ad965
+timeCreated: 1510248095
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Box002
+    100002: Box003
+    100004: Box004
+    100006: Box005
+    100008: Box007
+    100010: Box008
+    100012: Box009
+    100014: Box010
+    100016: Box011
+    100018: Box012
+    100020: Box013
+    100022: Box014
+    100024: Box015
+    100026: Box016
+    100028: Box017
+    100030: Box018
+    100032: Box019
+    100034: Box020
+    100036: Box021
+    100038: Box022
+    100040: Box023
+    100042: Box024
+    100044: Box025
+    100046: Box026
+    100048: Box027
+    100050: Box028
+    100052: Box029
+    100054: Box030
+    100056: Box031
+    100058: Box032
+    100060: Box033
+    100062: Box034
+    100064: Box035
+    100066: Box036
+    100068: Box037
+    100070: Box038
+    100072: derjatel
+    100074: derjatel001
+    100076: derjatel002
+    100078: kartina003
+    100080: kartina004
+    100082: kartina2
+    100084: Plane001
+    100086: Plane002
+    100088: Plane003
+    100090: //RootNode
+    400000: Box002
+    400002: Box003
+    400004: Box004
+    400006: Box005
+    400008: Box007
+    400010: Box008
+    400012: Box009
+    400014: Box010
+    400016: Box011
+    400018: Box012
+    400020: Box013
+    400022: Box014
+    400024: Box015
+    400026: Box016
+    400028: Box017
+    400030: Box018
+    400032: Box019
+    400034: Box020
+    400036: Box021
+    400038: Box022
+    400040: Box023
+    400042: Box024
+    400044: Box025
+    400046: Box026
+    400048: Box027
+    400050: Box028
+    400052: Box029
+    400054: Box030
+    400056: Box031
+    400058: Box032
+    400060: Box033
+    400062: Box034
+    400064: Box035
+    400066: Box036
+    400068: Box037
+    400070: Box038
+    400072: derjatel
+    400074: derjatel001
+    400076: derjatel002
+    400078: kartina003
+    400080: kartina004
+    400082: kartina2
+    400084: Plane001
+    400086: Plane002
+    400088: Plane003
+    400090: //RootNode
+    2300000: Box002
+    2300002: Box003
+    2300004: Box004
+    2300006: Box005
+    2300008: Box007
+    2300010: Box008
+    2300012: Box009
+    2300014: Box010
+    2300016: Box011
+    2300018: Box012
+    2300020: Box013
+    2300022: Box014
+    2300024: Box015
+    2300026: Box016
+    2300028: Box017
+    2300030: Box018
+    2300032: Box019
+    2300034: Box020
+    2300036: Box021
+    2300038: Box022
+    2300040: Box023
+    2300042: Box024
+    2300044: Box025
+    2300046: Box026
+    2300048: Box027
+    2300050: Box028
+    2300052: Box029
+    2300054: Box030
+    2300056: Box031
+    2300058: Box032
+    2300060: Box033
+    2300062: Box034
+    2300064: Box035
+    2300066: Box036
+    2300068: Box037
+    2300070: Box038
+    2300072: derjatel
+    2300074: derjatel001
+    2300076: derjatel002
+    2300078: kartina003
+    2300080: kartina004
+    2300082: kartina2
+    2300084: Plane001
+    2300086: Plane002
+    2300088: Plane003
+    3300000: Box002
+    3300002: Box003
+    3300004: Box004
+    3300006: Box005
+    3300008: Box007
+    3300010: Box008
+    3300012: Box009
+    3300014: Box010
+    3300016: Box011
+    3300018: Box012
+    3300020: Box013
+    3300022: Box014
+    3300024: Box015
+    3300026: Box016
+    3300028: Box017
+    3300030: Box018
+    3300032: Box019
+    3300034: Box020
+    3300036: Box021
+    3300038: Box022
+    3300040: Box023
+    3300042: Box024
+    3300044: Box025
+    3300046: Box026
+    3300048: Box027
+    3300050: Box028
+    3300052: Box029
+    3300054: Box030
+    3300056: Box031
+    3300058: Box032
+    3300060: Box033
+    3300062: Box034
+    3300064: Box035
+    3300066: Box036
+    3300068: Box037
+    3300070: Box038
+    3300072: derjatel
+    3300074: derjatel001
+    3300076: derjatel002
+    3300078: kartina003
+    3300080: kartina004
+    3300082: kartina2
+    3300084: Plane001
+    3300086: Plane002
+    3300088: Plane003
+    4300000: Box002
+    4300002: Box003
+    4300004: Box004
+    4300006: Box005
+    4300008: Box007
+    4300010: Box008
+    4300012: Box009
+    4300014: Box010
+    4300016: Box011
+    4300018: Box012
+    4300020: Box013
+    4300022: Box014
+    4300024: Box015
+    4300026: Box016
+    4300028: Box017
+    4300030: Box018
+    4300032: Box019
+    4300034: Box020
+    4300036: Box021
+    4300038: Box022
+    4300040: Box023
+    4300042: Box024
+    4300044: Box025
+    4300046: Box026
+    4300048: Box027
+    4300050: Box028
+    4300052: Box029
+    4300054: Box030
+    4300056: Box031
+    4300058: Box032
+    4300060: Box033
+    4300062: Box034
+    4300064: Box035
+    4300066: Box036
+    4300068: Box037
+    4300070: Box038
+    4300072: derjatel
+    4300074: derjatel001
+    4300076: derjatel002
+    4300078: kartina003
+    4300080: kartina004
+    4300082: kartina2
+    4300084: Plane001
+    4300086: Plane002
+    4300088: Plane003
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box002Mat
+    second: {fileID: 2100000, guid: 294e0a294631c43419cf72a3fdb17738, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box003Mat
+    second: {fileID: 2100000, guid: 8b31b36c093e20448a9130684a7839fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box004Mat
+    second: {fileID: 2100000, guid: f01e625953af2004fbb7d9bd3888a572, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box005Mat
+    second: {fileID: 2100000, guid: 827326675c85ac14a85ac1145cc34ba9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box007Mat
+    second: {fileID: 2100000, guid: a06eeeb6f2231cc46b5ff0aa67e39940, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box008Mat
+    second: {fileID: 2100000, guid: 1ee6ac166ac2e0747986a66afaaea314, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box009Mat
+    second: {fileID: 2100000, guid: a1e9ee70c064f5c468f71d664ea458b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box010Mat
+    second: {fileID: 2100000, guid: 19977ca3ce9c2da44890f6f9c100f936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box011Mat
+    second: {fileID: 2100000, guid: fdeda9d519a5944449b6685226db0716, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box012Mat
+    second: {fileID: 2100000, guid: bc2b4e68cc94ee34288d6cbd111c390c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box013Mat
+    second: {fileID: 2100000, guid: d5736c9183159704e9f40863d8f8b6e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box014Mat
+    second: {fileID: 2100000, guid: c5dcbdb82656cb24d973f7a4962f4777, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box015Mat
+    second: {fileID: 2100000, guid: 90620ba251da13b4f8bf4847471052f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box016Mat
+    second: {fileID: 2100000, guid: e3aa534af978a1a4bb296cafbc226037, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box017Mat
+    second: {fileID: 2100000, guid: 6b2ebd5c387adc64894cdea9dfa8e47d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box018Mat
+    second: {fileID: 2100000, guid: 0f01b45e274918d4da12b600b6cdc677, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box019Mat
+    second: {fileID: 2100000, guid: be133a31361529443970d2fdf709933f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box020Mat
+    second: {fileID: 2100000, guid: e9007d538938a874ba637445725dad36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box021Mat
+    second: {fileID: 2100000, guid: 7c9bf37e84f2a7a48be3b895d72959df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box022Mat
+    second: {fileID: 2100000, guid: 3019d7e7bc0d78e4d8d39bcbd5eb5f10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box023Mat
+    second: {fileID: 2100000, guid: eb2e4a01d7252b844824937e054a8eaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box024Mat
+    second: {fileID: 2100000, guid: f228ab023c351044a964b7faffa15309, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box025Mat
+    second: {fileID: 2100000, guid: 3d64e65f2257e6a4c8dc482e8d10afa3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box026Mat
+    second: {fileID: 2100000, guid: ab03cbf87bf09c84d8be6653bcdb80bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box027Mat
+    second: {fileID: 2100000, guid: 2c50bc936562d3f4eaf46c5b5092abe7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box028Mat
+    second: {fileID: 2100000, guid: 97336233057019c459218301fd424221, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box029Mat
+    second: {fileID: 2100000, guid: 46b85db03f177dc4f82978d94bba4187, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box030Mat
+    second: {fileID: 2100000, guid: 67257bc043ff9fa4294790b14723fb81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box031Mat
+    second: {fileID: 2100000, guid: ab7a26500bdd16748892fafb4d76ee4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box032Mat
+    second: {fileID: 2100000, guid: f78e844ebbdc0d6439b993b789eff795, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box033Mat
+    second: {fileID: 2100000, guid: 722971384e912584f9e7954d9e3516c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box034Mat
+    second: {fileID: 2100000, guid: cedfc26786018c442a29b103e09acdbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box035Mat
+    second: {fileID: 2100000, guid: 4bf3da0bb381f5f4ab0d1ef68c12e8a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box036Mat
+    second: {fileID: 2100000, guid: d679d4824670f0a4587c8bea4e2f35c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box037Mat
+    second: {fileID: 2100000, guid: 16d7618245a3f904a80c07568942f481, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box038Mat
+    second: {fileID: 2100000, guid: 20938878376d665458f14aa6a3a5b60b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plane001Mat
+    second: {fileID: 2100000, guid: ef2945cc4e6b13e48b25e01036d8d3c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plane002Mat
+    second: {fileID: 2100000, guid: 3a9f6d1643ad544499678a19928d83e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plane003Mat
+    second: {fileID: 2100000, guid: 0454fa79aa203cf47a34d8490ff8844b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: derjatel001Mat
+    second: {fileID: 2100000, guid: 1723d2d73186abe4b9dfae8b7f18e741, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: derjatel002Mat
+    second: {fileID: 2100000, guid: 3f4058ede09085a4db90ff237bdf24d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: derjatelMat
+    second: {fileID: 2100000, guid: c66d852b39168f647958d10d7a668859, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kartina003Mat
+    second: {fileID: 2100000, guid: 2968040ecea70c34aba7cef3e3e23a69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kartina004Mat
+    second: {fileID: 2100000, guid: f2bc60b9de92c9945acecbb16705a939, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kartina2Mat
+    second: {fileID: 2100000, guid: 815c2f535f0b42340a056bc117f3f203, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

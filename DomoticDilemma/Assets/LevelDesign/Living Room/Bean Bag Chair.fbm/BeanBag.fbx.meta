@@ -22,7 +22,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BeagBan_mat
-    second: {fileID: 2100000, guid: 807baeff001cb0045b752e50f01bae4a, type: 2}
+    second: {fileID: 2100000, guid: 4666c62969aaa974c8c1e605ca383192, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

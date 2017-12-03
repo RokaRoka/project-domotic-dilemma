@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: 837be8a3d0fcbce4dba13b48359e0a6a
+timeCreated: 1511107941
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Part1
+    100002: Part10
+    100004: Part11
+    100006: Part12
+    100008: Part13
+    100010: Part2
+    100012: Part3
+    100014: Part4
+    100016: Part5
+    100018: Part6
+    100020: Part7
+    100022: Part8
+    100024: Part9
+    100026: //RootNode
+    100028: Union1
+    100030: Union10
+    100032: Union11
+    100034: Union2
+    100036: Union3
+    100038: Union4
+    100040: Union5
+    100042: Union6
+    100044: Union7
+    100046: Union8
+    100048: Union9
+    400000: Part1
+    400002: Part10
+    400004: Part11
+    400006: Part12
+    400008: Part13
+    400010: Part2
+    400012: Part3
+    400014: Part4
+    400016: Part5
+    400018: Part6
+    400020: Part7
+    400022: Part8
+    400024: Part9
+    400026: //RootNode
+    400028: Union1
+    400030: Union10
+    400032: Union11
+    400034: Union2
+    400036: Union3
+    400038: Union4
+    400040: Union5
+    400042: Union6
+    400044: Union7
+    400046: Union8
+    400048: Union9
+    2300000: Part1
+    2300002: Part10
+    2300004: Part11
+    2300006: Part12
+    2300008: Part13
+    2300010: Part2
+    2300012: Part3
+    2300014: Part4
+    2300016: Part5
+    2300018: Part6
+    2300020: Part7
+    2300022: Part8
+    2300024: Part9
+    2300026: Union1
+    2300028: Union10
+    2300030: Union11
+    2300032: Union2
+    2300034: Union3
+    2300036: Union4
+    2300038: Union5
+    2300040: Union6
+    2300042: Union7
+    2300044: Union8
+    2300046: Union9
+    3300000: Part1
+    3300002: Part10
+    3300004: Part11
+    3300006: Part12
+    3300008: Part13
+    3300010: Part2
+    3300012: Part3
+    3300014: Part4
+    3300016: Part5
+    3300018: Part6
+    3300020: Part7
+    3300022: Part8
+    3300024: Part9
+    3300026: Union1
+    3300028: Union10
+    3300030: Union11
+    3300032: Union2
+    3300034: Union3
+    3300036: Union4
+    3300038: Union5
+    3300040: Union6
+    3300042: Union7
+    3300044: Union8
+    3300046: Union9
+    4300000: Part1
+    4300002: Part10
+    4300004: Part11
+    4300006: Part12
+    4300008: Part13
+    4300010: Part2
+    4300012: Part3
+    4300014: Part4
+    4300016: Part5
+    4300018: Part6
+    4300020: Part7
+    4300022: Part8
+    4300024: Part9
+    4300026: Union1
+    4300028: Union10
+    4300030: Union11
+    4300032: Union2
+    4300034: Union3
+    4300036: Union4
+    4300038: Union5
+    4300040: Union6
+    4300042: Union7
+    4300044: Union8
+    4300046: Union9
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part10Mat
+    second: {fileID: 2100000, guid: 295d768962304ad40b99c32ec1c0307b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part11Mat
+    second: {fileID: 2100000, guid: 2f3522d51c50b2a4b99ddc41d57b0928, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part12Mat
+    second: {fileID: 2100000, guid: 755cbec3afb92a14b9d07b9c2312aec1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part13Mat
+    second: {fileID: 2100000, guid: f40c130d31ca2f64d86b5470d86c1075, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part1Mat
+    second: {fileID: 2100000, guid: 7182a140fd29fe745b25394d688a0eae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part2Mat
+    second: {fileID: 2100000, guid: 7fc2e1acd3301ab49ab997e9da0c13b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part3Mat
+    second: {fileID: 2100000, guid: 92ee5e9f366fb0c4aaa5de27a96cbd3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part4Mat
+    second: {fileID: 2100000, guid: 38b0bec81844aa841a7d857e9eb6af6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part5Mat
+    second: {fileID: 2100000, guid: a4d926be19f532e4db81438852d6a30e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part6Mat
+    second: {fileID: 2100000, guid: 4d99cf211874c8b4ba56f2d0d3a1d9fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part7Mat
+    second: {fileID: 2100000, guid: ebb2a5fbed0808b47a4ff09fddefd70d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part8Mat
+    second: {fileID: 2100000, guid: a93f8ea8e89111f459b531177008bb92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Part9Mat
+    second: {fileID: 2100000, guid: 1d074f73d8e4e734a8a7c617d2174670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union10Mat
+    second: {fileID: 2100000, guid: 594c9cdd0049640438c5031f95bca558, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union11Mat
+    second: {fileID: 2100000, guid: c88dc6e3c0bb86c459ca908cbea8b00e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union1Mat
+    second: {fileID: 2100000, guid: 829f7940b40bd2340993098f35e50c75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union2Mat
+    second: {fileID: 2100000, guid: c4d3c11bbc1347e47b6f6b8f25a169cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union3Mat
+    second: {fileID: 2100000, guid: 5210c7edc29376f4db2d4937d04127c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union4Mat
+    second: {fileID: 2100000, guid: 4458e414ed40dbb4fa06068bf99a6915, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union5Mat
+    second: {fileID: 2100000, guid: 4268482a88575ee418094e939a7f5e7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union6Mat
+    second: {fileID: 2100000, guid: 99fe2edb8dab4ac4891d8664f4633082, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union7Mat
+    second: {fileID: 2100000, guid: 026fd37fbc9a2294aaa7434e7d5ca2f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union8Mat
+    second: {fileID: 2100000, guid: f5b63d8d607b88142af7c77bedd1efb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Union9Mat
+    second: {fileID: 2100000, guid: aa9605dfd71778349b88516ef7cb8cbb, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

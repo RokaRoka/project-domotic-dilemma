@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 37cfc9133af0d784893cdefd0582d395
+timeCreated: 1510432883
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cone040
+    100002: Cylinder044
+    100004: Cylinder059
+    100006: Helix039
+    100008: LAMP
+    100010: Loft020
+    100012: Object008
+    100014: Rectangle043
+    100016: Rectangle047
+    100018: Rectangle048
+    100020: //RootNode
+    400000: Cone040
+    400002: Cylinder044
+    400004: Cylinder059
+    400006: Helix039
+    400008: LAMP
+    400010: Loft020
+    400012: Object008
+    400014: Rectangle043
+    400016: Rectangle047
+    400018: Rectangle048
+    400020: //RootNode
+    2300000: Cone040
+    2300002: Cylinder044
+    2300004: Cylinder059
+    2300006: Helix039
+    2300008: LAMP
+    2300010: Loft020
+    2300012: Object008
+    2300014: Rectangle043
+    2300016: Rectangle047
+    2300018: Rectangle048
+    3300000: Cone040
+    3300002: Cylinder044
+    3300004: Cylinder059
+    3300006: Helix039
+    3300008: LAMP
+    3300010: Loft020
+    3300012: Object008
+    3300014: Rectangle043
+    3300016: Rectangle047
+    3300018: Rectangle048
+    4300000: Cone040
+    4300002: Cylinder044
+    4300004: Cylinder059
+    4300006: Helix039
+    4300008: LAMP
+    4300010: Loft020
+    4300012: Object008
+    4300014: Rectangle043
+    4300016: Rectangle047
+    4300018: Rectangle048
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cone040Mat
+    second: {fileID: 2100000, guid: 87a9ed8611f971f4eae30f83a1dab1a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder044Mat
+    second: {fileID: 2100000, guid: ca0e91552a9a0364299210b07789203b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder059Mat
+    second: {fileID: 2100000, guid: 2ccf287ae71f9b240bfaaf34e2e567ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Helix039Mat
+    second: {fileID: 2100000, guid: afe045af3a85f5f4d913ae33ae780d79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LAMPMat
+    second: {fileID: 2100000, guid: c72102a4e9c70624ba1da7ed3701aa54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Loft020Mat
+    second: {fileID: 2100000, guid: 469786545fa3cef439461ebc11b6d8c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Object008Mat
+    second: {fileID: 2100000, guid: df07c74036319494281730b578eb06b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rectangle043Mat
+    second: {fileID: 2100000, guid: 37263c85a7cfeac4abb52eb6554c0c88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rectangle047Mat
+    second: {fileID: 2100000, guid: 00e0bb315827ab3458263ce2e333e912, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rectangle048Mat
+    second: {fileID: 2100000, guid: b24fed8b558d78d4faae18c67d8dc153, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

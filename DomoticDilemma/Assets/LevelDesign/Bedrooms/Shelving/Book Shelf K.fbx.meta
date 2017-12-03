@@ -1,0 +1,414 @@
+fileFormatVersion: 2
+guid: f10d00f3248af8d4088b0bb32bc67b81
+timeCreated: 1511291551
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: 03 Desig024
+    100002: 03 Desig025
+    100004: 03 Desig026
+    100006: 03 Desig027
+    100008: 03 Desig20
+    100010: 03 Desig21
+    100012: 03 Desig22
+    100014: 03 Desig23
+    100016: archmodel0
+    100018: archmodel004
+    100020: archmodel005
+    100022: archmodel006
+    100024: archmodel007
+    100026: archmodel008
+    100028: archmodel1
+    100030: archmodel2
+    100032: archmodel3
+    100034: archmodels
+    100036: archmodels001
+    100038: archmodels002
+    100040: //RootNode
+    100042: Box011
+    100044: Box014
+    100046: Box019
+    100048: Box023
+    100050: Box024
+    100052: Box033
+    100054: Box034
+    100056: Box035
+    100058: Box037
+    100060: Box038
+    100062: Box039
+    100064: Box040
+    100066: Box041
+    100068: Camera001
+    100070: Camera001.target
+    100072: Group002
+    100074: Group003
+    100076: object
+    100078: Omni_026
+    100080: PhysCamera001
+    100082: PhysCamera001.Target
+    100084: Point 03
+    100086: Point 03.Target
+    100088: RenderStu0
+    100090: RenderStu1
+    100092: RenderStu2
+    100094: RenderStuf
+    100096: Sphere009
+    100098: sub01
+    100100: sub02
+    100102: VRayLight006X
+    400000: 03 Desig024
+    400002: 03 Desig025
+    400004: 03 Desig026
+    400006: 03 Desig027
+    400008: 03 Desig20
+    400010: 03 Desig21
+    400012: 03 Desig22
+    400014: 03 Desig23
+    400016: archmodel0
+    400018: archmodel004
+    400020: archmodel005
+    400022: archmodel006
+    400024: archmodel007
+    400026: archmodel008
+    400028: archmodel1
+    400030: archmodel2
+    400032: archmodel3
+    400034: archmodels
+    400036: archmodels001
+    400038: archmodels002
+    400040: //RootNode
+    400042: Box011
+    400044: Box014
+    400046: Box019
+    400048: Box023
+    400050: Box024
+    400052: Box033
+    400054: Box034
+    400056: Box035
+    400058: Box037
+    400060: Box038
+    400062: Box039
+    400064: Box040
+    400066: Box041
+    400068: Camera001
+    400070: Camera001.target
+    400072: Group002
+    400074: Group003
+    400076: object
+    400078: Omni_026
+    400080: PhysCamera001
+    400082: PhysCamera001.Target
+    400084: Point 03
+    400086: Point 03.Target
+    400088: RenderStu0
+    400090: RenderStu1
+    400092: RenderStu2
+    400094: RenderStuf
+    400096: Sphere009
+    400098: sub01
+    400100: sub02
+    400102: VRayLight006X
+    2300000: 03 Desig024
+    2300002: 03 Desig025
+    2300004: 03 Desig026
+    2300006: 03 Desig027
+    2300008: 03 Desig20
+    2300010: 03 Desig21
+    2300012: 03 Desig22
+    2300014: 03 Desig23
+    2300016: archmodel0
+    2300018: archmodel004
+    2300020: archmodel005
+    2300022: archmodel006
+    2300024: archmodel007
+    2300026: archmodel008
+    2300028: archmodel1
+    2300030: archmodel2
+    2300032: archmodel3
+    2300034: archmodels
+    2300036: archmodels001
+    2300038: archmodels002
+    2300040: Box011
+    2300042: Box014
+    2300044: Box019
+    2300046: Box023
+    2300048: Box024
+    2300050: Box033
+    2300052: Box034
+    2300054: Box035
+    2300056: Box037
+    2300058: Box038
+    2300060: Box039
+    2300062: Box040
+    2300064: Box041
+    2300066: RenderStu0
+    2300068: RenderStu1
+    2300070: RenderStu2
+    2300072: RenderStuf
+    2300074: Sphere009
+    2300076: sub01
+    2300078: sub02
+    3300000: 03 Desig024
+    3300002: 03 Desig025
+    3300004: 03 Desig026
+    3300006: 03 Desig027
+    3300008: 03 Desig20
+    3300010: 03 Desig21
+    3300012: 03 Desig22
+    3300014: 03 Desig23
+    3300016: archmodel0
+    3300018: archmodel004
+    3300020: archmodel005
+    3300022: archmodel006
+    3300024: archmodel007
+    3300026: archmodel008
+    3300028: archmodel1
+    3300030: archmodel2
+    3300032: archmodel3
+    3300034: archmodels
+    3300036: archmodels001
+    3300038: archmodels002
+    3300040: Box011
+    3300042: Box014
+    3300044: Box019
+    3300046: Box023
+    3300048: Box024
+    3300050: Box033
+    3300052: Box034
+    3300054: Box035
+    3300056: Box037
+    3300058: Box038
+    3300060: Box039
+    3300062: Box040
+    3300064: Box041
+    3300066: RenderStu0
+    3300068: RenderStu1
+    3300070: RenderStu2
+    3300072: RenderStuf
+    3300074: Sphere009
+    3300076: sub01
+    3300078: sub02
+    4300000: Box011
+    4300002: Box014
+    4300004: Box019
+    4300006: Box023
+    4300008: Box024
+    4300010: Box033
+    4300012: Box034
+    4300014: Box035
+    4300016: Box037
+    4300018: Box038
+    4300020: Box039
+    4300022: Box040
+    4300024: Box041
+    4300026: Sphere009
+    4300028: 03 Desig024
+    4300030: 03 Desig025
+    4300032: 03 Desig026
+    4300034: 03 Desig027
+    4300036: sub01
+    4300038: sub02
+    4300040: archmodels
+    4300042: 03 Desig22
+    4300044: 03 Desig21
+    4300046: 03 Desig20
+    4300048: 03 Desig23
+    4300050: RenderStu2
+    4300052: RenderStu1
+    4300054: RenderStu0
+    4300056: RenderStuf
+    4300058: archmodel007
+    4300060: archmodel2
+    4300062: archmodel005
+    4300064: archmodel1
+    4300066: archmodel0
+    4300068: archmodel3
+    4300070: archmodel008
+    4300072: archmodel004
+    4300074: archmodels001
+    4300076: archmodel006
+    4300078: archmodels002
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover 25
+    second: {fileID: 2100000, guid: 7339ed27d87281b499101d4bfd5c44bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Esmalte Azul Marinho
+    second: {fileID: 2100000, guid: 53a7653641dec5b4da4e15bace26b0a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca
+    second: {fileID: 2100000, guid: 66083385d5ef56b4da0caf3467028e33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca2
+    second: {fileID: 2100000, guid: 9b8ffde18d9224f4b895bce697232ce0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca223
+    second: {fileID: 2100000, guid: d80b7593c776c74408cf38a6d119db73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca22317
+    second: {fileID: 2100000, guid: f27308db49b52934fb824e8007d13de2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca2232317
+    second: {fileID: 2100000, guid: 3ee52804d2f62f74cba2c828dbe7f848, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca223231723
+    second: {fileID: 2100000, guid: fe577e01d6274034788db033e9c8955b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca22323172317
+    second: {fileID: 2100000, guid: f9d7b3629efd6724f9cc602d9891789f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca2232317231723
+    second: {fileID: 2100000, guid: 3d64e1a3c58d33b46839358c0f0e776d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca2232317231723LIFE
+    second: {fileID: 2100000, guid: 339ca6d889578cf4a9c635181673142c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca2232317231723MAD2
+    second: {fileID: 2100000, guid: 68da5ddca72d9834483df09a2de0c271, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca22323172317MAD
+    second: {fileID: 2100000, guid: b753a96867270ee4d9a38840fe77cb3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lacca22323172317MADVEJA
+    second: {fileID: 2100000, guid: fe5b1172ab1d8224197f97a78a978f4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Madeira Verniz
+    second: {fileID: 2100000, guid: b42085d48288cf942b9ff0725b4d4a40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #54'
+    second: {fileID: 2100000, guid: 5348f1b7379b55d4aa3bdca8728d7cba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PVA Branco_
+    second: {fileID: 2100000, guid: 6b6992459e282d24388839a22555669a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PVA White
+    second: {fileID: 2100000, guid: 368d5a586ef27fd45a9ea38ae8bf069f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceramic3
+    second: {fileID: 2100000, guid: c6eeb1c8e4002d242b854a1752434bf3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pages 5
+    second: {fileID: 2100000, guid: 7b1c81d031508fb4d8bdcb296b69c620, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vidro de piso
+    second: {fileID: 2100000, guid: 115d67884723f3243aaa7fb5f3a6c074, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

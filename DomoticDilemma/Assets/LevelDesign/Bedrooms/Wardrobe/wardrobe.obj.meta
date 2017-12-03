@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: 59ddeb3db369587469e0bbb8c7ae1647
+timeCreated: 1511284582
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: parent2_polySurface34
+    100002: parent2_polySurface35
+    100004: parent2_polySurface36
+    100006: parent2_polySurface37
+    100008: parent2_polySurface38
+    100010: parent2_polySurface39
+    100012: parent2_polySurface40
+    100014: parent2_polySurface41
+    100016: parent2_polySurface42
+    100018: parent2_polySurface43
+    100020: parent2_polySurface44
+    100022: parent2_polySurface45
+    100024: parent2_polySurface46
+    100026: parent2_polySurface47
+    100028: parent2_polySurface48
+    100030: parent2_polySurface49
+    100032: parent2_polySurface50
+    100034: parent2_polySurface51
+    100036: parent2_polySurface52
+    100038: parent2_polySurface53
+    100040: parent2_polySurface54
+    100042: parent2_polySurface55
+    100044: parent2_polySurface56
+    100046: polySurface33_parent2
+    100048: //RootNode
+    400000: parent2_polySurface34
+    400002: parent2_polySurface35
+    400004: parent2_polySurface36
+    400006: parent2_polySurface37
+    400008: parent2_polySurface38
+    400010: parent2_polySurface39
+    400012: parent2_polySurface40
+    400014: parent2_polySurface41
+    400016: parent2_polySurface42
+    400018: parent2_polySurface43
+    400020: parent2_polySurface44
+    400022: parent2_polySurface45
+    400024: parent2_polySurface46
+    400026: parent2_polySurface47
+    400028: parent2_polySurface48
+    400030: parent2_polySurface49
+    400032: parent2_polySurface50
+    400034: parent2_polySurface51
+    400036: parent2_polySurface52
+    400038: parent2_polySurface53
+    400040: parent2_polySurface54
+    400042: parent2_polySurface55
+    400044: parent2_polySurface56
+    400046: polySurface33_parent2
+    400048: //RootNode
+    2300000: parent2_polySurface34
+    2300002: parent2_polySurface35
+    2300004: parent2_polySurface36
+    2300006: parent2_polySurface37
+    2300008: parent2_polySurface38
+    2300010: parent2_polySurface39
+    2300012: parent2_polySurface40
+    2300014: parent2_polySurface41
+    2300016: parent2_polySurface42
+    2300018: parent2_polySurface43
+    2300020: parent2_polySurface44
+    2300022: parent2_polySurface45
+    2300024: parent2_polySurface46
+    2300026: parent2_polySurface47
+    2300028: parent2_polySurface48
+    2300030: parent2_polySurface49
+    2300032: parent2_polySurface50
+    2300034: parent2_polySurface51
+    2300036: parent2_polySurface52
+    2300038: parent2_polySurface53
+    2300040: parent2_polySurface54
+    2300042: parent2_polySurface55
+    2300044: parent2_polySurface56
+    2300046: polySurface33_parent2
+    3300000: parent2_polySurface34
+    3300002: parent2_polySurface35
+    3300004: parent2_polySurface36
+    3300006: parent2_polySurface37
+    3300008: parent2_polySurface38
+    3300010: parent2_polySurface39
+    3300012: parent2_polySurface40
+    3300014: parent2_polySurface41
+    3300016: parent2_polySurface42
+    3300018: parent2_polySurface43
+    3300020: parent2_polySurface44
+    3300022: parent2_polySurface45
+    3300024: parent2_polySurface46
+    3300026: parent2_polySurface47
+    3300028: parent2_polySurface48
+    3300030: parent2_polySurface49
+    3300032: parent2_polySurface50
+    3300034: parent2_polySurface51
+    3300036: parent2_polySurface52
+    3300038: parent2_polySurface53
+    3300040: parent2_polySurface54
+    3300042: parent2_polySurface55
+    3300044: parent2_polySurface56
+    3300046: polySurface33_parent2
+    4300000: parent2_polySurface34
+    4300002: parent2_polySurface35
+    4300004: parent2_polySurface36
+    4300006: parent2_polySurface37
+    4300008: parent2_polySurface38
+    4300010: parent2_polySurface39
+    4300012: parent2_polySurface40
+    4300014: parent2_polySurface41
+    4300016: parent2_polySurface42
+    4300018: parent2_polySurface43
+    4300020: parent2_polySurface44
+    4300022: parent2_polySurface45
+    4300024: parent2_polySurface46
+    4300026: parent2_polySurface47
+    4300028: parent2_polySurface48
+    4300030: parent2_polySurface49
+    4300032: parent2_polySurface50
+    4300034: parent2_polySurface51
+    4300036: parent2_polySurface52
+    4300038: parent2_polySurface53
+    4300040: parent2_polySurface54
+    4300042: parent2_polySurface55
+    4300044: parent2_polySurface56
+    4300046: polySurface33_parent2
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface34Mat
+    second: {fileID: 2100000, guid: 3f0e1b4ec23dec34cac2e9f4a3a42f8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface35Mat
+    second: {fileID: 2100000, guid: f8e53f7f219adb34ba323f724d716700, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface36Mat
+    second: {fileID: 2100000, guid: 05cf587ede5bdd94db8fcb1a1ce983b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface37Mat
+    second: {fileID: 2100000, guid: 6ddb6c863e73ad74f9b898821cfb45d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface38Mat
+    second: {fileID: 2100000, guid: 4cab75c6b75608048b230b242d8e1082, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface39Mat
+    second: {fileID: 2100000, guid: 1fc34697d1b39194da4c0a11ac87f79a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface40Mat
+    second: {fileID: 2100000, guid: 0f775f56813b70c4382d16dbb56b80ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface41Mat
+    second: {fileID: 2100000, guid: a3bd84817d7add242b88ae6e7a6b2882, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface42Mat
+    second: {fileID: 2100000, guid: 1edeec66c98084143968ebf792c59eaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface43Mat
+    second: {fileID: 2100000, guid: d6085fcfd9eaae04ca63030f05559c7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface44Mat
+    second: {fileID: 2100000, guid: 56dd8eb291566044e9fd10c7ffc1fee1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface45Mat
+    second: {fileID: 2100000, guid: 7a64ab2e9c75239479e1a4fcc35bb27f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface46Mat
+    second: {fileID: 2100000, guid: 04673340f054e8c489ecd22477462594, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface47Mat
+    second: {fileID: 2100000, guid: 49f87c2033b941a4f874d3db7b72a7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface48Mat
+    second: {fileID: 2100000, guid: 2737ac660d479fe4aa95d782122d1a61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface49Mat
+    second: {fileID: 2100000, guid: 8dac3c8906c3d2743ac45e671b3ee109, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface50Mat
+    second: {fileID: 2100000, guid: 40066e66ae454b940a3d311e492e49eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface51Mat
+    second: {fileID: 2100000, guid: fc6ffdaf02349a847924d1e444669fc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface52Mat
+    second: {fileID: 2100000, guid: 4d65cc8090703d94d82205908c5b346f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface53Mat
+    second: {fileID: 2100000, guid: 80e5e6e9c862e6a459380b8f47ada605, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface54Mat
+    second: {fileID: 2100000, guid: 4d20a7a41f170854bb990d17cb09f1ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface55Mat
+    second: {fileID: 2100000, guid: c87af77a39ccd714d91a86d0be560314, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parent2_polySurface56Mat
+    second: {fileID: 2100000, guid: 5b51a2e29c0b2b14895acab98af0f434, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: polySurface33_parent2Mat
+    second: {fileID: 2100000, guid: 8907e87d23105d1409ade8760129ed24, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

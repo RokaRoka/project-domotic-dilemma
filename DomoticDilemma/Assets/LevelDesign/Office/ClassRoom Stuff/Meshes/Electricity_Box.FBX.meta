@@ -10,12 +10,7 @@ ModelImporter:
     3300000: //RootNode
     4300000: low001
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Electricity_Box
-    second: {fileID: 2100000, guid: d834d8198db6b6b4f8fc381711f97c3f, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
