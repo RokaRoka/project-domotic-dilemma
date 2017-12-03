@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Testing/TheSmartHouse/tempSmartHouse.unity
+- path: Assets/LevelDesign/Scenes/Art testing.unity
   isLoaded: 1
   isActive: 1
