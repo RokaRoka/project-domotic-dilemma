@@ -91,7 +91,7 @@ public class DecisionPoint
 
 	public static DecisionPoint QueryDecisions(DecisionPoint[] dpArray, int lineIndex)
 	{
-		for (int i = 0; dpArray.Length > i; i++)
+		for (int i = 0; i < dpArray.Length; i++)
 		{
 			if (dpArray[i].GetDecision1Index() == lineIndex || dpArray[i].GetDecision2Index() == lineIndex)
 			{
@@ -160,7 +160,13 @@ public class DialogueChunk
 	        }
 	        else if (m.Groups[6].Success)
 	        {
-		        decisionForkDepth = Regex.Matches(m.Groups[6].Value, forkDepthPattern).Count;
+		        Match _ = Regex.Match(m.Groups[6].Value, forkDepthPattern);
+		        int decCount = _.Groups.Count;
+		        decisionForkDepth = decCount;
+	        }
+	        else
+	        {
+		        decisionForkDepth = 0;
 	        }
 	        
 	        //do decision stuff here
@@ -182,8 +188,15 @@ public class DialogueChunk
 		        }
 		        else
 		        {
-			        //Throw error
-			        Debug.LogError("Error: Incomplete decision not found from depth"+lastDecisionForkDepth+" to "+decisionForkDepth);
+			        if (m.Groups[1].Success)
+			        {
+				        lines[count] = CreateNewDialogueLine(m.Groups[1].Value, m.Groups[2].Value, decisionForkDepth);
+				        count++;
+			        } else if (m.Groups[2].Success)
+			        {
+				        lines[count] = CreateNewDialogueLine(m.Groups[2].Value, decisionForkDepth);
+				        count++;
+			        }
 		        }
 	
 	        }
@@ -206,7 +219,7 @@ public class DialogueChunk
 				        else
 				        {
 					        //Throw error
-					        Debug.LogError("Error: Incomplete decision not found from depth"+lastDecisionForkDepth+" to "+decisionForkDepth);
+					        Debug.LogError("Error: Incomplete decision not found from depth "+lastDecisionForkDepth+" to "+decisionForkDepth);
 				        }
 			        }
 		        }
@@ -296,8 +309,10 @@ public class DialogueChunk
 
 	public int GetNextLineLowerThanDepth(int startingPointIndex, int targetDepth)
 	{
-		for (int i = startingPointIndex; i < lines.Length - startingPointIndex; i++)
+		Debug.Log("Starting point is: "+startingPointIndex);
+		for (int i = startingPointIndex; i < lines.Length; i++)
 		{
+			Debug.Log("Looking at index "+i+" of depth "+lines[i].GetDepth());
 			if (lines[i].GetDepth() <= targetDepth)
 			{
 				return i;

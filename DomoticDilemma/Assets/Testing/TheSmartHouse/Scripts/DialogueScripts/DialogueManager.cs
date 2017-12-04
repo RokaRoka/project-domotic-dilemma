@@ -25,8 +25,8 @@ public class DialogueManager : MonoBehaviour {
 	private DecisionPoint currentDecisionPoint = null;
 	private int currentIndex = -1;
 	private float t = 0;
-	private float dialogue_show_time = 2f;
-	private float time_between_dialogue = 2.0f;
+	private float dialogue_show_time = 1f;
+	private float time_between_dialogue = 0.5f;
 
 	//Ticking var
 	public bool isTicking = true;
@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				UpdateDialogueLineUI("");
 			}
-			if (t >= time_between_dialogue)
+			if (t >= dialogue_show_time + time_between_dialogue)
 			{
 				t -= dialogue_show_time + time_between_dialogue;
 				NextDialogueLine();
@@ -84,6 +84,7 @@ public class DialogueManager : MonoBehaviour {
 		currentChunk = allDialogues[index];
 		gameMange.SwitchDialogueState(DialogueState.dialogue);
 		dialogueLineUI.SetActive(true);
+		Debug.Log("Line amount: "+currentChunk.lineAmount);
 		NextDialogueLine();
 	}
 
@@ -122,11 +123,12 @@ public class DialogueManager : MonoBehaviour {
 	
 	private void NextDialogueLine()
 	{
-		Debug.Log("Why");
 		currentIndex++;
+		Debug.Log("Next Index: "+currentIndex);
 		//Check if it is too much
-		if (currentIndex > currentChunk.lineAmount)
+		if (currentIndex >= currentChunk.lineAmount)
 		{
+			Debug.Log("Ending");
 			//end if past line amount
 			EndDialogueChunk();
 		}
@@ -136,14 +138,18 @@ public class DialogueManager : MonoBehaviour {
 			if (currentChunk.CheckLineForDecision(currentIndex))
 			{
 				//if decision, check if it is one that has already been made
-				while (currentIndex <= currentChunk.lineAmount && currentChunk.CheckIfDecisionMade(currentIndex))
+				while (currentChunk.CheckLineForDecision(currentIndex) && currentChunk.CheckIfDecisionMade(currentIndex))
 				{
 					//then skip if it has
 					SkipOtherDecision();
+					Debug.Log("Skipped to "+currentIndex);
+					if (currentIndex > currentChunk.lineAmount)
+						break; //This is to make sure that currentIndex doesn't cause an error
 				}
 				//If the new line is above
 				if (currentIndex > currentChunk.lineAmount)
 				{
+					Debug.Log("Ending");
 					//end if past line amount
 					EndDialogueChunk();
 				}
@@ -192,6 +198,7 @@ public class DialogueManager : MonoBehaviour {
 	private void SkipOtherDecision()
 	{
 		int depthToSearch = currentChunk.GetLineDepth(currentIndex) - 1;
+		Debug.Log("Searching depth "+depthToSearch);
 		currentIndex = currentChunk.GetNextLineLowerThanDepth(currentIndex, depthToSearch);
 	}
 
