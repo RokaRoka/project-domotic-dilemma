@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
 		jumping = false;
-		//onGround = false;
+		onGround = false;
 	}
 
 	private void Crouch()

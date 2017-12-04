@@ -65,7 +65,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: Default
+  m_LastLoadedLayoutName: 
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -105,10 +105,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
-  m_MinSize: {x: 681, y: 492}
+  m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 1
-  controlID: 14478
+  controlID: 75074
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,10 +129,10 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 1067
-  m_MinSize: {x: 681, y: 492}
+  m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 14479
+  controlID: 75075
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -153,10 +153,10 @@ MonoBehaviour:
     y: 0
     width: 1508
     height: 1067
-  m_MinSize: {x: 404, y: 492}
+  m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 14596
+  controlID: 75316
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -177,10 +177,10 @@ MonoBehaviour:
     y: 0
     width: 1508
     height: 680
-  m_MinSize: {x: 404, y: 221}
-  m_MaxSize: {x: 8004, y: 4021}
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 14597
+  controlID: 75317
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -258,7 +258,7 @@ MonoBehaviour:
   - {fileID: 17}
   - {fileID: 18}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -387,10 +387,10 @@ MonoBehaviour:
     width: 372
     height: 659
   m_TreeViewState:
-    scrollPos: {x: 0, y: 6064}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: f455f1ff92b0f1ff6476f3ffe089f3ff1e98f3ffc699f3ff32a2f3ff9442f4ff9a42f4ffbc6cfaffae92fcff7e9cfcffa6b4fcff000000005e8d0000e2940000849b00001ab40000e0030b0002040b009c040b00f6800b00628a0b000c940b008c990b00b6990b00
+    scrollPos: {x: 0, y: 254}
+    m_SelectedIDs: 36f8ffff
+    m_LastClickedID: -1994
+    m_ExpandedIDs: 988cf8ff16b4f8ff2a15fcff9ac1ffff5ec2ffff3ccbffff92cbffff16cfffffa8d3ffffd6d3ffff4cd6ffffc0deffffe2deffffe4deffff20e1ffffa6e6fffff0e8ffffd6edffff26f1ffff82f1ffff3af2ffff26f3ffff38f3fffffaf4ffff1ef8ffff38f8ffff1efbffff9efbffff000000002053000064550000165900000c5b00003c5d0000a45d000052620000f6630000fa630000c0680000d66c00002e6d0000fc6e00006c72000024780000f6790000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -440,14 +440,14 @@ MonoBehaviour:
     width: 1130
     height: 659
   m_SceneLighting: 1
-  lastFramingTime: 15018.928758819922
+  lastFramingTime: 37199.43904581173
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1026.3673, y: 94.17371, z: -97.443146}
+    m_Target: {x: -1996.9838, y: -68.27366, z: -885.89246}
     speed: 2
-    m_Value: {x: -1026.3673, y: 94.17371, z: -97.443146}
+    m_Value: {x: -1996.9838, y: -68.27366, z: -885.89246}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -470,13 +470,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.016286012, y: -0.38822353, z: -0.00691367, w: 0.92157024}
+    m_Target: {x: 0.007168122, y: -0.3668714, z: 0.0031137674, w: 0.93043566}
     speed: 2
-    m_Value: {x: -0.01628339, y: -0.388161, z: -0.0069125565, w: 0.9214218}
+    m_Value: {x: 0.00716681, y: -0.3668042, z: 0.0031131974, w: 0.9302653}
   m_Size:
-    m_Target: 1216.8932
+    m_Target: 1771.0271
     speed: 2
-    m_Value: 1216.8932
+    m_Value: 1771.0271
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -510,10 +510,10 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 468
-    y: 181
-    width: 973
-    height: 501
+    x: 376
+    y: 92
+    width: 1130
+    height: 659
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -552,19 +552,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/LevelDesign
+    - Assets/Testing/TheSmartHouse/Scripts/SmartHouse/Sensors
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/LevelDesign
+  - Assets/Testing/TheSmartHouse/Scripts/SmartHouse/Sensors
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Student\Desktop\Nickerson GIT OUT OF HERE\DomoticDilemma
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 8c880000
-    m_LastClickedID: 34956
-    m_ExpandedIDs: 00000000ec71000032720000467200009a720000d472000060860000b48600008c880000e289000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 803}
+    m_SelectedIDs: e44d0000
+    m_LastClickedID: 19940
+    m_ExpandedIDs: 00000000742700002a2800008428000050290000fc2900008a460000664800001e4d00006c4f0000f4ce000078d10000aad40000acd40000b4d40000b8d40000ccd40000ced40000ded4000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -592,7 +592,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ec71000032720000467200009a720000d472000060860000b48600008c880000e289000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000742700002a2800008428000050290000fc2900008a460000664800001e4d00006c4f0000f4ce000078d10000aad40000acd40000b4d40000b8d40000ccd40000ced40000ded4000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,8 +619,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300008e570000
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c62300008e5700001cd10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -669,10 +669,10 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 718
-    width: 1366
-    height: 308
+    x: 0
+    y: 772
+    width: 1506
+    height: 366
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
