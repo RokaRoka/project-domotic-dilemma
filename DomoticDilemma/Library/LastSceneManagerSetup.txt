@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Testing/TheSmartHouse/tempSmartHouse.unity
-  isLoaded: 1
-  isActive: 1

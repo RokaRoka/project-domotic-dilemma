@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Sam\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_DomoticDilemma.-980862261.00" t="ExcludeRecursive" />
+    <e p="D:\Sam\Stuff of Sam\College n Stuff\Third Year - Semester 1\Interactive Storytelling\project-domotic-dilemma\DomoticDilemma" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="LevelDesign" t="Include">
+          <e p="Kitchen" t="Include">
+            <e p="kitchen props" t="Include">
+              <e p="Readme.txt" t="Include" />
+            </e>
+          </e>
+          <e p="Office" t="Include">
+            <e p="Laptop" t="Include">
+              <e p="StandardColorMask.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Menu" t="Include">
+          <e p="PlayScript.cs" t="Include" />
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="Editor" t="Include">
+            <e p="JetBrains" t="Include">
+              <e p="Unity3DRider.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Testing" t="Include">
+          <e p="TheSmartHouse" t="Include">
+            <e p="Resources" t="Include">
+              <e p="Dialogue" t="Include">
+                <e p="test.txt" t="Include" />
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="DialogueScripts" t="Include">
+                <e p="DialogueClasses.cs" t="Include" />
+                <e p="DialogueManager.cs" t="Include" />
+              </e>
+              <e p="InteractiveScript.cs" t="Include" />
+              <e p="Player" t="Include">
+                <e p="PlayerInteract.cs" t="Include" />
+                <e p="PlayerMovement.cs" t="Include" />
+              </e>
+              <e p="SmartHouse" t="Include">
+                <e p="DoorGroupScript.cs" t="Include" />
+                <e p="DoorScript.cs" t="Include" />
+                <e p="RoomScript.cs" t="Include" />
+                <e p="Sensors" t="Include">
+                  <e p="CameraScript.cs" t="Include" />
+                  <e p="SensorScript.cs" t="Include" />
+                </e>
+                <e p="SmartHouseManage.cs" t="Include" />
+              </e>
+              <e p="SmokeMachineScript.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="DomoticDilemma.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
   <component name="RiderRiderContentModelStore">
     <excludedPaths>
       <Path>Temp</Path>

@@ -1,0 +1,13 @@
+Dialogue Test
+
+Me: "Hello, how are you?"
+
+House: "You! You killed my family"
+
+	> "We must do battle." (courage +1)
+
+	> "What the hell are you talking about???" (fear +1)
+
+House: "Well... OK."
+
+House: "Whatever makes you happy now that DIALOGUE FUCKING WORKS."

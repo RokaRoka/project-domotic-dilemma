@@ -1,8 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ControlState
+{
+    none,
+    exploration,
+    pause
+}
+
+public enum DialogueState
+{
+    none,
+    dialogue,
+    decision
+}
+
 public class SmartHouseManage : MonoBehaviour {
+
+    //gamestates
+    private ControlState currentControlState;
+    private DialogueState currentDialogueState;
 
 	//array of rooms
 	public GameObject[] roomGameObjectArray;
@@ -17,11 +36,32 @@ public class SmartHouseManage : MonoBehaviour {
 
     private void Update()
     {
-        RoomTestUpdate();
+        //RoomTestUpdate();
     }
 
     private void RoomTestUpdate()
     {
 
     }
+
+    public void SwitchControlState(ControlState newState)
+    {
+        currentControlState = newState;
+    }
+
+    public void SwitchDialogueState(DialogueState newState)
+    {
+        currentDialogueState = newState;
+    }
+
+    private void PauseGameplay()
+    {
+        
+    }
+
+    //public delegate void DialogueStateChanged(object source, EventArgs e);
+
+    //public event DialogueStateChanged StateChange;
+    
+    
 }
