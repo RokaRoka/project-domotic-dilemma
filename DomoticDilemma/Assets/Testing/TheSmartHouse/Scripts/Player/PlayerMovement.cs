@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
 	//player speed in meter/sec
 	public float walkSpeed = 1f;
 	public float jumpForce = 10f;
+	public float Scalar;
 	
 	// Use this for initialization
 	void Start ()
@@ -147,16 +148,20 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
 		jumping = false;
+		onGround = false;
 	}
 
 	private void Crouch()
 	{
-		transform.localScale = new Vector3(1f, 0.6f, 1f);
+
+		//transform.localScale = new Vector3(1f, .6f, 1f);
+		transform.localScale = new Vector3(Scalar, Scalar * .6f, Scalar);
 	}
 
 	private void Stand()
 	{
-		transform.localScale = Vector3.one;
+		//transform.localScale = Vector3.one;
+		transform.localScale = new Vector3(Scalar, Scalar * .95f, Scalar);
 	}
 	
 	private void OnCollisionEnter(Collision other)
@@ -171,7 +176,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag("Ground"))
 		{
-			onGround = false;
+			//onGround = false;
 		}
 	}
 }

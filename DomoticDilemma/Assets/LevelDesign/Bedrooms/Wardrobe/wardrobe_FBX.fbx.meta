@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 492b67376a328e042945522f12846a5f
+timeCreated: 1511282707
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: base01
+    100002: bottomnurbsSquare1
+    100004: door_01
+    100006: door_02
+    100008: drawer_01
+    100010: drawer_02
+    100012: drawer_03
+    100014: drawer_04
+    100016: edges1
+    100018: handle_01
+    100020: handle_02
+    100022: handle_03
+    100024: handle_04
+    100026: handle_05
+    100028: handle_06
+    100030: hanger
+    100032: leftnurbsSquare1
+    100034: nurbsSquare1
+    100036: parent
+    100038: pCube1
+    100040: polySurface2
+    100042: polySurface4
+    100044: polySurface6
+    100046: rightnurbsSquare1
+    100048: shelf1
+    100050: shelf2
+    100052: topnurbsSquare1
+    100054: towelShelf
+    100056: //RootNode
+    400000: base01
+    400002: bottomnurbsSquare1
+    400004: door_01
+    400006: door_02
+    400008: drawer_01
+    400010: drawer_02
+    400012: drawer_03
+    400014: drawer_04
+    400016: edges1
+    400018: handle_01
+    400020: handle_02
+    400022: handle_03
+    400024: handle_04
+    400026: handle_05
+    400028: handle_06
+    400030: hanger
+    400032: leftnurbsSquare1
+    400034: nurbsSquare1
+    400036: parent
+    400038: pCube1
+    400040: polySurface2
+    400042: polySurface4
+    400044: polySurface6
+    400046: rightnurbsSquare1
+    400048: shelf1
+    400050: shelf2
+    400052: topnurbsSquare1
+    400054: towelShelf
+    400056: //RootNode
+    2300000: base01
+    2300002: door_01
+    2300004: door_02
+    2300006: drawer_01
+    2300008: drawer_02
+    2300010: drawer_03
+    2300012: drawer_04
+    2300014: edges1
+    2300016: handle_01
+    2300018: handle_02
+    2300020: handle_03
+    2300022: handle_04
+    2300024: handle_05
+    2300026: handle_06
+    2300028: hanger
+    2300030: shelf1
+    2300032: shelf2
+    2300034: towelShelf
+    3300000: base01
+    3300002: door_01
+    3300004: door_02
+    3300006: drawer_01
+    3300008: drawer_02
+    3300010: drawer_03
+    3300012: drawer_04
+    3300014: edges1
+    3300016: handle_01
+    3300018: handle_02
+    3300020: handle_03
+    3300022: handle_04
+    3300024: handle_05
+    3300026: handle_06
+    3300028: hanger
+    3300030: shelf1
+    3300032: shelf2
+    3300034: towelShelf
+    4300000: base01
+    4300002: shelf2
+    4300004: shelf1
+    4300006: hanger
+    4300008: towelShelf
+    4300010: handle_01
+    4300012: door_01
+    4300014: handle_02
+    4300016: door_02
+    4300018: handle_03
+    4300020: drawer_04
+    4300022: handle_04
+    4300024: drawer_01
+    4300026: handle_05
+    4300028: drawer_02
+    4300030: handle_06
+    4300032: drawer_03
+    4300034: edges1
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_edge_mat
+    second: {fileID: 2100000, guid: 2db61701c5d84db47843f8418971d057, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handles_mat
+    second: {fileID: 2100000, guid: 4a90bcfcc71598544a15e2f27b3eaca9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pole_mat
+    second: {fileID: 2100000, guid: 4b16a15c68574be4684929c0df543dd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shelves_mat
+    second: {fileID: 2100000, guid: 865b675e9aa0e4940921bb2e3eb21277, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood_mat
+    second: {fileID: 2100000, guid: 019e2fa2d2f45b642b3728ebd7c08185, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

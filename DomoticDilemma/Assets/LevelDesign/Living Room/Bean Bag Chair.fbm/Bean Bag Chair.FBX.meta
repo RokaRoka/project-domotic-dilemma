@@ -16,7 +16,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BBC
-    second: {fileID: 2100000, guid: 35272009da488ee4890d9f078c61d2ce, type: 2}
+    second: {fileID: 2100000, guid: e0ce1e32135c21246a7cbe3144f8d36a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 452cc0b1922e19243982d263bf68e5a1
+timeCreated: 1510513379
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Drei_Schalen_Schale_1_Schale_1_a
+    100004: Drei_Schalen_Schale_1_Schale_1_i
+    100006: Drei_Schalen_Schale_2_Schale_2_a
+    100008: Drei_Schalen_Schale_2_Schale_2_i
+    100010: Drei_Schalen_Schale_3_Schale_3_a
+    100012: Drei_Schalen_Schale_3_Schale_3_i
+    100014: Magazin
+    100016: Magazin_Deckfl_che_1
+    100018: Magazin_Deckfl_che_2
+    400000: //RootNode
+    400002: Drei_Schalen_Schale_1_Schale_1_a
+    400004: Drei_Schalen_Schale_1_Schale_1_i
+    400006: Drei_Schalen_Schale_2_Schale_2_a
+    400008: Drei_Schalen_Schale_2_Schale_2_i
+    400010: Drei_Schalen_Schale_3_Schale_3_a
+    400012: Drei_Schalen_Schale_3_Schale_3_i
+    400014: Magazin
+    400016: Magazin_Deckfl_che_1
+    400018: Magazin_Deckfl_che_2
+    2300000: Drei_Schalen_Schale_1_Schale_1_a
+    2300002: Drei_Schalen_Schale_1_Schale_1_i
+    2300004: Drei_Schalen_Schale_2_Schale_2_a
+    2300006: Drei_Schalen_Schale_2_Schale_2_i
+    2300008: Drei_Schalen_Schale_3_Schale_3_a
+    2300010: Drei_Schalen_Schale_3_Schale_3_i
+    2300012: Magazin
+    2300014: Magazin_Deckfl_che_1
+    2300016: Magazin_Deckfl_che_2
+    3300000: Drei_Schalen_Schale_1_Schale_1_a
+    3300002: Drei_Schalen_Schale_1_Schale_1_i
+    3300004: Drei_Schalen_Schale_2_Schale_2_a
+    3300006: Drei_Schalen_Schale_2_Schale_2_i
+    3300008: Drei_Schalen_Schale_3_Schale_3_a
+    3300010: Drei_Schalen_Schale_3_Schale_3_i
+    3300012: Magazin
+    3300014: Magazin_Deckfl_che_1
+    3300016: Magazin_Deckfl_che_2
+    4300000: Drei_Schalen_Schale_1_Schale_1_a
+    4300002: Drei_Schalen_Schale_1_Schale_1_i
+    4300004: Drei_Schalen_Schale_2_Schale_2_a
+    4300006: Drei_Schalen_Schale_2_Schale_2_i
+    4300008: Drei_Schalen_Schale_3_Schale_3_a
+    4300010: Drei_Schalen_Schale_3_Schale_3_i
+    4300012: Magazin
+    4300014: Magazin_Deckfl_che_1
+    4300016: Magazin_Deckfl_che_2
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drei_Schalen_Schale_1_Schale_1_aMat
+    second: {fileID: 2100000, guid: 73e6858985a1e0a4a8f752d3a1181563, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drei_Schalen_Schale_1_Schale_1_iMat
+    second: {fileID: 2100000, guid: 95f95613b4c0f3b409f101c98027db9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drei_Schalen_Schale_2_Schale_2_aMat
+    second: {fileID: 2100000, guid: 54d545adf23430e4898aaca47ef5702b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drei_Schalen_Schale_2_Schale_2_iMat
+    second: {fileID: 2100000, guid: d5e73de3e6e98a548a3a6415dd755393, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drei_Schalen_Schale_3_Schale_3_aMat
+    second: {fileID: 2100000, guid: e601741bf00b16745baef4a637894e30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drei_Schalen_Schale_3_Schale_3_iMat
+    second: {fileID: 2100000, guid: 3eac73a904270bc4d942c001b0dcb993, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MagazinMat
+    second: {fileID: 2100000, guid: 100445c6da64cf34fb35ebc0dacd82e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magazin_Deckfl_che_1Mat
+    second: {fileID: 2100000, guid: 6f9ee67fb9464d84a97722dea0e7a9c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magazin_Deckfl_che_2Mat
+    second: {fileID: 2100000, guid: 3f50f30cc8e45f745b9aab218057ed49, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
