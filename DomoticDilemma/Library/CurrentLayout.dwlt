@@ -108,7 +108,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 1
-  controlID: 75074
+  controlID: 5483
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 75075
+  controlID: 5484
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 75316
+  controlID: 5663
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 75317
+  controlID: 5664
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -387,10 +387,10 @@ MonoBehaviour:
     width: 372
     height: 659
   m_TreeViewState:
-    scrollPos: {x: 0, y: 254}
-    m_SelectedIDs: 36f8ffff
-    m_LastClickedID: -1994
-    m_ExpandedIDs: 988cf8ff16b4f8ff2a15fcff9ac1ffff5ec2ffff3ccbffff92cbffff16cfffffa8d3ffffd6d3ffff4cd6ffffc0deffffe2deffffe4deffff20e1ffffa6e6fffff0e8ffffd6edffff26f1ffff82f1ffff3af2ffff26f3ffff38f3fffffaf4ffff1ef8ffff38f8ffff1efbffff9efbffff000000002053000064550000165900000c5b00003c5d0000a45d000052620000f6630000fa630000c0680000d66c00002e6d0000fc6e00006c72000024780000f6790000
+    scrollPos: {x: 0, y: 846}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 9efbffff0000000066540000245d00004c5e000016660000e86a0000a6700000fe700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -440,14 +440,14 @@ MonoBehaviour:
     width: 1130
     height: 659
   m_SceneLighting: 1
-  lastFramingTime: 37199.43904581173
+  lastFramingTime: 909.0210057927676
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1996.9838, y: -68.27366, z: -885.89246}
+    m_Target: {x: -1440.2206, y: -52.17249, z: -2226.6406}
     speed: 2
-    m_Value: {x: -1996.9838, y: -68.27366, z: -885.89246}
+    m_Value: {x: -1440.2206, y: -52.17249, z: -2226.6406}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -470,13 +470,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.007168122, y: -0.3668714, z: 0.0031137674, w: 0.93043566}
+    m_Target: {x: 0.027963366, y: -0.95508224, z: 0.0966999, w: 0.2795092}
     speed: 2
-    m_Value: {x: 0.00716681, y: -0.3668042, z: 0.0031131974, w: 0.9302653}
+    m_Value: {x: 0.02795721, y: -0.954872, z: 0.096678615, w: 0.27944764}
   m_Size:
-    m_Target: 1771.0271
+    m_Target: 448.85117
     speed: 2
-    m_Value: 1771.0271
+    m_Value: 448.85117
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -552,19 +552,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Testing/TheSmartHouse/Scripts/SmartHouse/Sensors
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Testing/TheSmartHouse/Scripts/SmartHouse/Sensors
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Student\Desktop\Nickerson GIT OUT OF HERE\DomoticDilemma
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 803}
-    m_SelectedIDs: e44d0000
-    m_LastClickedID: 19940
-    m_ExpandedIDs: 00000000742700002a2800008428000050290000fc2900008a460000664800001e4d00006c4f0000f4ce000078d10000aad40000acd40000b4d40000b8d40000ccd40000ced40000ded4000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 9e270000
+    m_LastClickedID: 10142
+    m_ExpandedIDs: 000000009e2700004a28000058280000c2280000e428000094290000462a0000ce2d0000cc2e000066440000f44400003a4600005247000044490000164e00006c500000445200003ea90000a6ab0000cebb0000d0bb0000e6bb000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -592,7 +592,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000742700002a2800008428000050290000fc2900008a460000664800001e4d00006c4f0000f4ce000078d10000aad40000acd40000b4d40000b8d40000ccd40000ced40000ded4000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000009e2700004a28000058280000c2280000e428000094290000462a0000ce2d0000cc2e000066440000f44400003a4600005247000044490000164e00006c500000445200003ea90000a6ab0000cebb0000d0bb000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,8 +619,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c62300008e5700001cd10000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c62300008e5700001cd1000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
