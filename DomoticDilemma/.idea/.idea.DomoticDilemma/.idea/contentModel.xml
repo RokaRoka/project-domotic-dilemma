@@ -46,6 +46,7 @@
                 <e p="PlayerMovement.cs" t="Include" />
               </e>
               <e p="SmartHouse" t="Include">
+                <e p="DoorGroupScript.cs" t="Include" />
                 <e p="DoorScript.cs" t="Include" />
                 <e p="RoomScript.cs" t="Include" />
                 <e p="Sensors" t="Include">

@@ -1,20 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-[RequireComponent(typeof(SensorScript))]
+[RequireComponent(typeof(Camera))]
 
-//This script is 1 of 3 specific scripts for sensors. This script sends info to the sensor script.
 public class CameraScript : MonoBehaviour {
 
-    //sensor script refernece!
-    private SensorScript sensorScript;
+	public delegate void FindPlayerEventHandler (object source, EventArgs e);
 
-    //door to close when out of sight
-    public GameObject doorToUse;
+	public event FindPlayerEventHandler FindingPlayer;
+	
+	public event FindPlayerEventHandler LosingPlayer;
 
     //Camera details
-
     //where to shoot the ray from
     public GameObject lens;
     private Camera actualCamera;
@@ -29,14 +29,13 @@ public class CameraScript : MonoBehaviour {
 	
 	//player found bool
 	public bool _playerFound = false;
-	public bool _playerGone = true;
+	
     //layer mask for the player
     private int layerMask = 1 << 8;
 
     private void Start()
     {
         actualCamera = lens.GetComponent<Camera>();
-        sensorScript = GetComponent<SensorScript>();
     }
 
     // Update is called once per frame
@@ -44,25 +43,15 @@ public class CameraScript : MonoBehaviour {
 	{
 		if (_lookingForPlayer)
 		{
-			if (!_playerFound)
+			_playerFound = CheckForPlayer();
+			if (_playerFound)
 			{
-				_playerFound = CheckForPlayer();
-				if (_playerFound)
-				{
-					_playerGone = false;
-					sensorScript.PlayerFound(); //tell the room script
-				}
+				OnFindPlayer();
 			}
 			else
 			{
-				_playerGone = !CheckForPlayer();
-				if (_playerGone)
-				{
-					_playerFound = false;
-					sensorScript.PlayerLost(); //tell the room script
-				
-				}
-			}
+				OnLosePlayer();
+			}	
 		}
 	}
 
@@ -99,5 +88,19 @@ public class CameraScript : MonoBehaviour {
         }
 
         return false;
+	}
+	
+	
+
+	protected virtual void OnFindPlayer()
+	{
+		if (FindingPlayer != null)
+			FindingPlayer(this, EventArgs.Empty);
+	}
+	
+	protected virtual void OnLosePlayer()
+	{
+		if (LosingPlayer != null)
+			LosingPlayer(this, EventArgs.Empty);
 	}
 }

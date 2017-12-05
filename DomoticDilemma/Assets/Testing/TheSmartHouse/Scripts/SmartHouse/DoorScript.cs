@@ -11,28 +11,29 @@ public class DoorScript : MonoBehaviour {
     private bool doorOpen = false;
 
 	// Use this for initialization
-	void Start () {
+	private void Start () {
         coll = GetComponent<Collider>();
         doorAnim = GetComponentInChildren<Animator>();
         OpenDoor();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void OpenDoor()
     {
-        doorOpen = true;
-        coll.enabled = false;
-        doorAnim.SetTrigger("OpenDoor");        
+        if (!doorOpen)
+        {
+            doorOpen = true;
+            coll.enabled = false;
+            doorAnim.SetTrigger("OpenDoor");      
+        }     
     }
 
     public void CloseDoor()
     {
-        doorOpen = false;
-        coll.enabled = true;
-        doorAnim.SetTrigger("CloseDoor");
+        if (doorOpen)
+        {
+            doorOpen = false;
+            coll.enabled = true;
+            doorAnim.SetTrigger("CloseDoor");
+        }
     }
 }

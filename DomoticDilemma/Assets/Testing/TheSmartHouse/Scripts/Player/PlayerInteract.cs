@@ -26,9 +26,12 @@ public class PlayerInteract : MonoBehaviour {
     
     // Use this for initialization
     private void Start () {
+        originalColor.a = 0.75f;
+        interactColor.a = 1f;
+        
         firstPersonCamera = Camera.main;
         playerCursorUI.GetComponent<Image>().color = originalColor;
-	}
+    }
 	
 	// Update is called once per frame
 	private void Update () {
@@ -70,8 +73,10 @@ public class PlayerInteract : MonoBehaviour {
         {
             if (t_interactTimer >= _interactCooldown)
             {
-                if (!interacting && interactHighlighted) SendInteraction();
-                else if (interacting) SendUnInteraction();
+                if (!interacting && interactHighlighted)
+                    SendInteraction();
+                else if (interacting)
+                    SendUnInteraction();
                 t_interactTimer = 0;
             }
         }
