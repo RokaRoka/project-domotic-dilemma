@@ -1,0 +1,23 @@
+{{date 6/30/20xx, 4:09am
+Mary, the house is absolutely taking Quinn away from me and I will not stand for it. I’M Quinn’s mother. Why isn’t Aumry doing anything about this?
+Doesn’t matter, I guess. I’ll be doing something about it soon.}}
+
+
+Aumry: “‘Do something about it’… She couldn’t be referring to…?”
+
+
+House: “Nova meant to shut off the smart house. Quinn went to stop her.”
+
+
+Aumry:         
+	> “Are you talking about the night Nova died?” (courage +1)
+		>> House: “Yes. While manipulating the circuit board in what would have been a medically-diagnosed state of delirium, she was electrocuted.”
+		>> Aumry: “Yes, I knew that, but I didn’t know… I never knew Quinn was there when it happened. Nova’s fear that Quinn was abandoning her for you…”
+			>>> “It wasn’t ungrounded, was it?” (courage +1)
+				>>>> House: “No. It was not.”
+			>>> “Was ridiculous because that wasn’t what was happening.” (fear +1)
+				>>>> House: “You know that is not true.”
+	> “Nova would never do something like that! She wasn’t crazy!” (fear +1)
+		>> House: “You say that, yet everything says otherwise.”
+		>> Aumry: “She was just caring for Quinn! Nova knew what was best!”
+		>> House: “You know that is not true.”

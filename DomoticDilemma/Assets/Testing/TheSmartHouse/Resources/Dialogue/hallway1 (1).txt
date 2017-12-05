@@ -1,0 +1,23 @@
+House: “Unidentified movement in inner, first floor hallway. Activate defensive protocol?”
+
+
+Aumry: “What? Wait, don’t─”
+
+
+House: “Defensive protocol activated. Second floor sealed.”
+
+
+Aumry: “What? This is ridiculous.”
+	> “Why would you attack me in my own home?” (fear +1)
+		>> House: “Defensive protocol is programmed to activate when an unidentified person enters a secured room.”
+		>> Aumry: “How am I an unidentified person? I know I had to trick you into getting here, but…”
+			>>> “But… nevermind. You’re not going to give me answers anyway.” (fear +1)
+			>>> “But you’re keeping Quinn from me, and I need to know what’s going on.” (courage +1)
+				>>>> House: “Quinn is sleeping, do not disturb.”
+	> “You know I’m here now, please explain what’s going on.” (courage +1)
+		>> House: “Defensive protocol activated because there was a previously unidentified person in a secured room.”
+		>> Aumry: “I was really unidentified? That camera trick really worked… Smart House programming isn’t as advanced as I thought…”
+			>>> “I might actually be able to shut down the house.” (fear +1)
+				>>>> “Getting to the basement might be a problem though.”
+			>>> “Getting to Quinn’s room will be easy.” (courage +1)
+				>>>> “I have to make sure they’re safe.”

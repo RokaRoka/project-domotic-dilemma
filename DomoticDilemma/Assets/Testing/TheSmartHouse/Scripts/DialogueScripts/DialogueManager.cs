@@ -5,13 +5,38 @@ using UnityEngine.UI;
 
 public enum DialogueChunkName
 {
-	TEST_1, TEST_2
+	BASEMENT_1, BASEMENT_2,
+    BATHROOM_1, BATHROOM_2_DEATH, BATHROOM_2_LIVE_NOEMAILS, BATHROOM_2_LIVE_EMAILS,
+
+    HALLWAY_1_1, HALLWAY_1_2,
+    HALLWAY_2_1,
+
+    KITCHEN_1, KITCHEN_2,
+    KITCHEN_3_FRIDGE_DRAWING_1, KITCHEN_3_FRIDGE_DRAWING_2, KITCHEN_3_FRIDGE_DRAWING_3,
+    KITCHEN_4_DOOR_PREPUZZLE,
+
+    OFFICE_1,
+    OFFICE_EMAIL_1,
+    OFFICE_EMAIL_2,
+    OFFICE_EMAIL_3,
+    OFFICE_EMAIL_4,
+    OFFICE_EMAIL_5,
+    OFFICE_EMAIL_6,
+    OFFICE_EMAIL_7,
+    OFFICE_EMAIL_8,
+    OFFICE_EMAIL_9,
+    OFFICE_EMAIL_10,
+
+    PARENTSROOM_1,
+    PARENTSROOM_2_PHOTOGRAPHS,
+
+    TEST
 }
 
 public class DialogueManager : MonoBehaviour {
 
 	//reference to Game Controller
-	private SmartHouseManage gameMange;
+	private SmartHouseManage gameManage;
 	
 	//references to UI
 	public GameObject dialogueLineUI;
@@ -32,23 +57,30 @@ public class DialogueManager : MonoBehaviour {
 	public bool isTicking = true;
 	
 	//Debug text asset
+    private int testIndex = 0;
 	public TextAsset testText;
 	
 	private void Awake()
 	{
-		gameMange = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
+		gameManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
 		decisionUIObjects[0] = dialogueDecisionHolderUI.transform.GetChild(0).gameObject;
 		decisionUIObjects[1] = dialogueDecisionHolderUI.transform.GetChild(1).gameObject;
 		
-		//LoadAllDialogue();
+		LoadAllDialogue();
 	}
 
 	private void Update()
 	{
+        ///*
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            testIndex++;
+        }
 		if (Input.GetKeyDown(KeyCode.T))
 		{
 			TestDialogueChunk();
 		}
+        //*/
 		if (isTicking)
 			Tick();
 	}
@@ -82,7 +114,7 @@ public class DialogueManager : MonoBehaviour {
 	public void PlayDialogueChunk(int index)
 	{
 		currentChunk = allDialogues[index];
-		gameMange.SwitchDialogueState(DialogueState.dialogue);
+		gameManage.SwitchDialogueState(DialogueState.dialogue);
 		dialogueLineUI.SetActive(true);
 		Debug.Log("Line amount: "+currentChunk.lineAmount);
 		NextDialogueLine();
@@ -174,7 +206,7 @@ public class DialogueManager : MonoBehaviour {
 	}
 	
 	private void EndDialogueChunk() {
-		//do effect of Dialogue chunk	
+        currentChunk.isComplete = true;
 		currentChunk = null;
 		currentIndex = -1;
 		dialogueLineUI.SetActive(true);
@@ -182,7 +214,7 @@ public class DialogueManager : MonoBehaviour {
 
 	private void InitiateDecision() {
 		//Change GameState. The resulting three lines should be done in game manager
-		gameMange.SwitchDialogueState(DialogueState.decision);
+		gameManage.SwitchDialogueState(DialogueState.decision);
 		Cursor.lockState = CursorLockMode.None;
 		isTicking = false;
 		
@@ -222,7 +254,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public void Decision1Chosen() {
 		//Change State
-		gameMange.SwitchDialogueState(DialogueState.dialogue);
+		gameManage.SwitchDialogueState(DialogueState.dialogue);
 		Cursor.lockState = CursorLockMode.Locked;
 		isTicking = true;
 
@@ -239,7 +271,7 @@ public class DialogueManager : MonoBehaviour {
 	public void Decision2Chosen()
 	{
 		//Change State
-		gameMange.SwitchDialogueState(DialogueState.dialogue);
+		gameManage.SwitchDialogueState(DialogueState.dialogue);
 		Cursor.lockState = CursorLockMode.Locked;
 		isTicking = true;
 
@@ -253,11 +285,14 @@ public class DialogueManager : MonoBehaviour {
 		decisionUIObjects[1].SetActive(false);
 	}
 	
+    public bool CheckDialogueChunkComplete(DialogueChunkName chunkToCheck)
+    {
+        return allDialogues[(int)chunkToCheck].isComplete;
+    }
+
 	public void TestDialogueChunk()
 	{
-		allDialogues = new DialogueChunk[2];
-		allDialogues[0] = new DialogueChunk(testText.text);
-		PlayDialogueChunk(0);
+		PlayDialogueChunk(testIndex);
 	}
 
 }

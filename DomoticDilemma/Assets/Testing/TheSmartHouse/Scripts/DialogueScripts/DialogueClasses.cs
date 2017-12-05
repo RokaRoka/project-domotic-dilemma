@@ -125,11 +125,13 @@ public class DialogueChunk
 	private DecisionPoint[] decisions;
 	
 	//The player's dialogue line history
-	private string[] lineHistory;
+	//private string[] lineHistory;
 	
 	public int lineAmount;
 	public int decisionAmount;
-	
+
+    public bool isComplete = false;
+
 	public DialogueChunk() {
 		//default class constructor
 	}
@@ -324,7 +326,7 @@ public class DialogueChunk
 	private void InitializeDialogueChunkArrays()
 	{
 		lines = new DialogueLine[lineAmount];
-		lineHistory= new string[lineAmount];
+		//lineHistory= new string[lineAmount];
 		decisions = new DecisionPoint[decisionAmount];
 	}
 

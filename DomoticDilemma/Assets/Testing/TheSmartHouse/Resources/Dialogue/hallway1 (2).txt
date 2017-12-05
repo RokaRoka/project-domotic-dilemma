@@ -1,0 +1,38 @@
+Aumry: “I can’t believe I still keep Nova’s old paintings up… They always remind me of the accident, but I guess I really can’t let her go. She really loved her artwork… it was the most important thing to her.”
+
+
+House: “Important, definition. Adjective: of great significance or value; likely to have a profound effect on success, survival, or well-being.”
+
+
+Aumry:
+	> “Her work wasn’t as successful as she wanted.”
+		>> “And getting the part-time job really got to her head, I think. She just wanted to work on her art all day, but it just wasn’t realistic anymore. Especially when…”
+			>>> “Especially when we had Quinn.” (courage +1)
+				>>>> “Her work was really important to her.”
+				>>>> “But other things were just… more important at the time. We were running into all those monetary issues.”
+				>>>> House: “These paintings were hung two and a half years ago, seven months before Nova passed away.”
+				>>>> Aumry: “Thanks but… I had already reminded myself.”
+					>>>>> “I didn’t want these paintings hung here, but she did.” (fear +1)
+					>>>>> “These were the ones we all liked the most.” (courage +1)
+			>>> “Especially when we ran into financial issues.” (fear +1)
+				>>>> “Her work was really important to her.”
+				>>>> “But other things were just… more important at the time. We were running into all those monetary issues.”
+				>>>> House: “These paintings were hung two and a half years ago, seven months before Nova passed away.”
+				>>>> Aumry: “Thanks but… I had already reminded myself.”
+					>>>>> “I didn’t want these paintings hung here, but she did.” (fear +1)
+					>>>>> “These were the ones we all liked the most.” (courage +1)
+                
+	> “Her work was really important to her.”
+		>> “But other things were just… more important at the time. We were running into all those monetary issues.”
+		>> House: “These paintings were hung two and a half years ago, seven months before Nova passed away.”
+		>> Aumry: “Thanks but… I had already reminded myself.”
+			>>> “I didn’t want these paintings hung here, but she did.” (fear +1)
+				>>>> “Her work wasn’t as successful as she wanted.”
+				>>>> “And getting the part-time job really got to her head, I think. She just wanted to work on her art all day, but it just wasn’t realistic anymore. Especially when…”
+					>>>>> “Especially when we had Quinn.” (courage +1)
+					>>>>> “Especially when we ran into financial issues.” (fear +1)
+			>>> “These were the ones we all liked the most.” (courage +1)
+				>>>> “Her work wasn’t as successful as she wanted.”
+				>>>> “And getting the part-time job really got to her head, I think. She just wanted to work on her art all day, but it just wasn’t realistic anymore. Especially when…”
+					>>>>> “Especially when we had Quinn.” (courage +1)
+					>>>>> “Especially when we ran into financial issues.” (fear +1)
