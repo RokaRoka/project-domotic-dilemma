@@ -20,7 +20,7 @@ public class CameraScript : MonoBehaviour {
     private Camera actualCamera;
 
 	//range (units)
-	private float _range = 5f;
+	private float _range = 2000f;
 	//field of view (degrees)
 	private float _fov = 40f;
 	
