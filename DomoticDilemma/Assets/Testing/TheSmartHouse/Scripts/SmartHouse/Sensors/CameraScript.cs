@@ -17,7 +17,8 @@ public class CameraScript : MonoBehaviour {
     //Camera details
     //where to shoot the ray from
     public GameObject lens;
-    private Camera actualCamera;
+	//public GameObject lens2;
+	private Camera actualCamera;
 
 	//range (units)
 	private float _range = 2000f;
@@ -87,7 +88,9 @@ public class CameraScript : MonoBehaviour {
             return true;
         }
 
-        return false;
+		
+
+		return false;
 	}
 	
 	

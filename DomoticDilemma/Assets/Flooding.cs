@@ -7,6 +7,7 @@ public class Flooding : MonoBehaviour {
 	private float counter;
 	private float Scalar = 10;
 	private bool flooding = false;
+	private bool Drain = false;
 
 	public static bool Stop = false; 
 
@@ -29,6 +30,11 @@ public class Flooding : MonoBehaviour {
 		{
 			Flood();
 		}
+		if (Input.GetKeyDown(KeyCode.G))
+		{
+			Drain = true;
+		}
+
 
 	}
 
@@ -49,11 +55,12 @@ public class Flooding : MonoBehaviour {
 			gameObject.SetActive(true);
 
 			
-			Scalar += .038f;
+			//Scalar += .038f;
 			
 
 			if (Scalar <= 40)
 			{
+				Scalar += .038f;
 				gameObject.transform.localScale = new Vector3(Scalar, 1, Scalar);
 			}
 
@@ -67,7 +74,28 @@ public class Flooding : MonoBehaviour {
 				float step = speed * Time.deltaTime;
 				transform.position = Vector3.MoveTowards(transform.position, target, step);
 			}
+			if(Drain == true)
+			{
+				Vector3 descent;
+				descent = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
 
+				if (target.y >= -30)
+				{
+				Scalar -= 0.4f;
+					gameObject.transform.localScale = new Vector3(Scalar, 1, Scalar);
+
+					Debug.Log(target.y);
+					float speed = 1;
+					float step = speed * Time.deltaTime;
+					transform.position = Vector3.MoveTowards(transform.position, descent, step);
+					gameObject.transform.localScale = new Vector3(Scalar, 1, Scalar);
+				}
+				counter += 1;
+				if (counter >= 3)
+				{
+					gameObject.SetActive(false);
+				}
+			}
 
 		}
 
@@ -104,7 +132,7 @@ public class Flooding : MonoBehaviour {
 		if (gameObject.tag == "Flood")
 		{
 			counter += .025f;
-			if (counter >= 31)
+			if (counter >= 31 && Stop == false)
 			{
 				Vector3 target;
 				target = new Vector3(transform.position.x, transform.position.y + 12f, transform.position.z);
@@ -119,6 +147,18 @@ public class Flooding : MonoBehaviour {
 				{
 					Stop = true;
 				}
+			}
+
+			if(Drain==true)
+			{
+				Vector3 descent;
+				descent = new Vector3(transform.position.x, transform.position.y - 500, transform.position.z);
+
+				
+					float speed = 5;
+					float step = speed * Time.deltaTime;
+					transform.position = Vector3.MoveTowards(transform.position, descent, step);
+				
 			}
 		}
 	}

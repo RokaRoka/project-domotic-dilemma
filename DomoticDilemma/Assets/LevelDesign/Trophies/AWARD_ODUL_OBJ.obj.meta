@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: 3557969c5fbef204394deb2df26b56c7
+timeCreated: 1512496824
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: _er_
+    100002: //RootNode
+    100004: Box01
+    100006: Box01_MeshPart0
+    100008: Box01_MeshPart1
+    100010: Box02
+    100012: Box03
+    100014: ChamferCyl01
+    100016: ChamferCyl02
+    100018: Line02
+    100020: Text01
+    100022: Text02
+    100024: Text03
+    100026: Text04
+    400000: _er_
+    400002: //RootNode
+    400004: Box01
+    400006: Box01_MeshPart0
+    400008: Box01_MeshPart1
+    400010: Box02
+    400012: Box03
+    400014: ChamferCyl01
+    400016: ChamferCyl02
+    400018: Line02
+    400020: Text01
+    400022: Text02
+    400024: Text03
+    400026: Text04
+    2300000: _er_
+    2300002: Box01_MeshPart0
+    2300004: Box01_MeshPart1
+    2300006: Box02
+    2300008: Box03
+    2300010: ChamferCyl01
+    2300012: ChamferCyl02
+    2300014: Line02
+    2300016: Text01
+    2300018: Text02
+    2300020: Text03
+    2300022: Text04
+    3300000: _er_
+    3300002: Box01_MeshPart0
+    3300004: Box01_MeshPart1
+    3300006: Box02
+    3300008: Box03
+    3300010: ChamferCyl01
+    3300012: ChamferCyl02
+    3300014: Line02
+    3300016: Text01
+    3300018: Text02
+    3300020: Text03
+    3300022: Text04
+    4300000: _er_
+    4300002: Box01_MeshPart0
+    4300004: Box01_MeshPart1
+    4300006: Box02
+    4300008: Box03
+    4300010: ChamferCyl01
+    4300012: ChamferCyl02
+    4300014: Line02
+    4300016: Text01
+    4300018: Text02
+    4300020: Text03
+    4300022: Text04
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box01Mat
+    second: {fileID: 2100000, guid: 96638df29f20a124fa58a6b0da2adca4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box02Mat
+    second: {fileID: 2100000, guid: 7ebc15c89872fa449a32ff11a0f090e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box03Mat
+    second: {fileID: 2100000, guid: fe1ed6d32dba5174580d721cfea6a91c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChamferCyl01Mat
+    second: {fileID: 2100000, guid: 4b4283666843ed74e96fc26414388da9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChamferCyl02Mat
+    second: {fileID: 2100000, guid: 8d142b9c77a3f734abb1718cd820775e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Line02Mat
+    second: {fileID: 2100000, guid: 4bcfbb2cdddba0d4e86525a96ea9cb14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text01Mat
+    second: {fileID: 2100000, guid: 2754068083a411a479d4797272f2310b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text02Mat
+    second: {fileID: 2100000, guid: 75ab250a478ea52448e7de23cc511f32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text03Mat
+    second: {fileID: 2100000, guid: 01897e1e855cd0346995d10069767f3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text04Mat
+    second: {fileID: 2100000, guid: 61629eb8d93d8fe41a44bc8995c30fd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _er_Mat
+    second: {fileID: 2100000, guid: 81a8bedefbd75e449a62ff2c510a16db, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

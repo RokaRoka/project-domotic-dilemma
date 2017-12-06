@@ -11,12 +11,19 @@ public class DoorScript : MonoBehaviour {
 
 	private bool doorOpen = false;
 
+	
 	// Use this for initialization
 	private void Start () {
         coll = GetComponent<Collider>();
 		//doorAnim = GetComponentsInChildren<Animator>();
 		doorAnim = GetComponent<Animator>();
-		OpenDoor();
+
+		if (gameObject.layer == 9)
+		{
+
+
+			OpenDoor();
+		}
 	}
 
     public void OpenDoor()
