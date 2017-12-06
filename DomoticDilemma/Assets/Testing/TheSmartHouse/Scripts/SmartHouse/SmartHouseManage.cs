@@ -44,6 +44,13 @@ public class SmartHouseManage : MonoBehaviour {
 
     public event PlayerExploreEventHandler PlayerExplore;
 
+    //DIALOGUE VARIABLES
+    public delegate void DialogueEnterEventHandler(object source, EventArgs args);
+
+    public event DialogueEnterEventHandler DialogueEnter;
+
+    public event DialogueEnterEventHandler DecisionEnter;
+
     //ticking variable
     private float t = 0;
 
@@ -204,8 +211,15 @@ public class SmartHouseManage : MonoBehaviour {
             PlayerExplore(this, EventArgs.Empty);
     }
 
-    //public delegate void DialogueStateChanged(object source, EventArgs e);
+    protected virtual void OnDialogueEntered()
+    {
+        if (DialogueEnter != null)
+            DialogueEnter(this, EventArgs.Empty);
+    }
 
-    //public event DialogueStateChanged StateChange;
-
+    protected virtual void OnDecisionEnter()
+    {
+        if (DecisionEnter != null)
+            DecisionEnter(this, EventArgs.Empty);
+    }
 }

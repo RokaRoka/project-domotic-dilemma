@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,9 @@ public class PlayerInteract : MonoBehaviour {
         gameManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
         //event subscription
         gameManage.GamePause += OnGamePaused;
+        gameManage.PlayerExplore += OnPlayerExploration;
+        gameManage.DialogueEnter += OnDialogueEntered;
+        gameManage.DecisionEnter += OnDecisionEntered;
     }
 
     // Use this for initialization
@@ -156,5 +160,20 @@ public class PlayerInteract : MonoBehaviour {
         {
             isTicking = true;
         }
+    }
+
+    private void OnPlayerExploration(object source, EventArgs e)
+    {
+        isTicking = true;
+    }
+
+    private void OnDialogueEntered(object source, EventArgs args)
+    {
+        isTicking = true;
+    }
+
+    private void OnDecisionEntered(object source, EventArgs args)
+    {
+        isTicking = false;
     }
 }

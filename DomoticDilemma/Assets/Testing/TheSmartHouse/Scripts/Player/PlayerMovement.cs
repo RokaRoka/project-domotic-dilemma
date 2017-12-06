@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour {
         //event subscription
         gameManage.GamePause += OnGamePaused;
         gameManage.PlayerExplore += OnPlayerExploration;
+        gameManage.DialogueEnter += OnDialogueEntered;
+        gameManage.DecisionEnter += OnDecisionEntered;
     }
 
     // Use this for initialization
@@ -197,6 +199,16 @@ public class PlayerMovement : MonoBehaviour {
     private void OnPlayerExploration(object source, EventArgs e)
     {
         isTicking = true;
+    }
+
+    private void OnDialogueEntered(object source, EventArgs args)
+    {
+        isTicking = true;
+    }
+
+    private void OnDecisionEntered(object source, EventArgs args)
+    {
+        isTicking = false;
     }
 
     private void OnCollisionEnter(Collision other)
