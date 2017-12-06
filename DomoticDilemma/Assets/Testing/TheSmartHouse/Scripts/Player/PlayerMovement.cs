@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Threading;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+	public OfficeDoor officeDoor;
+	public UpstairsDoor upstairsDoor;
+	public BasementDoor basementDoor;
 	//other gameobject refs
 	private GameObject firstPersonCamera;
 	
@@ -23,7 +28,15 @@ public class PlayerMovement : MonoBehaviour {
 	public float walkSpeed = 1f;
 	public float jumpForce = 10f;
 	public float Scalar;
-	
+
+	public static bool power = true;
+	public static bool card = true;
+	public static bool bottom = true;
+
+	private bool touching = false;
+	private bool touching2 = false;
+	private bool touching3 = false;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -40,6 +53,33 @@ public class PlayerMovement : MonoBehaviour {
 		CheckMouse();
 		CheckInput();
 		RotateBody();
+		
+		if(touching2 == true)
+		{
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+			{
+
+				card = false;
+			}
+		}
+		
+		if (touching3 == true)
+		{
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+			{
+
+				bottom = false;
+			}
+		}
+
+		if (touching == true)
+		{
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+			{
+				Debug.Log("hm");
+				power = false;
+			}
+		}
 	}
 
 	private void FixedUpdate()
@@ -164,13 +204,73 @@ public class PlayerMovement : MonoBehaviour {
 		transform.localScale = new Vector3(Scalar, Scalar * .95f, Scalar);
 	}
 	
-	private void OnCollisionEnter(Collision other)
+	public void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.CompareTag("Ground"))
 		{
 			onGround = true;
 		}
+
+	/*	if(other.gameObject.tag == "PowerButton")
+		{
+			if(Input.GetKeyDown(KeyCode.Mouse0))
+			{
+				officeDoor.power = false;
+			}
+		}
+
+		if(other.gameObject.tag == "KeyCard")
+		{
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+			{
+
+				upstairsDoor.power = false;
+			}
+		}
+
+		if (other.gameObject.tag == "Calendar")
+		{
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+			{
+
+				basementDoor.power = false;
+			}
+		}*/
 	}
+
+	public void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "PowerButton")
+		{
+			Debug.Log("touch");
+			touching = true;
+			/*if (Input.GetKeyDown(KeyCode.Space))
+			{
+				Debug.Log("hm");
+				power = false;
+			}*/
+		}
+
+		if (other.gameObject.tag == "KeyCard")
+		{
+			Debug.Log("touch");
+			touching2 = true;
+		}
+
+		if (other.gameObject.tag == "Calendar")
+		{
+			touching3 = true;
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		touching = false;
+		touching2 = false;
+		touching3 = false;
+	}
+
+
 
 	private void OnCollisionExit(Collision other)
 	{

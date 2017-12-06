@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour {
 	private Camera actualCamera;
 
 	//range (units)
-	private float _range = 2000f;
+	public float _range = 1000f;
 	//field of view (degrees)
 	private float _fov = 40f;
 	
@@ -83,8 +83,11 @@ public class CameraScript : MonoBehaviour {
 
         //throw out some debug rays
         Debug.DrawRay(lens.transform.position, _centerRotation * _range, Color.black);
-        if (Physics.BoxCast(lens.transform.position + lens.transform.forward * _collSize.z, _collSize, _centerRotation, out hit, lens.transform.rotation, _range, layerMask))
+		Debug.DrawRay(lens.transform.position + (_collSize.x * lens.transform.right) + (_collSize.y * lens.transform.up), _centerRotation * _range, Color.white);
+		Debug.DrawRay(lens.transform.position + (_collSize.x * lens.transform.right * -1) + (_collSize.y * lens.transform.up * -1), _centerRotation * _range, Color.white);
+		if (Physics.BoxCast(lens.transform.position + lens.transform.forward * _collSize.z, _collSize, _centerRotation, out hit, lens.transform.rotation, _range, layerMask))
         {
+			Debug.Log(hit.point + " was the player? and "+hit.transform.name+" Was hit.");
             return true;
         }
 

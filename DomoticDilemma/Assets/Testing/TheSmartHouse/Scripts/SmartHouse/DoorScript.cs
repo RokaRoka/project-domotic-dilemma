@@ -14,7 +14,8 @@ public class DoorScript : MonoBehaviour {
 	
 	// Use this for initialization
 	private void Start () {
-        coll = GetComponent<Collider>();
+       coll = GetComponent<Collider>();
+		
 		//doorAnim = GetComponentsInChildren<Animator>();
 		doorAnim = GetComponent<Animator>();
 
@@ -32,6 +33,7 @@ public class DoorScript : MonoBehaviour {
         {
             doorOpen = true;
             coll.enabled = false;
+			
 			// doorAnim[0].SetTrigger("OpenDoor");
 			//doorAnim[1].SetTrigger("OpenDoor");
 			doorAnim.SetTrigger("OpenDoor");
@@ -44,6 +46,7 @@ public class DoorScript : MonoBehaviour {
         {
             doorOpen = false;
             coll.enabled = true;
+			Debug.Log(coll);
 			//doorAnim[0].SetTrigger("CloseDoor");
 			//doorAnim[1].SetTrigger("CloseDoor");
 			doorAnim.SetTrigger("CloseDoor");

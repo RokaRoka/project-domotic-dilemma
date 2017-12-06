@@ -12,6 +12,11 @@ TagManager:
   - Counter Overflow
   - Faucet
   - DialogueController
+  - PowerButton
+  - KeyCard
+  - jacket
+  - broom
+  - decoy
   layers:
   - Default
   - TransparentFX
@@ -23,7 +28,7 @@ TagManager:
   - 
   - Player
   - InitiallyOpen
-  - 
+  - non-Reflective
   - 
   - 
   - 
