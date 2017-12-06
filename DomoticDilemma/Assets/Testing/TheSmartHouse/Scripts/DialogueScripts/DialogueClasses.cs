@@ -194,7 +194,14 @@ public class DialogueChunk
                 if (m.Groups[5].Success)
                 {
                     decisions[decisionCount] = CreateNewDecision(count, decisionForkDepth);
-                    lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+                    Match _ = Regex.Match(m.Value, decisionForkPattern);
+                    if (_.Groups[3].Value == "courage")
+                    {
+                        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+                    } else
+                    {
+                        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
+                    }
                     count++;
                     decisionCount++;
                 }
@@ -246,7 +253,15 @@ public class DialogueChunk
 				        if (dpIndex >= 0)
 				        {
 					        decisions[dpIndex].SetDecision2Index(count);
-					        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+                            Match _ = Regex.Match(m.Value, decisionForkPattern);
+                            if (_.Groups[3].Value == "courage")
+                            {
+                                lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+                            }
+                            else
+                            {
+                                lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
+                            }
 					        count++;
 				        }
 				        else
@@ -322,21 +337,22 @@ public class DialogueChunk
 	{
 		return DecisionPoint.QueryDecisions(decisions, lineIndex);
 	}
-	
-	public string GetDecisionText(int lineIndex, int firstOrSecond) {
-		//this is where we want to querry for the decision
-		DecisionPoint current = DecisionPoint.QueryDecisions(decisions, lineIndex);
-		if (firstOrSecond == 0)
-		{
-			return lines[current.GetDecision1Index()].GetText();
-		}
-		else
-		{
-			return lines[current.GetDecision2Index()].GetText();
-		}
-	}
 
-	public int GetDecisionValue(int lineIndex, int decisionIndex) {
+    public string GetDecisionText(int lineIndex, int firstOrSecond)
+    {
+        //this is where we want to querry for the decision
+        DecisionPoint current = DecisionPoint.QueryDecisions(decisions, lineIndex);
+        if (firstOrSecond == 0)
+        {
+            return lines[current.GetDecision1Index()].GetText();
+        }
+        else
+        {
+            return lines[current.GetDecision2Index()].GetText();
+        }
+    }
+
+	public int GetDecisionValue(int lineIndex) {
 		return lines[lineIndex].GetDecisionValue();
 	}
 

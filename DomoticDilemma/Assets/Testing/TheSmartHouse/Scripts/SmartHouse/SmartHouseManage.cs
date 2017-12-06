@@ -116,10 +116,10 @@ public class SmartHouseManage : MonoBehaviour {
                 //exit dialogue event
                 break;
             case DialogueState.dialogue:
-                //dialogue event
+                OnDialogueEnter();
                 break;
             case DialogueState.decision:
-                //decision event
+                OnDecisionEnter();
                 break;
             default:
                 Debug.LogError("Error: Invalid state in SmartHouseManage: SwitchDialogueState().");
@@ -151,7 +151,7 @@ public class SmartHouseManage : MonoBehaviour {
         if (t <= 0)
         {
             Debug.Log("Trying to pause");
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
             controlStateBeforePause = currentControlState;
             SwitchControlState(ControlState.pause);
             return true;
@@ -174,18 +174,20 @@ public class SmartHouseManage : MonoBehaviour {
 
     public void EnterDialogue()
     {
+        Debug.Log("Entering Dialogue");
         Cursor.lockState = CursorLockMode.Locked;
         SwitchDialogueState(DialogueState.dialogue);
     }
 
     public void ExitDialogue()
     {
-        SwitchDialogueState(DialogueState.dialogue);
+        SwitchDialogueState(DialogueState.none);
     }
 
     public void EnterDecision()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Debug.Log("Entering Decision");
+        Cursor.lockState = CursorLockMode.None;
         SwitchDialogueState(DialogueState.decision);
     }
 
@@ -211,7 +213,7 @@ public class SmartHouseManage : MonoBehaviour {
             PlayerExplore(this, EventArgs.Empty);
     }
 
-    protected virtual void OnDialogueEntered()
+    protected virtual void OnDialogueEnter()
     {
         if (DialogueEnter != null)
             DialogueEnter(this, EventArgs.Empty);

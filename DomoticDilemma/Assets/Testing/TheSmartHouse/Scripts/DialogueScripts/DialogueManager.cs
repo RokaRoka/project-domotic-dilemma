@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,6 +38,7 @@ public class DialogueManager : MonoBehaviour {
 
 	//reference to Game Controller
 	private SmartHouseManage gameManage;
+    private MoralityManage moralitySystem;
 	
 	//references to UI
 	public GameObject dialogueLineUI;
@@ -54,7 +56,7 @@ public class DialogueManager : MonoBehaviour {
 	private float time_between_dialogue = 0.5f;
 
 	//Ticking var
-	public bool isTicking = true;
+	private bool isTicking = true;
 	
 	//Debug text asset
     private int testIndex = 0;
@@ -63,12 +65,14 @@ public class DialogueManager : MonoBehaviour {
 	private void Awake()
 	{
 		gameManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
+        moralitySystem = GameObject.FindGameObjectWithTag("MoralityController").GetComponent<MoralityManage>();
 		decisionUIObjects[0] = dialogueDecisionHolderUI.transform.GetChild(0).gameObject;
 		decisionUIObjects[1] = dialogueDecisionHolderUI.transform.GetChild(1).gameObject;
 
         //subscribe to events
         gameManage.GamePause += OnGamePaused;
-
+        gameManage.DialogueEnter += OnDialogueEntered;
+        gameManage.DecisionEnter += OnDecisionEntered;
 		LoadAllDialogue();
 	}
 
@@ -106,7 +110,7 @@ public class DialogueManager : MonoBehaviour {
 
 	//finish dialogue system
 	private void LoadAllDialogue() {
-		Object[] dialogueFiles = Resources.LoadAll("Dialogue", typeof(TextAsset));
+		UnityEngine.Object[] dialogueFiles = Resources.LoadAll("Dialogue", typeof(TextAsset));
 		allDialogues = new DialogueChunk[dialogueFiles.Length];
 
 		for (int i = 0; i < dialogueFiles.Length; i++) {
@@ -267,7 +271,8 @@ public class DialogueManager : MonoBehaviour {
         //Change State
         gameManage.EnterDialogue();
 
-		//store decision
+        //store decision
+        moralitySystem.AddValue(currentChunk.GetDecisionValue(currentDecisionPoint.GetDecision1Index()));
 		currentDecisionPoint.decisionFulfilled = true;
 		currentDecisionPoint = null;
 		//Update the actual Dialogue line
@@ -282,8 +287,9 @@ public class DialogueManager : MonoBehaviour {
 		//Change State
 		gameManage.EnterDialogue();
 
-		//store decision
-		currentDecisionPoint.decisionFulfilled = true;
+        //store decision
+        moralitySystem.AddValue(currentChunk.GetDecisionValue(currentDecisionPoint.GetDecision2Index()));
+        currentDecisionPoint.decisionFulfilled = true;
 		currentDecisionPoint = null;
 		//Update the actual Dialogue line
 		UpdateDialogueLineUI(currentChunk.GetDecisionText(currentIndex, 1));
@@ -313,6 +319,16 @@ public class DialogueManager : MonoBehaviour {
         {
             isTicking = true;
         }
+    }
+
+    private void OnDialogueEntered(object source, EventArgs args)
+    {
+        isTicking = true;
+    }
+
+    private void OnDecisionEntered(object source, EventArgs args)
+    {
+        isTicking = false;
     }
 
 }
