@@ -1,0 +1,3 @@
+	> "I wonder if that’s…"
+		>> "Quinn and I." (courage +1)
+		>> "Quinn and… somebody else." (fear +1)

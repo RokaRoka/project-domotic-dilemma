@@ -1,0 +1,2 @@
+	> "Quinn drew this? Perhaps they’re sad too, to draw something like this." (courage +1)
+	> "This is so depressing, can’t Quinn draw anything happy?" (fear +1)

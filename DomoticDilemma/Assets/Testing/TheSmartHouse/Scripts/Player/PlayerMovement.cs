@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+	//other gameobject refs
+    private SmartHouseManage gameManage;
+    private GameObject firstPersonCamera;
+
 	public OfficeDoor officeDoor;
 	public UpstairsDoor upstairsDoor;
 	public BasementDoor basementDoor;
-	//other gameobject refs
-	private GameObject firstPersonCamera;
 	
 	//rigidbody
 	private Rigidbody rb;
@@ -37,22 +39,35 @@ public class PlayerMovement : MonoBehaviour {
 	private bool touching2 = false;
 	private bool touching3 = false;
 
-	// Use this for initialization
-	void Start ()
-	{
-		//put this in a game manager later
-		Cursor.lockState = CursorLockMode.Locked;
+    //ticking variable
+    private bool isTicking = true;
 
+    private void Awake()
+    {
+        gameManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
+        //event subscription
+        gameManage.GamePause += OnGamePaused;
+        gameManage.PlayerExplore += OnPlayerExploration;
+        gameManage.DialogueEnter += OnDialogueEntered;
+        gameManage.DecisionEnter += OnDecisionEntered;
+    }
+
+    // Use this for initialization
+    private void Start ()
+	{
 		firstPersonCamera = Camera.main.gameObject;
 		
 		rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		CheckMouse();
-		CheckInput();
-		RotateBody();
+	private void Update () {
+        if (isTicking)
+        {
+            CheckMouse();
+            CheckInput();
+            RotateBody();
+        }
 		
 		if(touching2 == true)
 		{
@@ -203,8 +218,39 @@ public class PlayerMovement : MonoBehaviour {
 		//transform.localScale = Vector3.one;
 		transform.localScale = new Vector3(Scalar, Scalar * .95f, Scalar);
 	}
-	
-	public void OnCollisionEnter(Collision other)
+
+    //event callbacks
+    private void OnGamePaused(object source, PauseEventArgs args)
+    {
+        if (args.isPaused)
+        {
+            Debug.Log("Player is certainly pausing.");
+            isTicking = false;
+        }
+        else
+        {
+            Debug.Log("Player is certainly NOT pausing.");
+            if (gameManage.GetDialogueState() != DialogueState.decision)
+                isTicking = true;
+        }
+    }
+
+    private void OnPlayerExploration(object source, EventArgs e)
+    {
+        isTicking = true;
+    }
+
+    private void OnDialogueEntered(object source, EventArgs args)
+    {
+        isTicking = true;
+    }
+
+    private void OnDecisionEntered(object source, EventArgs args)
+    {
+        isTicking = false;
+    }
+
+    private void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.CompareTag("Ground"))
 		{

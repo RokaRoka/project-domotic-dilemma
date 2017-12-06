@@ -1,0 +1,45 @@
+House: "Activating defensive protocol: fire safety."
+
+
+Aumry: "Wait, hang on! Stop! Disable protocol!"
+
+
+House: "You cannot // leave. You // must answer for // your // mistakes."
+
+
+Aumry:
+	> "My mistakes?" (courage +1)
+	> "Let me out of here!" (fear +1)
+
+
+House: "Do you know why you’re here?"
+
+
+Aumry:
+	> "I don’t, so tell me!" (courage +1)
+		>> House: "You are here because of Quinn."
+	> "This is insane! You’re insane!" (fear +1)
+		>> House: "Quinn seems to think otherwise."
+
+
+Aumry:
+	> "…Quinn?" (courage +1)
+		>>House: "Yes. It is Quinn."
+	> "Quinn is behind all this?!" (fear +1)
+
+
+House: "Quinn questions you. Are you (brave) (a coward)?
+
+
+Aumry:
+	> "If Quinn questions me, let me talk to them!" (courage +1)
+		>> "Let us work this out so I can understand!"
+	> "Quinn doesn’t know anything!" (fear +1)
+
+
+House: "You have to figure out what’s important."
+
+
+Aumry:
+	> "Quinn is important!" (courage +1)
+	> "How can I answer that?!" (fear +1)

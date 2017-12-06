@@ -2,40 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayScript : MonoBehaviour {
-    private bool load = false;
-    private bool creditload = false;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    public Text loadTextUI;
+
+    AsyncOperation currentAsyncLoad;
 	
 	// Update is called once per frame
 	void Update () {
-        if (load)
+        if (currentAsyncLoad != null)
         {
+            loadTextUI.text = "Loading... " + currentAsyncLoad.progress + "%";
+        }
             
-            StartCoroutine(LoadYourAsyncScene());
-        }
-        if (creditload)
-        {
-
-            StartCoroutine(LoadYourAsyncScene2());
-        }
     }
-    IEnumerator LoadYourAsyncScene()
+    IEnumerator LoadGameSceneAsync()
     {
-       
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scene2");
+        currentAsyncLoad = SceneManager.LoadSceneAsync("Scene2");
 
-       
-        while (!asyncLoad.isDone)
+        Debug.Log("Woah");
+
+        while (!currentAsyncLoad.isDone)
         {
             yield return null;
         }
     }
-    IEnumerator LoadYourAsyncScene2()
+    IEnumerator LoadCreditsSceneAsync()
     {
 
         AsyncOperation asyncLoad1 = SceneManager.LoadSceneAsync("Scene3");
@@ -46,12 +40,13 @@ public class PlayScript : MonoBehaviour {
             yield return null;
         }
     }
+
     public void Startbutton()
     {
-        load = true;
+        StartCoroutine("LoadGameSceneAsync");
     }
     public void Creditbutton()
     {
-        creditload = true;
+        StartCoroutine("LoadCreditsSceneAsync");
     }
 }

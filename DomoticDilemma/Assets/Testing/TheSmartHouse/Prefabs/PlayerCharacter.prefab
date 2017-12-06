@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 114938069879784110}
   - component: {fileID: 136122183255801042}
   - component: {fileID: 54339380101244672}
+  - component: {fileID: 114431484506966658}
   m_Layer: 8
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -225,6 +226,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 2.5
   jumpForce: 50
+  Scalar: 1
+--- !u!114 &114431484506966658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1583509195378884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac10da8158f88040853df6fd9f65003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114938069879784110
 MonoBehaviour:
   m_ObjectHideFlags: 1

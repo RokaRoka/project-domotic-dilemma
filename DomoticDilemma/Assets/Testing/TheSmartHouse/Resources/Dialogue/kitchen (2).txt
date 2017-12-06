@@ -1,0 +1,15 @@
+Aumry: "You’re keeping me and Quinn separated, but why?"
+
+
+House: "Because Quinn is sleeping."
+
+
+Aumry: "But all the doors are closed… Quinn might be in danger."
+
+
+House: "Quinn is not in danger."
+
+
+Aumry:
+	> "Like I trust anything you have to say. I should just turn you off!" (fear +1)
+	> "Even so, you’re keeping us separated. I want to make sure Quinn is safe with my own two eyes." (courage +1)

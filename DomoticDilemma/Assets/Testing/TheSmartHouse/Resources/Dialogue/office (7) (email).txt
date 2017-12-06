@@ -1,0 +1,6 @@
+﻿{{date 12/19/20xx, 1:33pm
+Dear Nova,
+The following is the bill from Insurance Co. K. Please process payment within five business days, else treatment will cease.
+Amount: $23,500
+Regards,
+-Dr. M}}

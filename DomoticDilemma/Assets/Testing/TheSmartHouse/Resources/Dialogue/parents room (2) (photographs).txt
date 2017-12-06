@@ -1,0 +1,8 @@
+House: "Do you know why you’re not happy anymore?"
+
+
+Aumry:
+	> "Yes, because…" (courage +1)
+		>> "Yes, because Nova passed away and Quinn became distant towards me. The issue with the stove… I have to believe it was your fault."
+	> "No, because…" (fear +1)
+		>> "No, because we've always been happy. Quinn and Nova… they had their differences, but in the end we're all still family. No matter what happens, we'll always be family."

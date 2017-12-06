@@ -1,0 +1,5 @@
+Aumry: "The house was right. I am a coward. But maybe there’s still something I can do to help…"
+	> (turn the house off)
+		>> "You can’t keep me from Quinn now."
+	> (go back to Quinn’s room)
+		>> House: "Welcome home, Aumry. The time is─"
