@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-	//other gameobject refs
-	private GameObject firstPersonCamera;
+    //other gameobject refs
+    private SmartHouseManage gameManage;
+    private GameObject firstPersonCamera;
 	
 	//rigidbody
 	private Rigidbody rb;
@@ -23,23 +24,33 @@ public class PlayerMovement : MonoBehaviour {
 	public float walkSpeed = 1f;
 	public float jumpForce = 10f;
 	public float Scalar;
-	
-	// Use this for initialization
-	void Start ()
-	{
-		//put this in a game manager later
-		Cursor.lockState = CursorLockMode.Locked;
 
+    //ticking variable
+    private bool isTicking = false;
+
+    private void Awake()
+    {
+        gameManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
+        //event subscription
+        gameManage.GamePause += OnGamePaused;
+    }
+
+    // Use this for initialization
+    private void Start ()
+	{
 		firstPersonCamera = Camera.main.gameObject;
 		
 		rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		CheckMouse();
-		CheckInput();
-		RotateBody();
+	private void Update () {
+        if (isTicking)
+        {
+            CheckMouse();
+            CheckInput();
+            RotateBody();
+        }
 	}
 
 	private void FixedUpdate()
@@ -163,8 +174,21 @@ public class PlayerMovement : MonoBehaviour {
 		//transform.localScale = Vector3.one;
 		transform.localScale = new Vector3(Scalar, Scalar * .95f, Scalar);
 	}
-	
-	private void OnCollisionEnter(Collision other)
+
+    //event callbacks
+    private void OnGamePaused(object source, PauseEventArgs args)
+    {
+        if (args.isPaused)
+        {
+            isTicking = false;
+        }
+        else
+        {
+            isTicking = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.CompareTag("Ground"))
 		{

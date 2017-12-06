@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerInteract : MonoBehaviour {
 
     //other gameobject refs
+    private SmartHouseManage gameManage;
+
     public GameObject playerCursorUI;
     private Camera firstPersonCamera;
 
@@ -23,7 +25,17 @@ public class PlayerInteract : MonoBehaviour {
     private float t_interactTimer = 0;
 
     private bool interacting = false;
-    
+
+    //ticking variable for events
+    private bool isTicking = true;
+
+    private void Awake()
+    {
+        gameManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
+        //event subscription
+        gameManage.GamePause += OnGamePaused;
+    }
+
     // Use this for initialization
     private void Start () {
         originalColor.a = 0.75f;
@@ -35,9 +47,14 @@ public class PlayerInteract : MonoBehaviour {
 	
 	// Update is called once per frame
 	private void Update () {
-	    if (t_interactTimer < _interactCooldown) CooldownTick();
-        if (!interacting) CheckInteractible();
-	    CheckInput();
+        if (isTicking)
+        {
+            if (t_interactTimer < _interactCooldown)
+                CooldownTick();
+            if (!interacting)
+                CheckInteractible();
+            CheckInput();
+        }
 	}
 
     private void CheckInteractible()
@@ -127,5 +144,17 @@ public class PlayerInteract : MonoBehaviour {
 
         playerCursorUI.GetComponent<Image>().color = newColor;
     }
-    
+
+    //event callbacks
+    private void OnGamePaused(object source, PauseEventArgs args)
+    {
+        if (args.isPaused)
+        {
+            isTicking = false;
+        }
+        else
+        {
+            isTicking = true;
+        }
+    }
 }

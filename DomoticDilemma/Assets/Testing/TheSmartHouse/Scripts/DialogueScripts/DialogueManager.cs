@@ -65,7 +65,10 @@ public class DialogueManager : MonoBehaviour {
 		gameManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
 		decisionUIObjects[0] = dialogueDecisionHolderUI.transform.GetChild(0).gameObject;
 		decisionUIObjects[1] = dialogueDecisionHolderUI.transform.GetChild(1).gameObject;
-		
+
+        //subscribe to events
+        gameManage.GamePause += OnGamePaused;
+
 		LoadAllDialogue();
 	}
 
@@ -298,5 +301,18 @@ public class DialogueManager : MonoBehaviour {
 	{
 		PlayDialogueChunk(testIndex);
 	}
+
+    //event callbacks
+    private void OnGamePaused(object source, PauseEventArgs args)
+    {
+        if (args.isPaused)
+        {
+            isTicking = false;
+        }
+        else
+        {
+            isTicking = true;
+        }
+    }
 
 }
