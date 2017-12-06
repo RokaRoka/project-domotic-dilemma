@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Threading;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,13 +28,14 @@ public class PlayerMovement : MonoBehaviour {
 	public float Scalar;
 
     //ticking variable
-    private bool isTicking = false;
+    private bool isTicking = true;
 
     private void Awake()
     {
         gameManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<SmartHouseManage>();
         //event subscription
         gameManage.GamePause += OnGamePaused;
+        gameManage.PlayerExplore += OnPlayerExploration;
     }
 
     // Use this for initialization
@@ -180,12 +183,20 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (args.isPaused)
         {
+            Debug.Log("Player is certainly pausing.");
             isTicking = false;
         }
         else
         {
-            isTicking = true;
+            Debug.Log("Player is certainly NOT pausing.");
+            if (gameManage.GetDialogueState() != DialogueState.decision)
+                isTicking = true;
         }
+    }
+
+    private void OnPlayerExploration(object source, EventArgs e)
+    {
+        isTicking = true;
     }
 
     private void OnCollisionEnter(Collision other)

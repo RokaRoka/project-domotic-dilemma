@@ -39,8 +39,24 @@ public class SmartHouseManage : MonoBehaviour {
     //Cooldown after switching in and out of pause states
     public float pauseInputCooldown = 1.5f;
 
+    //EXPLORATION VARIABLES
+    public delegate void PlayerExploreEventHandler(object source, EventArgs args);
+
+    public event PlayerExploreEventHandler PlayerExplore;
+
     //ticking variable
     private float t = 0;
+
+    private void Start()
+    {
+        TryExplore();
+        SwitchDialogueState(DialogueState.none);
+    }
+
+    private void Update()
+    {
+        Tick();
+    }
 
     private void Tick()
     {
@@ -62,14 +78,17 @@ public class SmartHouseManage : MonoBehaviour {
     //For changing states based on public functions
     private void SwitchControlState(ControlState newState)
     {
+        //If last state was pause, run unpause
+        if (currentControlState == ControlState.pause)
+            OnGameUnPause();
         //Switch statement for events
-        switch (currentControlState)
+        switch (newState)
         {
             case ControlState.none:
                 //cutscene
                 break;
             case ControlState.exploration:
-                //exploration
+                OnPlayerExplore();
                 break;
             case ControlState.pause:
                 OnGamePause();
@@ -84,7 +103,7 @@ public class SmartHouseManage : MonoBehaviour {
     private void SwitchDialogueState(DialogueState newState)
     {
         //Switch statement for events
-        switch (currentDialogueState)
+        switch (newState)
         {
             case DialogueState.none:
                 //exit dialogue event
@@ -111,6 +130,7 @@ public class SmartHouseManage : MonoBehaviour {
 
     public bool TryExplore()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         if (t <= 0)
         {
             SwitchControlState(ControlState.exploration);
@@ -123,6 +143,8 @@ public class SmartHouseManage : MonoBehaviour {
     {
         if (t <= 0)
         {
+            Debug.Log("Trying to pause");
+            Cursor.lockState = CursorLockMode.Confined;
             controlStateBeforePause = currentControlState;
             SwitchControlState(ControlState.pause);
             return true;
@@ -134,6 +156,8 @@ public class SmartHouseManage : MonoBehaviour {
     {
         if (t <= 0)
         {
+            Debug.Log("Trying to unpause");
+            Cursor.lockState = CursorLockMode.Locked;
             SwitchControlState(controlStateBeforePause);
             controlStateBeforePause = ControlState.none;
             return true;
@@ -160,6 +184,7 @@ public class SmartHouseManage : MonoBehaviour {
 
     protected virtual void OnGamePause()
     {
+        Debug.Log("Log coming from OnGamePause in GameManager");
         if (GamePause != null)
             GamePause(this, new PauseEventArgs {isPaused = true});
         t = pauseInputCooldown;
@@ -170,6 +195,13 @@ public class SmartHouseManage : MonoBehaviour {
         if (GamePause != null)
             GamePause(this, new PauseEventArgs { isPaused = false });
         t = pauseInputCooldown;
+    }
+
+    protected virtual void OnPlayerExplore()
+    {
+        Debug.Log("Log coming from OnPlayerExplore in GameManager");
+        if (PlayerExplore != null)
+            PlayerExplore(this, EventArgs.Empty);
     }
 
     //public delegate void DialogueStateChanged(object source, EventArgs e);
