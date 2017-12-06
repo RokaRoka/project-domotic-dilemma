@@ -21,22 +21,23 @@ public class Combine : MonoBehaviour {
 			{
 				gameObject.SetActive(false);
 				item.SetActive(false);
-				Instantiate(Decoy, transform.position, Quaternion.identity);
+				Instantiate(Decoy, new Vector3 (transform.position.x, transform.position.y + 20, transform.position.z), Quaternion.identity);
 				Debug.Log("spawn");
+				combined = true;
 			}
 	}
 		if(gameObject.tag == "decoy")
 		{
-			if(transform.position.x >= -1050 && transform.position.x < -1400 )
-			{
-				if (transform.position.y >= 250 && transform.position.y < 350)
-				{
-					if (transform.position.z >= -2100 && transform.position.z < -1700)
-					{
-						combined = true;
-					}
-				}
-			}
+			//if(transform.position.x >= -1050 && transform.position.x < -1400 )
+			//{
+				//if (transform.position.y >= 250 && transform.position.y < 350)
+				//{
+					//if (transform.position.z >= -2100 && transform.position.z < -1700)
+					//{
+						//combined = true;
+					//}
+				//}
+			//}
 		}
 	}
 

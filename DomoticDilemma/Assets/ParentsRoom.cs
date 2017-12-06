@@ -9,6 +9,7 @@ public class ParentsRoom : MonoBehaviour
 	private bool canOpen = false;
 
 	public CameraScript cameraScript;
+	private bool firstTime = true;
 
 public Combine combine;
 
@@ -24,23 +25,39 @@ public Combine combine;
 	// Update is called once per frame
 	void Update()
 	{
-		if (combine.combined == true)
-		{
-			canOpen = true;
-		}
+		//if (combine.combined == true)
+		//{
+			//canOpen = true;
+		//}
 	}
 
 
 	void OnPlayerFound(object source, EventArgs e)
 	{
 		Debug.Log("close");
-		doorScript.CloseDoor();
+
+		if (firstTime)
+		{
+			doorScript.CloseDoor();
+			firstTime = false;
+		}
+		else
+		{
+			doorScript.OpenDoor();
+		}
 	}
 
 	void OnPlayerLost(object source, EventArgs e)
 	{
-		if (canOpen == true)
+		if (firstTime == true)
+		{
 			doorScript.OpenDoor();
+		}
+
+		else
+		{
+			doorScript.CloseDoor();
+		}
 
 	}
 }

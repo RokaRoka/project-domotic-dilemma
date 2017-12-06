@@ -17,7 +17,7 @@ public class PlayerInteract : MonoBehaviour {
     private Color interactColor = Color.cyan;
 
     //raycast vars
-    private int layerMask = 1 << 9;
+    private int layerMask = 1 <<11;
     public float _maxHitRange = 1f;
     public float _interactCooldown = 0.2f;
     private float t_interactTimer = 0;

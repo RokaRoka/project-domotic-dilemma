@@ -17,6 +17,8 @@ TagManager:
   - jacket
   - broom
   - decoy
+  - Fork
+  - Oven
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - Player
   - InitiallyOpen
   - non-Reflective
-  - 
+  - Interactable
   - 
   - 
   - 
