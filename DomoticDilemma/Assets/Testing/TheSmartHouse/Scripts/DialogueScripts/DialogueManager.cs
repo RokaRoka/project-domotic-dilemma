@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour {
 	
 	//Debug text asset
     private int testIndex = 0;
-	public TextAsset testText;
+	//public TextAsset testText;
 	
 	private void Awake()
 	{
@@ -115,7 +115,7 @@ public class DialogueManager : MonoBehaviour {
 	public void PlayDialogueChunk(int index)
 	{
 		currentChunk = allDialogues[index];
-		gameManage.SwitchDialogueState(DialogueState.dialogue);
+		gameManage.EnterDialogue();
 		dialogueLineUI.SetActive(true);
 		Debug.Log("Line amount: "+currentChunk.lineAmount);
 		NextDialogueLine();
@@ -124,7 +124,7 @@ public class DialogueManager : MonoBehaviour {
     public void PlayDialogueChunk(DialogueChunkName chunkName)
     {
         currentChunk = allDialogues[(int)chunkName];
-        gameManage.SwitchDialogueState(DialogueState.dialogue);
+        gameManage.EnterDialogue();
         dialogueLineUI.SetActive(true);
         Debug.Log("Line amount: " + currentChunk.lineAmount);
         NextDialogueLine();
@@ -223,10 +223,8 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	private void InitiateDecision() {
-		//Change GameState. The resulting three lines should be done in game manager
-		gameManage.SwitchDialogueState(DialogueState.decision);
-		Cursor.lockState = CursorLockMode.None;
-		isTicking = false;
+        //Change GameState. The resulting three lines should be done in game manager
+        gameManage.EnterDecision();
 		
 		//Set Decision UI active
 		decisionUIObjects[0].SetActive(true);
@@ -263,10 +261,8 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	public void Decision1Chosen() {
-		//Change State
-		gameManage.SwitchDialogueState(DialogueState.dialogue);
-		Cursor.lockState = CursorLockMode.Locked;
-		isTicking = true;
+        //Change State
+        gameManage.EnterDialogue();
 
 		//store decision
 		currentDecisionPoint.decisionFulfilled = true;
@@ -281,9 +277,7 @@ public class DialogueManager : MonoBehaviour {
 	public void Decision2Chosen()
 	{
 		//Change State
-		gameManage.SwitchDialogueState(DialogueState.dialogue);
-		Cursor.lockState = CursorLockMode.Locked;
-		isTicking = true;
+		gameManage.EnterDialogue();
 
 		//store decision
 		currentDecisionPoint.decisionFulfilled = true;
