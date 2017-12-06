@@ -1,3 +1,3 @@
-Aumry: “Quinn hasn’t had any new drawings recently… I haven’t really paid attention to them either. These two look new…”
-	> “This is incredibly gruesome and disturbing. Why is it on the fridge?” (fear +1)
-	> “I wonder if Quinn is upset about something, kids often vent through drawings.” (courage +1)
+Aumry: "Quinn hasn’t had any new drawings recently… I haven’t really paid attention to them either. These two look new…"
+	> "This is incredibly gruesome and disturbing. Why is it on the fridge?" (fear +1)
+	> "I wonder if Quinn is upset about something, kids often vent through drawings." (courage +1)

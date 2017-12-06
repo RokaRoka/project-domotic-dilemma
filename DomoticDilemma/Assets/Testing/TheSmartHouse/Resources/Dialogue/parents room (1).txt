@@ -1,4 +1,4 @@
-﻿House: “Your bedtime is ten-thirty PM.”
+﻿House: "Your bedtime is ten-thirty PM."
 
 
-Aumry: “Gee. Thanks, house.”
+Aumry: "Gee. Thanks, house."

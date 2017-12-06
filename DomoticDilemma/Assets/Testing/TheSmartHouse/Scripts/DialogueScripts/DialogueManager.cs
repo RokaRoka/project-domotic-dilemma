@@ -50,7 +50,7 @@ public class DialogueManager : MonoBehaviour {
 	private DecisionPoint currentDecisionPoint = null;
 	private int currentIndex = -1;
 	private float t = 0;
-	private float dialogue_show_time = 1f;
+	private float dialogue_show_time = 2f;
 	private float time_between_dialogue = 0.5f;
 
 	//Ticking var
@@ -103,11 +103,12 @@ public class DialogueManager : MonoBehaviour {
 
 	//finish dialogue system
 	private void LoadAllDialogue() {
-		TextAsset[] dialogueFiles = Resources.LoadAll("Dialogue") as TextAsset[];
+		Object[] dialogueFiles = Resources.LoadAll("Dialogue", typeof(TextAsset));
 		allDialogues = new DialogueChunk[dialogueFiles.Length];
 
 		for (int i = 0; i < dialogueFiles.Length; i++) {
-			allDialogues[i] = new DialogueChunk(dialogueFiles[i].text);
+            TextAsset textAsset = (TextAsset)dialogueFiles[i];
+            allDialogues[i] = new DialogueChunk(textAsset.text);
 		}
 	}
 
@@ -120,7 +121,16 @@ public class DialogueManager : MonoBehaviour {
 		NextDialogueLine();
 	}
 
-	/*
+    public void PlayDialogueChunk(DialogueChunkName chunkName)
+    {
+        currentChunk = allDialogues[(int)chunkName];
+        gameManage.SwitchDialogueState(DialogueState.dialogue);
+        dialogueLineUI.SetActive(true);
+        Debug.Log("Line amount: " + currentChunk.lineAmount);
+        NextDialogueLine();
+    }
+
+    /*
 	private void NextDialogueLine() {
 		currentIndex++;
 		if (currentIndex >= currentChunk.lineAmount) {
@@ -152,8 +162,8 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 	*/
-	
-	private void NextDialogueLine()
+
+    private void NextDialogueLine()
 	{
 		currentIndex++;
 		Debug.Log("Next Index: "+currentIndex);

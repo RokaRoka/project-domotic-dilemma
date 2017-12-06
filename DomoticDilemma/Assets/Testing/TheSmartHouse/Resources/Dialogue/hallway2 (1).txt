@@ -1,6 +1,6 @@
-Aumry: “Quinn’s door is locked…”
-	> “Quinn? Quinn are you in there?” (courage +1)
-	> “Quinn, open the door!” (fear +1)
+Aumry: "Quinn’s door is locked…"
+	> "Quinn? Quinn are you in there?" (courage +1)
+	> "Quinn, open the door!" (fear +1)
 
 
-House: “Quinn is sleeping and will not be joining for dinner.”
+House: "Quinn is sleeping and will not be joining for dinner."

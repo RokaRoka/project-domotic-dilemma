@@ -1,42 +1,42 @@
-House: “Welcome home, Aumry. The time is six-fifteen PM.”
+House: "Welcome home, Aumry. The time is six-fifteen PM."
 
 
-Aumry: “I should get dinner then.”
+Aumry: "I should get dinner then."
 
 
-House: “The kitchen is 50% dirty, cleaning required.”
+House: "The kitchen is 50% dirty, cleaning required."
 
 
-Aumry: “‘Cleaning required’…? Did Quinn make a mess?”
+Aumry: "‘Cleaning required’…? Did Quinn make a mess?"
 
 
-House: “Quinn is sleeping and will not be joining you for for dinner.”
+House: "Quinn is sleeping and will not be joining you for for dinner."
 
 
-Aumry: “What? Quinn always joins me for dinner… Well, we did always… prefer Nova’s cooking. Quinn loved her quiche.”
-	> “Anyway, can you call Quinn down for dinner.” (courage +1)
-		>> House: “Quinn is sleeping and will not be joining you for dinner.”
-	> “Anyway, tell Quinn to come down for dinner NOW!” (fear +1)
-		>> House: “Quinn does not want to join you for dinner.”
+Aumry: "What? Quinn always joins me for dinner… Well, we did always… prefer Nova’s cooking. Quinn loved her quiche."
+	> "Anyway, can you call Quinn down for dinner." (courage +1)
+		>> House: "Quinn is sleeping and will not be joining you for dinner."
+	> "Anyway, tell Quinn to come down for dinner NOW!" (fear +1)
+		>> House: "Quinn does not want to join you for dinner."
 
 
-Aumry: “Well, then─”
+Aumry: "Well, then─"
 
 
-House: “Are you forgetting something?”
+House: "Are you forgetting something?"
 
 
-Aumry: “…What?”
+Aumry: "…What?"
 
 
-House: “Why don’t you go say Happy birthday to Quinn?”
+House: "Why don’t you go say Happy birthday to Quinn?"
 
 
-House: “Or have you forgotten that too?”
+House: "Or have you forgotten that too?"
 
 
 Aumry:
-	> “What’s going on? Is Quinn safe?” (courage +1)
-		>> House: “Quinn is sleeping. Happy birthday, Quinn.”
-	> “It’s Quinn’s birthday?” (fear +1)
- 		>> House: “Quinn is sleeping, do not disturb.”
+	> "What’s going on? Is Quinn safe?" (courage +1)
+		>> House: "Quinn is sleeping. Happy birthday, Quinn."
+	> "It’s Quinn’s birthday?" (fear +1)
+ 		>> House: "Quinn is sleeping, do not disturb."

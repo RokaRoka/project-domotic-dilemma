@@ -46,12 +46,14 @@ public class DecisionPoint
 {
 	private int decision1;
 	private int decision2;
+    private int depth;
 	public bool isCompleted = false;
 	public bool decisionFulfilled = false;
 	
 	public DecisionPoint(int _decision1, int decisionDepth)
 	{
 		decision1 = _decision1;
+        depth = decisionDepth;
 	}
 
 	public void SetDecision2Index(int decisionIndex)
@@ -70,6 +72,11 @@ public class DecisionPoint
 		return decision2;
 	}
 
+    public int GetDepth()
+    {
+        return depth;
+    }
+
 	public void DecisionMade()
 	{
 		decisionFulfilled = true;
@@ -81,10 +88,13 @@ public class DecisionPoint
 		//Find decisions that are incomplete and match the same depth
 		for (int i = 0; dpArray.Length > i; i++)
 		{
-			if (!dpArray[i].isCompleted)
-			{
-				return i;
-			}
+            if (dpArray[i] != null)
+            {
+                if (!dpArray[i].isCompleted && dpArray[i].depth == depth)
+                {
+                    return i;
+                }
+            }
 		}
 		return -1;
 	}
@@ -108,13 +118,14 @@ public class DialogueChunk
 	private static string dialoguePattern = "\"(.+)\"";
 	private static string dialoguePattern2 = "\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"";
 	
-	private static string dialoguePattern3 = "\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"|"
+	private static string dialoguePattern3 =  @"([A-Z][a-z]+):\s"+"\"(.+)\"|"
 	                                         +@"\t+(>+)\s"+"\"(.+)\""+@"\s\(\w+\s\+(\d+)\)|"
-	                                         +@"\t+(>+)\s([A-Z][a-z]+):\s"+"\"(.+)\"";
+	                                         +@"\t+(>+)\s([A-Z][a-z]+):\s"+"\"(.+)\"|"
+                                             +@"\t+(>+)\s" + "\"(.+)\"";
 	
 	private static string decisionForkPattern = @"\t+(>+)\s"+"\"(.+)\""+@"\s\((\w+)\s\+(\d+)\)";
 
-	private static string forkDepthPattern = "\t(>)|>(>)";
+	private static string forkDepthPattern = "(>)+";
 	
 	//finished regex's
 	static Regex dialogueLinesRegex = new Regex(dialoguePattern3);
@@ -157,16 +168,22 @@ public class DialogueChunk
 	        if (m.Groups[3].Success)
 	        {
 		        Match _ = Regex.Match(m.Groups[3].Value, forkDepthPattern);
-				int decCount = _.Groups.Count;
+				int decCount = _.Groups[1].Captures.Count;
 	        	decisionForkDepth = decCount;
 	        }
 	        else if (m.Groups[6].Success)
 	        {
 		        Match _ = Regex.Match(m.Groups[6].Value, forkDepthPattern);
-		        int decCount = _.Groups.Count;
+		        int decCount = _.Groups[1].Captures.Count;
 		        decisionForkDepth = decCount;
 	        }
-	        else
+            else if (m.Groups[9].Success)
+            {
+                Match _ = Regex.Match(m.Groups[9].Value, forkDepthPattern);
+                int decCount = _.Groups[1].Captures.Count;
+                decisionForkDepth = decCount;
+            }
+            else
 	        {
 		        decisionForkDepth = 0;
 	        }
@@ -174,10 +191,24 @@ public class DialogueChunk
 	        //do decision stuff here
 	        if (decisionForkDepth > lastDecisionForkDepth)
 	        {
-		        decisions[decisionCount] = CreateNewDecision(count, decisionForkDepth);
-		        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth,int.Parse(m.Groups[5].Value));
-		        count++;
-		        decisionCount++;
+                if (m.Groups[5].Success)
+                {
+                    decisions[decisionCount] = CreateNewDecision(count, decisionForkDepth);
+                    lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+                    count++;
+                    decisionCount++;
+                }
+                else if (m.Groups[6].Success)
+                {
+                    lines[count] = CreateNewDialogueLine(m.Groups[7].Value, m.Groups[8].Value, decisionForkDepth);
+                    count++;
+                }
+                else if (m.Groups[9].Success)
+                {
+                    lines[count] = CreateNewDialogueLine("Aumry", m.Groups[10].Value, decisionForkDepth);
+                    count++;
+                }
+		        
 	        }
 	        else if (decisionForkDepth < lastDecisionForkDepth)
 	        {
@@ -221,7 +252,7 @@ public class DialogueChunk
 				        else
 				        {
 					        //Throw error
-					        Debug.LogError("Error: Incomplete decision not found from depth "+lastDecisionForkDepth+" to "+decisionForkDepth);
+					        Debug.LogError("Error: Open decision not found from depth "+lastDecisionForkDepth+" to "+decisionForkDepth);
 				        }
 			        }
 		        }

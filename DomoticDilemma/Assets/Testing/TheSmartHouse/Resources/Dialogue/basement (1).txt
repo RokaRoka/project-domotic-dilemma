@@ -1,31 +1,31 @@
-Aumry: “I never understood why she liked it down here with no sunlight.”
-	> “Maybe that part of the problem.” (courage +1)
-	> “Maybe it’s just what she liked.” (fear +1)
+Aumry: "I never understood why she liked it down here with no sunlight."
+	> "Maybe that part of the problem." (courage +1)
+	> "Maybe it’s just what she liked." (fear +1)
 
 
-House: “It was the one place where I wasn’t.”
+House: "It was the one place where I wasn’t."
 
 
-Aumry: “She distrusted the technology, yes, but…”
-	> “But she was just part of another mindset.” (fear +1)
-		>> “She liked traditional things.”
-	> “But we talked about it and it and she liked you.” (courage +1)
-		>> “We all appreciated how much easier you made our lives.”
+Aumry: "She distrusted the technology, yes, but…"
+	> "But she was just part of another mindset." (fear +1)
+		>> "She liked traditional things."
+	> "But we talked about it and it and she liked you." (courage +1)
+		>> "We all appreciated how much easier you made our lives."
 
 
-House: “Quinn is more important than what Nova thinks.”
+House: "Quinn is more important than what Nova thinks."
 
 
 Aumry:
-	> “You’re right.” (courage +1)
-		>> “Quinn and Nova never really got along. Nova made that clear whenever she made Quinn cry, and I…”
-			>>> “I stood there and watched.” (courage +1)
-				>>>> “Quinn would retreat to their bedroom in a waterfall of tears. I know Nova didn’t mean it, she was Quinn’s mother, but she thought she knew better.”
-			>>> “I stood there because I couldn’t stop her.” (fear +1)
-				>>>> “Quinn would retreat to their bedroom in a waterfall of tears. I know Nova didn’t mean it, she was Quinn’s mother, but she thought she knew better.”
-	> “You’re wrong.” (fear +1)
-		>> “Quinn is important, yes, but Nova is important too. She was going through a lot. She needed a way to alleviate the stress. Maybe she did it the wrong way, but…”
-			>>> “But sometimes Quinn deserved it.” (fear +2)
-				>>>> House: “Being endlessly berated makes it difficult to tell the difference between wrong and right, Aumry.”
-			>>> “But… but maybe she was… the one in the wrong.” (courage +1)
-				>>>> House: “Being endlessly berated makes it difficult to tell the difference between wrong and right, Aumry.”
+	> "You’re right." (courage +1)
+		>> "Quinn and Nova never really got along. Nova made that clear whenever she made Quinn cry, and I…"
+			>>> "I stood there and watched." (courage +1)
+				>>>> "Quinn would retreat to their bedroom in a waterfall of tears. I know Nova didn’t mean it, she was Quinn’s mother, but she thought she knew better."
+			>>> "I stood there because I couldn’t stop her." (fear +1)
+				>>>> "Quinn would retreat to their bedroom in a waterfall of tears. I know Nova didn’t mean it, she was Quinn’s mother, but she thought she knew better."
+	> "You’re wrong." (fear +1)
+		>> "Quinn is important, yes, but Nova is important too. She was going through a lot. She needed a way to alleviate the stress. Maybe she did it the wrong way, but…"
+			>>> "But sometimes Quinn deserved it." (fear +2)
+				>>>> House: "Being endlessly berated makes it difficult to tell the difference between wrong and right, Aumry."
+			>>> "But… but maybe she was… the one in the wrong." (courage +1)
+				>>>> House: "Being endlessly berated makes it difficult to tell the difference between wrong and right, Aumry."
