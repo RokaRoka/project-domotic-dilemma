@@ -21,7 +21,7 @@ public class Combine : MonoBehaviour {
 			{
 				gameObject.SetActive(false);
 				item.SetActive(false);
-				Instantiate(Decoy, new Vector3 (transform.position.x, transform.position.y + 20, transform.position.z), Quaternion.identity);
+				Instantiate(Decoy, new Vector3 (transform.position.x, 400, transform.position.z), Quaternion.identity);
 				Debug.Log("spawn");
 				combined = true;
 			}
