@@ -26560,5 +26560,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3125a4fd33b527b4b95289167d8d9d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Arrow: {fileID: 0}
-  smoke1: {fileID: 0}
+  Arrow: {fileID: 100002, guid: 0adfca92e548a104bb38e72187840bf5, type: 3}
+  smoke1: {fileID: 100002, guid: 0adfca92e548a104bb38e72187840bf5, type: 3}

@@ -19,6 +19,8 @@ TagManager:
   - decoy
   - Fork
   - Oven
+  - MoralityController
+  - Calendar
   layers:
   - Default
   - TransparentFX

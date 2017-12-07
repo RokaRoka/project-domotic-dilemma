@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour {
 	public OfficeDoor officeDoor;
 	public UpstairsDoor upstairsDoor;
 	public BasementDoor basementDoor;
+
+	public Material Button;
+
+	public GameObject KeyCard;
 	
 	//rigidbody
 	private Rigidbody rb;
@@ -58,6 +62,7 @@ public class PlayerMovement : MonoBehaviour {
 		firstPersonCamera = Camera.main.gameObject;
 		
 		rb = GetComponent<Rigidbody>();
+		Button.SetColor("_Emission", new Color(1, 0, 0, 1));
 	}
 	
 	// Update is called once per frame
@@ -75,6 +80,7 @@ public class PlayerMovement : MonoBehaviour {
 			{
 
 				card = false;
+				KeyCard.SetActive(false);
 			}
 		}
 		
@@ -84,6 +90,7 @@ public class PlayerMovement : MonoBehaviour {
 			{
 
 				bottom = false;
+				
 			}
 		}
 
@@ -93,6 +100,7 @@ public class PlayerMovement : MonoBehaviour {
 			{
 				Debug.Log("hm");
 				power = false;
+				Button.SetColor("_Emission", new Color(.05f,0,0,1));
 			}
 		}
 	}

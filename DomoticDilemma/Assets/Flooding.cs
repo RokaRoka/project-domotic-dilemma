@@ -60,7 +60,7 @@ public class Flooding : MonoBehaviour {
 
 			if (Scalar <= 40)
 			{
-				Scalar += .038f;
+				Scalar += .05f;
 				gameObject.transform.localScale = new Vector3(Scalar, 1, Scalar);
 			}
 
@@ -104,7 +104,7 @@ public class Flooding : MonoBehaviour {
 			
 			counter += .03f;
 
-			if(counter >= 30)
+			if(counter >= 20)
 			{
 				BasinOverflow.SetActive(true);
 			}
@@ -118,7 +118,7 @@ public class Flooding : MonoBehaviour {
 		if (gameObject.tag == "Counter Overflow")
 		{
 			counter += .03f;
-			if (counter >= 31)
+			if (counter >= 21)
 			{
 				CounterOverflow.SetActive(true);
 			}
@@ -131,8 +131,8 @@ public class Flooding : MonoBehaviour {
 
 		if (gameObject.tag == "Flood")
 		{
-			counter += .025f;
-			if (counter >= 31 && Stop == false)
+			counter += .03f;
+			if (counter >= 23 && Stop == false)
 			{
 				Vector3 target;
 				target = new Vector3(transform.position.x, transform.position.y + 12f, transform.position.z);
