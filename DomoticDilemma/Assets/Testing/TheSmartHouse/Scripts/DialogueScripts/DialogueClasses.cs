@@ -117,11 +117,13 @@ public class DialogueChunk
 	//Regex patterns
 	private static string dialoguePattern = "\"(.+)\"";
 	private static string dialoguePattern2 = "\n"+@"([A-Z][a-z]+):\s"+"\"(.+)\"";
-	
-	private static string dialoguePattern3 =  @"([A-Z][a-z]+):\s"+"\"(.+)\"|"
-	                                         +@"\t+(>+)\s"+"\"(.+)\""+@"\s\(\w+\s\+(\d+)\)|"
-	                                         +@"\t+(>+)\s([A-Z][a-z]+):\s"+"\"(.+)\"|"
-                                             +@"\t+(>+)\s" + "\"(.+)\"";
+																							 // EXAMPLES OF REGEX USUAGE \\
+	private static string dialoguePattern3 =  @"([A-Z][a-z]+):\s"+"\"(.+)\"|"                //Aumry: "Blah blah."
+	                                         +@"\t+(>+)\s"+"\"(.+)\""+@"\s\(\w+\s\+(\d+)\)|" //> "Blah blah?" (blah +1)
+	                                         +@"\t+(>+)\s([A-Z][a-z]+):\s"+"\"(.+)\"|"       //> House: "Blah blah?"
+                                             +@"\t+(>+)\s" + "\"(.+)\"|"                     //> "Blah blah..."
+	                                         +@"(>*)\s*\(([\w\d]+)\,\s([\w\d]+)\)|"          //(Quinn, WalkForward)
+	                                         +@"(>*)\s*\(([\w\d]+)\,\s([\w\d]+)\(\d+\)\)";   //(GameController, Death(4))
 	
 	private static string decisionForkPattern = @"\t+(>+)\s"+"\"(.+)\""+@"\s\((\w+)\s\+(\d+)\)";
 
@@ -183,6 +185,18 @@ public class DialogueChunk
                 int decCount = _.Groups[1].Captures.Count;
                 decisionForkDepth = decCount;
             }
+	        else if (m.Groups[11].Success)
+	        {
+		        Match _ = Regex.Match(m.Groups[11].Value, forkDepthPattern);
+		        int decCount = _.Groups[1].Captures.Count;
+		        decisionForkDepth = decCount;
+	        }
+	        else if (m.Groups[14].Success)
+	        {
+		        Match _ = Regex.Match(m.Groups[14].Value, forkDepthPattern);
+		        int decCount = _.Groups[1].Captures.Count;
+		        decisionForkDepth = decCount;
+	        }
             else
 	        {
 		        decisionForkDepth = 0;
@@ -197,10 +211,16 @@ public class DialogueChunk
                     Match _ = Regex.Match(m.Value, decisionForkPattern);
                     if (_.Groups[3].Value == "courage")
                     {
-                        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
-                    } else
+                        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 
+	                        int.Parse(m.Groups[5].Value));
+                    } else if (_.Groups[3].Value == "fear")
                     {
-                        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
+	                    lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth,
+		                    -1 * int.Parse(m.Groups[5].Value));
+                    }
+                    else
+                    {
+	                    lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 0);
                     }
                     count++;
                     decisionCount++;
@@ -214,6 +234,11 @@ public class DialogueChunk
                 {
                     lines[count] = CreateNewDialogueLine("Aumry", m.Groups[10].Value, decisionForkDepth);
                     count++;
+                }
+                else if (m.Groups[12].Success)
+                {
+	                //lines[count] = CreateNewDialogueLine(m.Groups[10].Value, decisionForkDepth);
+	                //count++;
                 }
 		        
 	        }
@@ -237,6 +262,11 @@ public class DialogueChunk
 				        lines[count] = CreateNewDialogueLine(m.Groups[2].Value, decisionForkDepth);
 				        count++;
 			        }
+			        else if (m.Groups[12].Success)
+			        {
+				        //lines[count] = CreateNewDialogueLine(m.Groups[10].Value, decisionForkDepth);
+				        //count++;
+			        }
 		        }
 	
 	        }
@@ -258,9 +288,13 @@ public class DialogueChunk
                             {
                                 lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
                             }
-                            else
+                            else if (_.Groups[3].Value == "fear")
                             {
                                 lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
+                            }
+                            else
+                            {
+	                            lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 0);
                             }
 					        count++;
 				        }
@@ -280,7 +314,11 @@ public class DialogueChunk
 		        {
 			        lines[count] = CreateNewDialogueLine(m.Groups[2].Value, decisionForkDepth);
 			        count++;
-		        }   
+		        } else if (m.Groups[12].Success)
+		        {
+			        //lines[count] = CreateNewDialogueLine(m.Groups[10].Value, decisionForkDepth);
+			        //count++;
+		        }
 	        }
 	        
 	        lastDecisionForkDepth = decisionForkDepth;

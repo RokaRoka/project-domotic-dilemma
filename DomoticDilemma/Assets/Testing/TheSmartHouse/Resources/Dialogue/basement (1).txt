@@ -1,5 +1,5 @@
 Aumry: "I never understood why she liked it down here with no sunlight."
-	> "Maybe that part of the problem." (courage +1)
+	> "Maybe that was part of the problem." (courage +1)
 	> "Maybe it’s just what she liked." (fear +1)
 
 
