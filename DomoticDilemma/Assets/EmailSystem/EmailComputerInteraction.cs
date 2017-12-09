@@ -22,6 +22,9 @@ public class EmailComputerInteraction : MonoBehaviour {
 		player.GetComponent<PlayerInteract>().SetInteracting(false);
 		//Load email scene
 		SceneManager.LoadScene("EmailScene");
+		gameManager.transform.parent = null;
+		dialogueManager.transform.parent = null;
+		emailManager.transform.parent = null;
 		SceneManager.MoveGameObjectToScene(gameManager, SceneManager.GetSceneByName("EmailScene"));
 		SceneManager.MoveGameObjectToScene(dialogueManager, SceneManager.GetSceneByName("EmailScene"));
 		SceneManager.MoveGameObjectToScene(emailManager, SceneManager.GetSceneByName("EmailScene"));

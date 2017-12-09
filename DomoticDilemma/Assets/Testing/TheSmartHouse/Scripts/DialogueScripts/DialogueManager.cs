@@ -75,6 +75,7 @@ public class DialogueManager : MonoBehaviour {
         gameManage.GamePause += OnGamePaused;
         gameManage.DialogueEnter += OnDialogueEntered;
         gameManage.DecisionEnter += OnDecisionEntered;
+		
 		LoadAllDialogue();
 	}
 
@@ -121,10 +122,13 @@ public class DialogueManager : MonoBehaviour {
 
 		for (int i = 0; i < dialogueFiles.Length; i++) {
             TextAsset textAsset = (TextAsset)dialogueFiles[i];
-			if (i < (int)DialogueChunkName.OFFICE_EMAIL_1 || i > (int)DialogueChunkName.OFFICE_EMAIL_10)
+			if (i < (int) DialogueChunkName.OFFICE_EMAIL_1 || i > (int) DialogueChunkName.OFFICE_EMAIL_10)
 				allDialogues[i] = new DialogueChunk(textAsset.text);
 			else
+			{
+				allDialogues[i] = null;
 				emailTextAssets[i - (int)DialogueChunkName.OFFICE_EMAIL_1] = textAsset;
+			}
 		}
 	}
 
@@ -331,6 +335,11 @@ public class DialogueManager : MonoBehaviour {
 		PlayDialogueChunk(testIndex);
 	}
 
+	public void FindParent()
+	{
+		transform.parent = GameObject.Find("[Logic]").transform;
+	}
+	
     //event callbacks
     private void OnGamePaused(object source, PauseEventArgs args)
     {

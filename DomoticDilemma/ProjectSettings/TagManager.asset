@@ -21,6 +21,7 @@ TagManager:
   - Oven
   - MoralityController
   - Calendar
+  - EmailController
   layers:
   - Default
   - TransparentFX
