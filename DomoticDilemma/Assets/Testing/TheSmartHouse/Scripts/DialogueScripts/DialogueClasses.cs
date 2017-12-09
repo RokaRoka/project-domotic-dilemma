@@ -1,18 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Security;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class DialogueLine
+public abstract class DialoguePiece
+{
+	public string type;
+	public bool isDecision;
+	public abstract string GetText();
+	public abstract int GetDepth();
+}
+
+public class DialogueLine : DialoguePiece
 {
 	private string line;
 	private int depth;
 	private int moralityValue;
-	public bool isDecision;
+	
+	public DialogueLine()
+	{
+		type = "Line";
+		
+		line = "";
+		depth = -1;
+		isDecision = false;
+	}
 	
 	public DialogueLine(string _line, int _depth)
 	{
+		type = "Line";
+		
 		line = _line;
 		depth = _depth;
 		isDecision = false;
@@ -20,18 +39,20 @@ public class DialogueLine
 
 	public DialogueLine(string _line, int _depth, int _moralityValue)
 	{
+		type = "Decision";
+		
 		line = _line;
 		depth = _depth;
 		moralityValue = _moralityValue;
 		isDecision = true;
 	}
 
-	public string GetText()
+	public override string GetText()
 	{
 		return line;
 	}
 
-	public int GetDepth()
+	public override int GetDepth()
 	{
 		return depth;
 	}
@@ -39,6 +60,57 @@ public class DialogueLine
 	public int GetDecisionValue()
 	{
 		return moralityValue;
+	}
+}
+
+public class DialogueFunction : DialoguePiece
+{
+	private string tag;
+	private int depth;
+
+	private string functionName;
+	private int value;
+	
+	public DialogueFunction(string _name, string _function, int _depth)
+	{
+		type = "Function";
+		
+		tag = _name;
+		functionName = _function;
+		depth = _depth;
+
+		isDecision = false;
+	}
+	
+	public DialogueFunction(string _name, string _function, int _depth, int _value)
+	{
+		type = "Function";
+		
+		tag = _name;
+		functionName = _function;
+		depth = _depth;
+		value = _value;
+
+		isDecision = false;
+	}
+
+	public override string GetText()
+	{
+		return tag;
+	}
+	
+	public override int GetDepth()
+	{
+		return depth;
+	}
+
+	public void CallFunction()
+	{
+		GameObject target = GameObject.FindGameObjectWithTag(tag);
+		if (value >= 0)
+			target.SendMessage(functionName, value);
+		else
+			target.SendMessage(functionName);
 	}
 }
 
@@ -76,11 +148,6 @@ public class DecisionPoint
     {
         return depth;
     }
-
-	public void DecisionMade()
-	{
-		decisionFulfilled = true;
-	}
 
 	public static int QueryIncompleteDecisions(DecisionPoint[] dpArray, int depth)
 	{
@@ -134,7 +201,7 @@ public class DialogueChunk
 	static Regex decisionPointsRegex = new Regex(decisionForkPattern);
 	
     public string dialogueName;
-	private DialogueLine[] lines;
+	private DialoguePiece[] lines;
 	private DecisionPoint[] decisions;
 	
 	//The player's dialogue line history
@@ -237,10 +304,14 @@ public class DialogueChunk
                 }
                 else if (m.Groups[12].Success)
                 {
-	                //lines[count] = CreateNewDialogueLine(m.Groups[10].Value, decisionForkDepth);
-	                //count++;
+	                lines[count] = CreateNewDialogueFunction(m.Groups[12].Value, m.Groups[13].Value, decisionForkDepth);
+	                count++;
                 }
-		        
+                else if (m.Groups[15].Success)
+                {
+	                lines[count] = CreateNewDialogueFunction(m.Groups[15].Value, m.Groups[16].Value, decisionForkDepth, int.Parse(m.Groups[17].Value));
+	                count++;
+                }
 	        }
 	        else if (decisionForkDepth < lastDecisionForkDepth)
 	        {
@@ -264,8 +335,13 @@ public class DialogueChunk
 			        }
 			        else if (m.Groups[12].Success)
 			        {
-				        //lines[count] = CreateNewDialogueLine(m.Groups[10].Value, decisionForkDepth);
-				        //count++;
+				        lines[count] = CreateNewDialogueFunction(m.Groups[12].Value, m.Groups[13].Value, decisionForkDepth);
+				        count++;
+			        }
+			        else if (m.Groups[15].Success)
+			        {
+				        lines[count] = CreateNewDialogueFunction(m.Groups[15].Value, m.Groups[16].Value, decisionForkDepth, int.Parse(m.Groups[17].Value));
+				        count++;
 			        }
 		        }
 	
@@ -277,31 +353,34 @@ public class DialogueChunk
 		        //this is generally a special case, where there is no result of a decision
 		        if (count - 1 > 0 && m.Groups[5].Success)
 		        {
-			        if (lines[count - 1].isDecision)
+			        if (lines[count - 1].type == "Line")
 			        {
-				        int dpIndex = DecisionPoint.QueryIncompleteDecisions(decisions, decisionForkDepth);
-				        if (dpIndex >= 0)
+				        if (lines[count - 1].type == "Line")
 				        {
-					        decisions[dpIndex].SetDecision2Index(count);
-                            Match _ = Regex.Match(m.Value, decisionForkPattern);
-                            if (_.Groups[3].Value == "courage")
-                            {
-                                lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
-                            }
-                            else if (_.Groups[3].Value == "fear")
-                            {
-                                lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
-                            }
-                            else
-                            {
-	                            lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 0);
-                            }
-					        count++;
-				        }
-				        else
-				        {
-					        //Throw error
-					        Debug.LogError("Error: Open decision not found from depth "+lastDecisionForkDepth+" to "+decisionForkDepth);
+					        int dpIndex = DecisionPoint.QueryIncompleteDecisions(decisions, decisionForkDepth);
+					        if (dpIndex >= 0)
+					        {
+						        decisions[dpIndex].SetDecision2Index(count);
+						        Match _ = Regex.Match(m.Value, decisionForkPattern);
+						        if (_.Groups[3].Value == "courage")
+						        {
+							        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+						        }
+						        else if (_.Groups[3].Value == "fear")
+						        {
+							        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
+						        }
+						        else
+						        {
+							        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 0);
+						        }
+						        count++;
+					        }
+					        else
+					        {
+						        //Throw error
+						        Debug.LogError("Error: Open decision not found from depth "+lastDecisionForkDepth+" to "+decisionForkDepth);
+					        }
 				        }
 			        }
 		        }
@@ -314,10 +393,16 @@ public class DialogueChunk
 		        {
 			        lines[count] = CreateNewDialogueLine(m.Groups[2].Value, decisionForkDepth);
 			        count++;
-		        } else if (m.Groups[12].Success)
+		        }
+		        else if (m.Groups[12].Success)
 		        {
-			        //lines[count] = CreateNewDialogueLine(m.Groups[10].Value, decisionForkDepth);
-			        //count++;
+			        lines[count] = CreateNewDialogueFunction(m.Groups[12].Value, m.Groups[13].Value, decisionForkDepth);
+			        count++;
+		        }
+		        else if (m.Groups[15].Success)
+		        {
+			        lines[count] = CreateNewDialogueFunction(m.Groups[15].Value, m.Groups[16].Value, decisionForkDepth, int.Parse(m.Groups[17].Value));
+			        count++;
 		        }
 	        }
 	        
@@ -346,6 +431,16 @@ public class DialogueChunk
 		return new DialogueLine(name + " : " + theLine, depth, moralityValue);
 	}
 
+	private DialogueFunction CreateNewDialogueFunction(string name, string function, int depth)
+	{
+		return new DialogueFunction(name, function, depth);
+	}
+	
+	private DialogueFunction CreateNewDialogueFunction(string name, string function, int depth, int value)
+	{
+		return new DialogueFunction(name, function, depth, value);
+	}
+
 	private DecisionPoint CreateNewDecision(int index, int depth)
 	{
 		return new DecisionPoint(index, depth);
@@ -357,6 +452,25 @@ public class DialogueChunk
 		return lines[lineIndex].isDecision;
 	}
 
+	public bool CheckLineForFunction(int lineIndex)
+	{
+		if (lines[lineIndex].type == "Function")
+			return true;
+		else
+			return false;
+	}
+
+	public bool CheckIfDecisionMade(int lineIndex)
+	{
+		return DecisionPoint.QueryDecisions(decisions, lineIndex).decisionFulfilled;
+	}
+
+	public void CallLineFunction(int lineIndex)
+	{
+		if (lines[lineIndex].type == "Function")
+			((DialogueFunction)lines[lineIndex]).CallFunction();
+	}
+	
 	public string GetLineText(int lineIndex) {
 		return lines[lineIndex].GetText();
 	}
@@ -364,11 +478,6 @@ public class DialogueChunk
 	public int GetLineDepth(int lineIndex)
 	{
 		return lines[lineIndex].GetDepth();
-	}
-
-	public bool CheckIfDecisionMade(int lineIndex)
-	{
-		return DecisionPoint.QueryDecisions(decisions, lineIndex).decisionFulfilled;
 	}
 	
 	public DecisionPoint GetDecisionPoint(int lineIndex)
@@ -390,8 +499,12 @@ public class DialogueChunk
         }
     }
 
-	public int GetDecisionValue(int lineIndex) {
-		return lines[lineIndex].GetDecisionValue();
+	public int GetDecisionValue(int lineIndex)
+	{
+		if (lines[lineIndex].type == "Decision")
+			return ((DialogueLine) lines[lineIndex]).GetDecisionValue();
+		else
+			return 0;
 	}
 
 	public int GetNextLineLowerThanDepth(int startingPointIndex, int targetDepth)
@@ -410,7 +523,7 @@ public class DialogueChunk
 
 	private void InitializeDialogueChunkArrays()
 	{
-		lines = new DialogueLine[lineAmount];
+		lines = new DialoguePiece[lineAmount];
 		//lineHistory= new string[lineAmount];
 		decisions = new DecisionPoint[decisionAmount];
 	}

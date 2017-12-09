@@ -208,12 +208,20 @@ public class DialogueManager : MonoBehaviour {
 						//if decision, display decisions and pause time
 						InitiateDecision();
 					}
+					else if (currentChunk.CheckLineForFunction(currentIndex))
+					{
+						currentChunk.CallLineFunction(currentIndex);
+					}
 					else
 					{
 						//if line, display line and play voiceline
 						UpdateDialogueLineUI();
 					}
 				}
+			}
+			else if (currentChunk.CheckLineForFunction(currentIndex))
+			{
+				currentChunk.CallLineFunction(currentIndex);
 			}
 			else {
 				//if line, display line and play voiceline
