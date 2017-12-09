@@ -45,6 +45,8 @@ public class DialogueManager : MonoBehaviour {
 	public GameObject dialogueDecisionHolderUI;
 	private GameObject[] decisionUIObjects = new GameObject[2];
 
+	//all email text
+	public TextAsset[] emailTextAssets = new TextAsset[10];
 	//all dialogue chunks
 	private DialogueChunk[] allDialogues;
 
@@ -115,7 +117,10 @@ public class DialogueManager : MonoBehaviour {
 
 		for (int i = 0; i < dialogueFiles.Length; i++) {
             TextAsset textAsset = (TextAsset)dialogueFiles[i];
-            allDialogues[i] = new DialogueChunk(textAsset.text);
+			if (i < (int)DialogueChunkName.OFFICE_EMAIL_1 || i > (int)DialogueChunkName.OFFICE_EMAIL_10)
+				allDialogues[i] = new DialogueChunk(textAsset.text);
+			else
+				emailTextAssets[i - (int)DialogueChunkName.OFFICE_EMAIL_1] = textAsset;
 		}
 	}
 

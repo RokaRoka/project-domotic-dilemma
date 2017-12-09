@@ -149,6 +149,10 @@ public class PlayerInteract : MonoBehaviour {
         playerCursorUI.GetComponent<Image>().color = newColor;
     }
 
+	public void SetInteracting(bool value) {
+		interacting = value;
+	}
+
     //event callbacks
     private void OnGamePaused(object source, PauseEventArgs args)
     {

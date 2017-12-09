@@ -1,32 +1,29 @@
 ﻿using System;
-using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class EmailEventArgs : EventArgs
-{
-    //Email index should be sent
-}
+using UnityEngine.SceneManagement;
 
 public class SwitchEmail : MonoBehaviour {
 
-    public delegate void ReadEmailEventHandler(object source, EventArgs e);
-
-    public ReadEmailEventHandler ReadEmail;
+	private GameObject gameManager;
+	private GameObject dialogueManager;
+	private GameObject emailManager;
 
     public Text EmailBody;
     public Text EmailSubject;
 
-    private string[] emailBodyStrings;
-    private string[] emailSubjectStrings;
-	
-	// Update is called once per frame
-	void Update () {
-		
+	private Email[] allEmails = new Email[10];
+
+	private void Start()
+	{
+		gameManager = GameObject.FindGameObjectWithTag("GameController");
+		dialogueManager = GameObject.FindGameObjectWithTag("DialogueController");
+		emailManager = GameObject.FindGameObjectWithTag("EmailController");
 	}
-    public void Email1() {
+
+	public void Email1() {
         EmailBody.GetComponent<Text>().text = "Email1";
     }
     public void Email2()
@@ -38,9 +35,11 @@ public class SwitchEmail : MonoBehaviour {
         EmailBody.GetComponent<Text>().text = "Email3";
     }
 
-    protected virtual void OnEmailRead()
-    {
-        if (ReadEmail != null)
-            ReadEmail(this, EventArgs.Empty);
-    }
+	public void LeaveEmailSystem() {
+		//UnLoad email scene
+		SceneManager.MoveGameObjectToScene(gameManager, SceneManager.GetSceneByName("Testing Art"));
+		SceneManager.MoveGameObjectToScene(dialogueManager, SceneManager.GetSceneByName("EmailScene"));
+		SceneManager.MoveGameObjectToScene(emailManager, SceneManager.GetSceneByName("EmailScene"));
+		SceneManager.UnloadSceneAsync("EmailScene");
+	}
 }
