@@ -79,7 +79,11 @@ public class DialogueManager : MonoBehaviour {
 	private void Update()
 	{
         ///*
-        if (Input.GetKeyDown(KeyCode.Tab))
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			testIndex = (int) DialogueChunkName.TEST;
+		}
+		if (Input.GetKeyDown(KeyCode.Tab))
         {
             testIndex++;
         }
@@ -211,6 +215,8 @@ public class DialogueManager : MonoBehaviour {
 					else if (currentChunk.CheckLineForFunction(currentIndex))
 					{
 						currentChunk.CallLineFunction(currentIndex);
+						t += dialogue_show_time + time_between_dialogue;
+						NextDialogueLine();
 					}
 					else
 					{
@@ -281,6 +287,8 @@ public class DialogueManager : MonoBehaviour {
 
         //store decision
         moralitySystem.AddValue(currentChunk.GetDecisionValue(currentDecisionPoint.GetDecision1Index()));
+		currentIndex = currentDecisionPoint.GetDecision1Index();
+		
 		currentDecisionPoint.decisionFulfilled = true;
 		currentDecisionPoint = null;
 		//Update the actual Dialogue line
@@ -297,7 +305,9 @@ public class DialogueManager : MonoBehaviour {
 
         //store decision
         moralitySystem.AddValue(currentChunk.GetDecisionValue(currentDecisionPoint.GetDecision2Index()));
-        currentDecisionPoint.decisionFulfilled = true;
+		currentIndex = currentDecisionPoint.GetDecision2Index();
+		
+		currentDecisionPoint.decisionFulfilled = true;
 		currentDecisionPoint = null;
 		//Update the actual Dialogue line
 		UpdateDialogueLineUI(currentChunk.GetDecisionText(currentIndex, 1));

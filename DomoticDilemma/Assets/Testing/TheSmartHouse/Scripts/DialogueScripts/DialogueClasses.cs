@@ -319,7 +319,19 @@ public class DialogueChunk
 		        if (dpIndex >= 0)
 		        {
 					decisions[dpIndex].SetDecision2Index(count);
-			        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+			        Match _ = Regex.Match(m.Value, decisionForkPattern);
+			        if (_.Groups[3].Value == "courage")
+			        {
+				        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+			        }
+			        else if (_.Groups[3].Value == "fear")
+			        {
+				        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
+			        }
+			        else
+			        {
+				        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 0);
+			        }
 			        count++;
 		        }
 		        else
@@ -353,36 +365,34 @@ public class DialogueChunk
 		        //this is generally a special case, where there is no result of a decision
 		        if (count - 1 > 0 && m.Groups[5].Success)
 		        {
-			        if (lines[count - 1].type == "Line")
-			        {
-				        if (lines[count - 1].type == "Line")
-				        {
-					        int dpIndex = DecisionPoint.QueryIncompleteDecisions(decisions, decisionForkDepth);
-					        if (dpIndex >= 0)
-					        {
-						        decisions[dpIndex].SetDecision2Index(count);
-						        Match _ = Regex.Match(m.Value, decisionForkPattern);
-						        if (_.Groups[3].Value == "courage")
-						        {
-							        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
-						        }
-						        else if (_.Groups[3].Value == "fear")
-						        {
-							        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
-						        }
-						        else
-						        {
-							        lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 0);
-						        }
-						        count++;
-					        }
-					        else
-					        {
-						        //Throw error
-						        Debug.LogError("Error: Open decision not found from depth "+lastDecisionForkDepth+" to "+decisionForkDepth);
-					        }
-				        }
-			        }
+					if (lines[count - 1].type == "Decision")
+					{
+						int dpIndex = DecisionPoint.QueryIncompleteDecisions(decisions, decisionForkDepth);
+						if (dpIndex >= 0)
+						{
+							decisions[dpIndex].SetDecision2Index(count);
+							Match _ = Regex.Match(m.Value, decisionForkPattern);
+							if (_.Groups[3].Value == "courage")
+							{
+								lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, int.Parse(m.Groups[5].Value));
+							}
+							else if (_.Groups[3].Value == "fear")
+							{
+								lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, -1 * int.Parse(m.Groups[5].Value));
+							}
+							else
+							{
+								lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 0);
+							}
+							count++;
+						}
+						else
+						{
+							//Throw error
+							Debug.LogError("Error: Open decision not found from depth "+lastDecisionForkDepth+" to "+decisionForkDepth);
+						}
+					}
+			        
 		        }
 		        //if not change in decision depth, record line
 		        else if (m.Groups[1].Success)
