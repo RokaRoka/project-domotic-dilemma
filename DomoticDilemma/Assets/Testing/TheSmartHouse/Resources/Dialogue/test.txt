@@ -11,3 +11,5 @@ House: "You! You killed my family"
 House: "Well... OK."
 
 House: "Whatever makes you happy now that DIALOGUE FUCKING WORKS."
+
+(GameController, TryPause)
