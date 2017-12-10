@@ -87,7 +87,7 @@ public class CameraScript : MonoBehaviour {
 		Debug.DrawRay(lens.transform.position + (_collSize.x * lens.transform.right * -1) + (_collSize.y * lens.transform.up * -1), _centerRotation * _range, Color.white);
 		if (Physics.BoxCast(lens.transform.position + lens.transform.forward * _collSize.z, _collSize, _centerRotation, out hit, lens.transform.rotation, _range, layerMask))
         {
-			Debug.Log(hit.point + " was the player? and "+hit.transform.name+" Was hit.");
+			//Debug.Log(hit.point + " was the player? and "+hit.transform.name+" Was hit.");
             return true;
         }
 

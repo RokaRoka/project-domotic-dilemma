@@ -14,6 +14,7 @@ public class Flooding : MonoBehaviour {
 	public GameObject Faucet;
 	public GameObject BasinOverflow;
 	public GameObject CounterOverflow;
+	public GameObject Flow;
 	// Use this for initialization
 	void Start () {
 		
@@ -131,9 +132,12 @@ public class Flooding : MonoBehaviour {
 
 		if (gameObject.tag == "Flood")
 		{
+
+			
 			counter += .03f;
 			if (counter >= 23 && Stop == false)
 			{
+				Flow.SetActive(true);
 				Vector3 target;
 				target = new Vector3(transform.position.x, transform.position.y + 12f, transform.position.z);
 
@@ -158,6 +162,11 @@ public class Flooding : MonoBehaviour {
 					float speed = 5;
 					float step = speed * Time.deltaTime;
 					transform.position = Vector3.MoveTowards(transform.position, descent, step);
+
+					if(transform.position.y <= -100)
+					{
+					Flow.SetActive(false);
+					}
 				
 			}
 		}

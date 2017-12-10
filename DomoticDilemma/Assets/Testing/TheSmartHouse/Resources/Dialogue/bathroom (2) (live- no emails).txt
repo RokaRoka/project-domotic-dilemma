@@ -1,4 +1,4 @@
-House: "Quinn knows more than you. You should listen."
+﻿House: "Quinn knows more than you. You should listen."
 
 
 Aumry: "‘Listen’? Listen to who, Quinn doesn’t talk to me nowadays."
@@ -16,3 +16,5 @@ House: "You are beginning to understand."
 Aumry:
 	> "That’s progress at least." (courage +1)
 	> "You’re still insane." (fear +1)
+
+House: "Securing defensive protocol. Fire safety complete."

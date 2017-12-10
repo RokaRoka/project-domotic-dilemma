@@ -80,7 +80,7 @@ public class PlayerInteract : MonoBehaviour {
             {
                 SetNewInteractObject(hit.transform.gameObject);
             }
-            Debug.Log("This is working?");
+            //Debug.Log("This is working?");
             
         } else if (interactHighlighted)
         {

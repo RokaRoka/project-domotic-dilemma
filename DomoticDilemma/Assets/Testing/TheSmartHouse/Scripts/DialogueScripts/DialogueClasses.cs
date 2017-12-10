@@ -522,7 +522,7 @@ public class DialogueChunk
 		Debug.Log("Starting point is: "+startingPointIndex);
 		for (int i = startingPointIndex; i < lines.Length; i++)
 		{
-			Debug.Log("Looking at index "+i+" of depth "+lines[i].GetDepth());
+			//Debug.Log("Looking at index "+i+" of depth "+lines[i].GetDepth());
 			if (lines[i].GetDepth() <= targetDepth)
 			{
 				return i;

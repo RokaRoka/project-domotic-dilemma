@@ -57,7 +57,7 @@ public class SmokeMachineScript : MonoBehaviour {
 	{
 		//if (fork == true)
 		//{
-			Debug.Log("fork");
+			//Debug.Log("fork");
 			if (collision.gameObject.tag == "Oven")
 			{
 			Debug.Log("boom");

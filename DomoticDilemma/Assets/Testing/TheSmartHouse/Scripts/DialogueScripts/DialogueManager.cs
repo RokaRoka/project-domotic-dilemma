@@ -54,8 +54,8 @@ public class DialogueManager : MonoBehaviour {
 	private DecisionPoint currentDecisionPoint = null;
 	private int currentIndex = -1;
 	private float t = 0;
-	private float dialogue_show_time = 2f;
-	private float time_between_dialogue = 0.5f;
+	private float dialogue_show_time = 1.3f;
+	private float time_between_dialogue = 0.4f;
 
 	//Ticking var
 	private bool isTicking = true;
@@ -249,7 +249,9 @@ public class DialogueManager : MonoBehaviour {
         currentChunk.isComplete = true;
 		currentChunk = null;
 		currentIndex = -1;
-		dialogueLineUI.SetActive(true);
+		dialogueLineUI.SetActive(false);
+
+		gameManage.ExitDialogue();
 	}
 
 	private void InitiateDecision() {
