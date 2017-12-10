@@ -340,12 +340,34 @@ public class DialogueChunk
 			        {
 				        lines[count] = CreateNewDialogueLine(m.Groups[1].Value, m.Groups[2].Value, decisionForkDepth);
 				        count++;
-			        } else if (m.Groups[2].Success)
+			        }
+					else if (m.Groups[2].Success)
 			        {
 				        lines[count] = CreateNewDialogueLine(m.Groups[2].Value, decisionForkDepth);
 				        count++;
 			        }
-			        else if (m.Groups[12].Success)
+					else if (m.Groups[5].Success)
+					{
+						decisions[decisionCount] = CreateNewDecision(count, decisionForkDepth);
+						Match _ = Regex.Match(m.Value, decisionForkPattern);
+						if (_.Groups[3].Value == "courage")
+						{
+							lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth,
+								int.Parse(m.Groups[5].Value));
+						}
+						else if (_.Groups[3].Value == "fear")
+						{
+							lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth,
+								-1 * int.Parse(m.Groups[5].Value));
+						}
+						else
+						{
+							lines[count] = CreateNewDialogueLine(m.Groups[4].Value, decisionForkDepth, 0);
+						}
+						count++;
+						decisionCount++;
+					}
+					else if (m.Groups[12].Success)
 			        {
 				        lines[count] = CreateNewDialogueFunction(m.Groups[12].Value, m.Groups[13].Value, decisionForkDepth);
 				        count++;

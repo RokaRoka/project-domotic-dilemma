@@ -269,9 +269,9 @@ public class DialogueManager : MonoBehaviour {
 
 	private void SkipOtherDecision()
 	{
-		int depthToSearch = currentChunk.GetLineDepth(currentIndex) - 1;
+		int depthToSearch = currentChunk.GetLineDepth(currentIndex);
 		Debug.Log("Searching depth "+depthToSearch);
-		currentIndex = currentChunk.GetNextLineLowerThanDepth(currentIndex, depthToSearch);
+		currentIndex = currentChunk.GetNextLineLowerThanDepth(currentIndex + 1, depthToSearch);
 	}
 
 	private void UpdateDialogueLineUI()

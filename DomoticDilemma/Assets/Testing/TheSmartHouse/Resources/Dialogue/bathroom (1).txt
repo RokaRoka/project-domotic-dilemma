@@ -23,12 +23,12 @@ Aumry:
 
 
 Aumry:
-	> "…Quinn?" (courage +1)
-		>>House: "Yes. It is Quinn."
+	> "…Quinn?" (courage +1) 10
+		>> House: "Yes. It is Quinn."
 	> "Quinn is behind all this?!" (fear +1)
 
 
-House: "Quinn questions you. Are you (brave) (a coward)?
+House: "Quinn questions you. Are you (brave) (a coward)?"
 
 
 Aumry:
