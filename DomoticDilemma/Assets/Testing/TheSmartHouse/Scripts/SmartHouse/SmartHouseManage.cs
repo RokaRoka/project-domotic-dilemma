@@ -8,7 +8,8 @@ public enum ControlState
 {
     none,
     exploration,
-    pause
+    pause,
+	email
 }
 
 public enum DialogueState
@@ -100,6 +101,9 @@ public class SmartHouseManage : MonoBehaviour {
             case ControlState.pause:
                 OnGamePause();
                 break;
+			case ControlState.email:
+				OnGamePause();
+				break;
             default:
                 Debug.LogError("Error: Invalid state in SmartHouseManage: SwitchControlState().");
                 break;
@@ -172,7 +176,28 @@ public class SmartHouseManage : MonoBehaviour {
         return false;
     }
 
-    public void EnterDialogue()
+	public bool TryEmail()
+	{
+		if (t <= 0) {
+			Cursor.lockState = CursorLockMode.None;
+			SwitchControlState(ControlState.email);
+			return true;
+		}
+		return false;
+	}
+
+	public bool TryExitEmail()
+	{
+		if (t <= 0)
+		{
+			Cursor.lockState = CursorLockMode.Locked;
+			SwitchControlState(ControlState.exploration);
+			return true;
+		}
+		return false;
+	}
+
+	public void EnterDialogue()
     {
         Debug.Log("Entering Dialogue");
         Cursor.lockState = CursorLockMode.Locked;
@@ -190,6 +215,13 @@ public class SmartHouseManage : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         SwitchDialogueState(DialogueState.decision);
     }
+
+	public bool TryLookAtEmail() {
+		if (t <= 0 && GetDialogueState() == DialogueState.none) {
+			return true;
+		}
+		return false;
+	}
 
     protected virtual void OnGamePause()
     {
