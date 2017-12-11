@@ -29,6 +29,7 @@ TagManager:
   - Upstairs
   - Basement
   - Control Room
+  - Quinn
   layers:
   - Default
   - TransparentFX
