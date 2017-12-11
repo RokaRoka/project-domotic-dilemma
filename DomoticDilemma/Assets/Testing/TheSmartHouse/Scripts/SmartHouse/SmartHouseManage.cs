@@ -50,7 +50,9 @@ public class SmartHouseManage : MonoBehaviour {
 
     public event DialogueEnterEventHandler DialogueEnter;
 
-    public event DialogueEnterEventHandler DecisionEnter;
+	public event DialogueEnterEventHandler DialogueExit;
+
+	public event DialogueEnterEventHandler DecisionEnter;
 
     //ticking variable
     private float t = 0;
@@ -93,7 +95,7 @@ public class SmartHouseManage : MonoBehaviour {
         switch (newState)
         {
             case ControlState.none:
-                //cutscene
+				OnGamePause();
                 break;
             case ControlState.exploration:
                 OnPlayerExplore();
@@ -117,7 +119,8 @@ public class SmartHouseManage : MonoBehaviour {
         switch (newState)
         {
             case DialogueState.none:
-                //exit dialogue event
+				//exit dialogue event
+				OnDialogueExit();
                 break;
             case DialogueState.dialogue:
                 OnDialogueEnter();
@@ -251,7 +254,13 @@ public class SmartHouseManage : MonoBehaviour {
             DialogueEnter(this, EventArgs.Empty);
     }
 
-    protected virtual void OnDecisionEnter()
+	protected virtual void OnDialogueExit()
+	{
+		if (DialogueExit != null)
+			DialogueExit(this, EventArgs.Empty);
+	}
+
+	protected virtual void OnDecisionEnter()
     {
         if (DecisionEnter != null)
             DecisionEnter(this, EventArgs.Empty);

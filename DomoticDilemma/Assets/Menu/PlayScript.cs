@@ -20,7 +20,9 @@ public class PlayScript : MonoBehaviour {
     }
     IEnumerator LoadGameSceneAsync()
     {
-        currentAsyncLoad = SceneManager.LoadSceneAsync("Scene2");
+		loadTextUI.enabled = true;
+
+        currentAsyncLoad = SceneManager.LoadSceneAsync("Art Testing");
 
         Debug.Log("Woah");
 
@@ -31,8 +33,9 @@ public class PlayScript : MonoBehaviour {
     }
     IEnumerator LoadCreditsSceneAsync()
     {
+		loadTextUI.enabled = true;
 
-        AsyncOperation asyncLoad1 = SceneManager.LoadSceneAsync("Scene3");
+		AsyncOperation asyncLoad1 = SceneManager.LoadSceneAsync("Credits");
 
 
         while (!asyncLoad1.isDone)
@@ -49,4 +52,9 @@ public class PlayScript : MonoBehaviour {
     {
         StartCoroutine("LoadCreditsSceneAsync");
     }
+
+	public void ExitButton()
+	{
+		Application.Quit();
+	}
 }
