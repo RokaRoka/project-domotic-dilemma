@@ -426,7 +426,17 @@ public class DialogueChunk
 			        lines[count] = CreateNewDialogueLine(m.Groups[2].Value, decisionForkDepth);
 			        count++;
 		        }
-		        else if (m.Groups[12].Success)
+				else if (m.Groups[6].Success)
+				{
+					lines[count] = CreateNewDialogueLine(m.Groups[7].Value, m.Groups[8].Value, decisionForkDepth);
+					count++;
+				}
+				else if (m.Groups[9].Success)
+				{
+					lines[count] = CreateNewDialogueLine("Aumry", m.Groups[10].Value, decisionForkDepth);
+					count++;
+				}
+				else if (m.Groups[12].Success)
 		        {
 			        lines[count] = CreateNewDialogueFunction(m.Groups[12].Value, m.Groups[13].Value, decisionForkDepth);
 			        count++;

@@ -73,15 +73,6 @@ public class SwitchEmail : MonoBehaviour {
 	}
 
 	public void LeaveEmailSystem() {
-		//UnLoad email scene
-		SceneManager.MoveGameObjectToScene(gameManager, SceneManager.GetSceneByName("Testing Art"));
-		SceneManager.MoveGameObjectToScene(dialogueManager, SceneManager.GetSceneByName("Testing Art"));
-		SceneManager.MoveGameObjectToScene(emailManager, SceneManager.GetSceneByName("Testing Art"));
-		
-		gameManager.SendMessage("FindParent");
-		dialogueManager.SendMessage("FindParent");
-		emailManager.SendMessage("FindParent");
-		
-		SceneManager.UnloadSceneAsync("EmailScene");
+		//Switch Camera back
 	}
 }

@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour {
 	private GameObject[] decisionUIObjects = new GameObject[2];
 
 	//all email text
-	public TextAsset[] emailTextAssets = new TextAsset[10];
+	private TextAsset[] emailTextAssets = new TextAsset[10];
 	//all dialogue chunks
 	private DialogueChunk[] allDialogues;
 
@@ -131,6 +131,10 @@ public class DialogueManager : MonoBehaviour {
 			}
 		}
 	}
+	
+	public string GetEmailText(int index) {
+		return emailTextAssets[index].text;
+	}
 
 	public void PlayDialogueChunk(int index)
 	{
@@ -150,7 +154,16 @@ public class DialogueManager : MonoBehaviour {
         NextDialogueLine();
     }
 
-    /*
+	public void PlayDialogueChunk(DialogueChunk chunk)
+	{
+		currentChunk = chunk;
+		gameManage.EnterDialogue();
+		dialogueLineUI.SetActive(true);
+		Debug.Log("Line amount: " + currentChunk.lineAmount);
+		NextDialogueLine();
+	}
+
+	/*
 	private void NextDialogueLine() {
 		currentIndex++;
 		if (currentIndex >= currentChunk.lineAmount) {
@@ -183,7 +196,7 @@ public class DialogueManager : MonoBehaviour {
 	}
 	*/
 
-    private void NextDialogueLine()
+	private void NextDialogueLine()
 	{
 		currentIndex++;
 		Debug.Log("Next Index: "+currentIndex);
