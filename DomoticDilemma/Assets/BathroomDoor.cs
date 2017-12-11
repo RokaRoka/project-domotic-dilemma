@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BathroomDoor : MonoBehaviour
 {
-	private bool canOpen = false;
+	public static bool canOpen = false;
 
 	public CameraScript cameraScript;
 

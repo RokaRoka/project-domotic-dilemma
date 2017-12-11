@@ -25,17 +25,23 @@ public class MoralityManage : MonoBehaviour {
 
     public bool MoralityAboveValue(int value)
     {
-        if (value > moralityScale)
-            return true;
-        else
-            return false;
+		if (value > moralityScale)
+		{
+			return true;
+			QuinnInteraction.morality = true;
+		}
+		else
+			return false;
     }
 
     public bool MoralityBelowValue(int value)
     {
-        if (value < moralityScale)
-            return true;
-        else
-            return false;
+		if (value < moralityScale)
+		{
+			QuinnInteraction.morality = false;
+			return true;
+		}
+		else
+			return false;
     }
 }

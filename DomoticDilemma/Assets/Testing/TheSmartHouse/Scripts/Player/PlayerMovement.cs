@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 	private bool onGround = false;
 	
 	//player speed in meter/sec
-	public float walkSpeed = 1f;
+	public static float walkSpeed = 400f;
 	public float jumpForce = 10f;
 	public float Scalar;
 
@@ -314,6 +314,11 @@ public class PlayerMovement : MonoBehaviour {
 		if (other.gameObject.tag == "Calendar")
 		{
 			touching3 = true;
+		}
+
+		if(other.gameObject.tag == "Flood")
+		{
+			Flooding.flooding = true;
 		}
 	}
 

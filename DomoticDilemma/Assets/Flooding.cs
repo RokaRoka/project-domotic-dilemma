@@ -5,9 +5,13 @@ using UnityEngine;
 public class Flooding : MonoBehaviour {
 
 	private float counter;
+	private float counter2;
+	private bool counting;
 	private float Scalar = 10;
-	private bool flooding = false;
+	public static bool flooding = false;
 	private bool Drain = false;
+
+	private SmartHouseManage gameManage;
 
 	public static bool Stop = false; 
 
@@ -34,6 +38,21 @@ public class Flooding : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.G))
 		{
 			Drain = true;
+		}
+
+		if(Stop == true)
+		{
+			counting = true;
+			//Drain = true;
+		}
+
+		if(counting == true)
+		{
+			counter2 += Time.deltaTime;
+			if(counter2 >= 2)
+			{
+				Drain = true;
+			}
 		}
 
 
@@ -166,6 +185,7 @@ public class Flooding : MonoBehaviour {
 					if(transform.position.y <= -100)
 					{
 					Flow.SetActive(false);
+					BathroomDoor.canOpen = true;
 					}
 				
 			}
