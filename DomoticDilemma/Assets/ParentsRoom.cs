@@ -34,7 +34,7 @@ public Combine combine;
 
 	void OnPlayerFound(object source, EventArgs e)
 	{
-		Debug.Log("close");
+		//Debug.Log("close");
 
 		if (firstTime)
 		{

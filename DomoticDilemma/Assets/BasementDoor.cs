@@ -10,19 +10,10 @@ public class BasementDoor : MonoBehaviour
 
 	public DoorScript doorScript;
 
-	
 
-	// Use this for initialization
-	void Start()
-	{
-		
-	}
 
-	void Update()
+	public void BasementOpen()
 	{
-		if (PlayerMovement.bottom == false)
-		{
-			doorScript.OpenDoor();
-		}
+		doorScript.OpenDoor();
 	}
 }

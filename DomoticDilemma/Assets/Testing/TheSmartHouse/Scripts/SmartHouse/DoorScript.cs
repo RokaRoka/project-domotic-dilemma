@@ -46,7 +46,7 @@ public class DoorScript : MonoBehaviour {
         {
             doorOpen = false;
             coll.enabled = true;
-			Debug.Log(coll);
+			//Debug.Log(coll);
 			//doorAnim[0].SetTrigger("CloseDoor");
 			//doorAnim[1].SetTrigger("CloseDoor");
 			doorAnim.SetTrigger("CloseDoor");

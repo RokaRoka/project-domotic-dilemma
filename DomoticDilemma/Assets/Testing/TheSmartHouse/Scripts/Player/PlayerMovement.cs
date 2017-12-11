@@ -83,12 +83,13 @@ public class PlayerMovement : MonoBehaviour {
 				KeyCard.SetActive(false);
 			}
 		}
-		
-		if (touching3 == true)
+
+		if (touching3)
 		{
+			Debug.Log("is touching 3");
 			if (Input.GetKeyDown(KeyCode.Mouse0))
 			{
-
+				Debug.Log("please");
 				bottom = false;
 				
 			}
@@ -313,7 +314,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (other.gameObject.tag == "Calendar")
 		{
-			touching3 = true;
+			//touching3 = true;
+			Debug.Log("work");
 		}
 
 		if(other.gameObject.tag == "Flood")
@@ -326,7 +328,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		touching = false;
 		touching2 = false;
-		touching3 = false;
+		//touching3 = false;
 	}
 
 

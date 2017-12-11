@@ -90,8 +90,18 @@ public class QuinnInteraction : MonoBehaviour {
 			CanEnd = true;
 			//if (!dialogueManage.CheckDialogueChunkComplete(dialogueToLoad) && gameManage.GetDialogueState() == DialogueState.none)
 			//{
-				//dialogueManage.PlayDialogueChunk(dialogueToLoad);
+			//dialogueManage.PlayDialogueChunk(dialogueToLoad);
 			//}
 		}
 	}
+
+		private void OnTriggerExit(Collider other)
+		{
+
+
+			CanEnd = false;
+
+
+		}
+	
 }
